@@ -1,0 +1,87 @@
+.intro-start-section {
+	background-color: #f5efe4; /* Светло-кремовый фон из макета */
+	padding: 120px 0;
+	color: #000;
+	/* Верхние скругления секции, если они нужны как на скрине */
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px; /* Наползание на предыдущую оранжевую секцию */
+	position: relative;
+	z-index: 31;
+}
+
+.intro-start-container {
+	display: grid;
+	grid-template-columns: 565px 1fr; /* Соотношение колонок */
+	gap: 90px;
+	align-items: start;
+}
+
+/* Липкий заголовок */
+.intro-start-aside {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 100px;
+	height: max-content;
+}
+
+.intro-start-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	line-height: 1.1;
+	font-weight: 600;
+	letter-spacing: -0.05em;
+}
+
+/* Текстовый контент */
+.intro-start-text {
+	margin-bottom: 60px;
+}
+
+.intro-start-text p {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 60px;
+	color: var(--c-black);
+	max-width: 850px;
+}
+
+/* Теги (пилюли) */
+.intro-start-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+.intro-start-tags .v2-tag-item {
+	color: var(--c-black) !important;
+}
+
+.start-tag:hover {
+	background-color: #de7e34;
+	color: #fff;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+	.intro-start-container {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.intro-start-aside {
+		position: static;
+	}
+
+	.intro-start-title {
+		font-size: 40px;
+		max-width: 100%;
+	}
+
+	.intro-start-text p {
+		font-size: 18px;
+		margin-bottom: 30px;
+	}
+	.intro-start-section {
+		border-radius: 40px 40px 0 0;
+	}
+}

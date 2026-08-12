@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>antoweb — вёрстка и WordPress · Антон</title>
+		<meta
+			name="description"
+			content="Антон (antoweb) — верстаю сайты пиксель-в-пиксель и оживляю их на WordPress. Адаптив, анимации, оптимизация. Живое портфолио с реальными проектами."
+		/>
+		<meta name="theme-color" content="#0b0b0d" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="antoweb — вёрстка и WordPress · Антон" />
+		<meta
+			property="og:description"
+			content="Верстаю сайты пиксель-в-пиксель и оживляю их на WordPress. Живое портфолио с реальными проектами."
+		/>
+		<meta property="og:locale" content="ru_RU" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<!-- Прогресс скролла -->
+		<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+		<!-- ==================== ШАПКА ==================== -->
+		<header class="nav" data-nav>
+			<div class="container nav__inner">
+				<a href="#top" class="nav__logo" aria-label="antoweb — на главную">
+					<span class="nav__logo-mark">a</span>antoweb
+				</a>
+				<nav class="nav__links" data-menu>
+					<a href="#work">Работы</a>
+					<a href="#about">Обо мне</a>
+					<a href="#process">Процесс</a>
+					<a href="#contact" class="nav__cta">Обсудить проект</a>
+				</nav>
+				<button
+					class="nav__burger"
+					data-burger
+					aria-label="Меню"
+					aria-expanded="false"
+				>
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</header>
+
+		<main id="top">
+			<!-- ==================== HERO ==================== -->
+			<section class="hero" id="hero">
+				<div class="hero__bg" aria-hidden="true">
+					<div class="hero__glow hero__glow--1"></div>
+					<div class="hero__glow hero__glow--2"></div>
+					<div class="hero__grid"></div>
+				</div>
+
+				<div class="container hero__inner">
+					<p class="hero__eyebrow" data-reveal>
+						<span class="dot"></span> Антон · веб-разработчик · открыт к
+						проектам
+					</p>
+
+					<h1 class="hero__title">
+						<span class="line" data-reveal data-reveal-delay="1"
+							>Верстаю сайты</span
+						>
+						<span class="line" data-reveal data-reveal-delay="2"
+							>пиксель-в-пиксель</span
+						>
+						<span class="line line--accent" data-reveal data-reveal-delay="3"
+							>и оживляю на WordPress</span
+						>
+					</h1>
+
+					<p class="hero__lead" data-reveal data-reveal-delay="4">
+						Чистая семантичная вёрстка, плавные анимации и внимание к деталям.
+						Собираю быстрые адаптивные сайты и превращаю их в удобные для
+						клиента темы WordPress.
+					</p>
+
+					<div class="hero__actions" data-reveal data-reveal-delay="5">
+						<a href="#work" class="btn btn--primary" data-magnetic>
+							Смотреть работы <span class="btn__arrow">↓</span>
+						</a>
+						<a href="#contact" class="btn btn--ghost" data-magnetic
+							>Написать мне</a
+						>
+					</div>
+
+					<div
+						class="hero__marquee"
+						data-reveal
+						data-reveal-delay="6"
+						aria-hidden="true"
+					>
+						<div class="marquee__track">
+							<span>HTML</span><span>CSS / SCSS</span><span>JavaScript</span
+							><span>WordPress</span> <span>ACF</span><span>Адаптив</span
+							><span>Анимации</span><span>Оптимизация</span> <span>HTML</span
+							><span>CSS / SCSS</span><span>JavaScript</span
+							><span>WordPress</span> <span>ACF</span><span>Адаптив</span
+							><span>Анимации</span><span>Оптимизация</span>
+						</div>
+					</div>
+				</div>
+
+				<a href="#work" class="hero__scroll" aria-label="Прокрутить вниз">
+					<span>прокрути — проекты живые</span>
+					<span class="hero__scroll-line"></span>
+				</a>
+			</section>
+
+			<!-- Sticky-стек: на «О себе» наезжает «Живое портфолио» -->
+			<div class="stack">
+			<!-- ==================== О СЕБЕ ==================== -->
+			<section class="about section" id="about">
+				<div class="container">
+					<header class="section__head" data-reveal>
+						<span class="section__num">01</span>
+						<h2 class="section__title">Что я делаю</h2>
+					</header>
+
+					<div class="about__grid">
+						<p class="about__lead" data-reveal>
+							Беру макет из Figma и превращаю его в живой, быстрый сайт — без
+							лишних библиотек и «тяжёлого» кода. Дальше натягиваю вёрстку на
+							<strong>WordPress</strong>, чтобы контентом можно было управлять
+							из админки. Готов осваивать и другие CMS под задачу.
+						</p>
+
+						<ul class="about__cards">
+							<li
+								class="about__card"
+								data-tilt
+								data-reveal
+								data-reveal-delay="1"
+							>
+								<span class="about__card-ico">◧</span>
+								<h3>Вёрстка</h3>
+								<p>
+									Семантика, БЭМ, пиксель-в-пиксель. Адаптив от 320px до 4K,
+									кроссбраузерность.
+								</p>
+							</li>
+							<li
+								class="about__card"
+								data-tilt
+								data-reveal
+								data-reveal-delay="2"
+							>
+								<span class="about__card-ico">❯_</span>
+								<h3>WordPress</h3>
+								<p>
+									Кастомные темы, ACF, гибкие поля. Клиент сам меняет тексты и
+									картинки.
+								</p>
+							</li>
+							<li
+								class="about__card"
+								data-tilt
+								data-reveal
+								data-reveal-delay="3"
+							>
+								<span class="about__card-ico">✦</span>
+								<h3>Анимации</h3>
+								<p>
+									Scroll-driven эффекты, микровзаимодействия. Живо, но без
+									перегруза.
+								</p>
+							</li>
+							<li
+								class="about__card"
+								data-tilt
+								data-reveal
+								data-reveal-delay="4"
+							>
+								<span class="about__card-ico">⚡</span>
+								<h3>Оптимизация</h3>
+								<p>
+									Ленивая загрузка, современные форматы, минимум запросов.
+									Быстро на телефоне.
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="stats" data-reveal>
+						<div class="stat">
+							<span class="stat__num" data-count="20">20+</span
+							><span class="stat__label">проектов свёрстано</span>
+						</div>
+						<div class="stat">
+							<span class="stat__num" data-count="100">100%</span
+							><span class="stat__label">адаптив и кроссбраузерность</span>
+						</div>
+						<div class="stat">
+							<span class="stat__num" data-count="3">3+</span
+							><span class="stat__label">года в вёрстке</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ==================== РАБОТЫ (ЖИВОЕ ПОРТФОЛИО) ==================== -->
+			<section class="work section" id="work">
+				<div class="container">
+					<header class="section__head" data-reveal>
+						<span class="section__num">02</span>
+						<h2 class="section__title">Живое портфолио</h2>
+						<p class="section__sub">
+							Это не скриншоты — внутри рамок открываются настоящие сайты. Нажми
+							<em>«Живой просмотр»</em>, чтобы полистать проект прямо здесь.
+						</p>
+					</header>
+
+					<div class="projects">
+						<!-- 1 · Capetownian -->
+						<article class="project" data-reveal>
+							<div class="project__media">
+								<div class="browser" data-spot data-frame>
+									<div class="browser__bar">
+										<span class="browser__dots"><i></i><i></i><i></i></span>
+										<span class="browser__url">capetrip.ru</span>
+									</div>
+									<div class="browser__viewport" data-viewport>
+										<iframe
+											class="browser__frame"
+											data-src="projects/capetownian/index.html"
+											title="Capetownian — превью сайта"
+											loading="lazy"
+											tabindex="-1"
+											sandbox="allow-scripts allow-same-origin allow-popups"
+										></iframe>
+										<button class="browser__activate" data-activate>
+											<span class="browser__play">▶</span> Живой просмотр
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="project__info">
+								<span class="project__index">01</span>
+								<span class="project__tag">Флагман</span>
+								<h3 class="project__title">Capetownian</h3>
+								<p class="project__role">
+									Luxury-travel · вёрстка + тема WordPress
+								</p>
+								<p class="project__desc">
+									Премиальный сайт авторских путешествий: видео-hero, насыщенные
+									секции направлений, сложные анимации и полностью редактируемый
+									контент на ACF.
+								</p>
+								<ul class="project__stack">
+									<li>HTML</li>
+									<li>CSS</li>
+									<li>JS</li>
+									<li>WordPress</li>
+									<li>ACF</li>
+								</ul>
+								<a
+									class="project__link"
+									href="https://capetrip.ru/"
+									target="_blank"
+									rel="noopener"
+									>Открыть сайт ↗</a
+								>
+							</div>
+						</article>
+
+						<!-- 2 · Agrosale -->
+						<article class="project project--reverse" data-reveal>
+							<div class="project__media">
+								<div class="browser" data-spot data-frame>
+									<div class="browser__bar">
+										<span class="browser__dots"><i></i><i></i><i></i></span>
+										<span class="browser__url">agrosale.ru</span>
+									</div>
+									<div class="browser__viewport" data-viewport>
+										<iframe
+											class="browser__frame"
+											data-src="https://www.agrosale.ru/"
+											title="Agrosale — превью сайта"
+											loading="lazy"
+											tabindex="-1"
+										></iframe>
+										<button class="browser__activate" data-activate>
+											<span class="browser__play">▶</span> Живой просмотр
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="project__info">
+								<span class="project__index">02</span>
+								<span class="project__tag">Live</span>
+								<h3 class="project__title">Agrosale</h3>
+								<p class="project__role">
+									Агробизнес · корпоративный сайт на WordPress
+								</p>
+								<p class="project__desc">
+									Рабочий коммерческий сайт компании. Вёрстка каталога и
+									посадочных страниц, интеграция в WordPress, адаптив и
+									оптимизация под нагрузку.
+								</p>
+								<ul class="project__stack">
+									<li>HTML</li>
+									<li>CSS</li>
+									<li>JS</li>
+									<li>WordPress</li>
+								</ul>
+								<a
+									class="project__link"
+									href="https://www.agrosale.ru/"
+									target="_blank"
+									rel="noopener"
+									>Открыть сайт ↗</a
+								>
+							</div>
+						</article>
+
+						<!-- 3 · Mecstroi -->
+						<article class="project" data-reveal>
+							<div class="project__media">
+								<div class="browser" data-spot data-frame>
+									<div class="browser__bar">
+										<span class="browser__dots"><i></i><i></i><i></i></span>
+										<span class="browser__url">mecstroi.ru</span>
+									</div>
+									<div class="browser__viewport" data-viewport>
+										<iframe
+											class="browser__frame"
+											data-src="https://mecstroi.ru/"
+											title="Mecstroi — превью сайта"
+											loading="lazy"
+											tabindex="-1"
+										></iframe>
+										<button class="browser__activate" data-activate>
+											<span class="browser__play">▶</span> Живой просмотр
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="project__info">
+								<span class="project__index">03</span>
+								<span class="project__tag">Live</span>
+								<h3 class="project__title">Mecstroi</h3>
+								<p class="project__role">
+									Строительство · корпоративный сайт на WordPress
+								</p>
+								<p class="project__desc">
+									Сайт строительной компании: услуги, объекты, заявки.
+									Аккуратная вёрстка, читаемая типографика и удобное управление
+									контентом.
+								</p>
+								<ul class="project__stack">
+									<li>HTML</li>
+									<li>CSS</li>
+									<li>JS</li>
+									<li>WordPress</li>
+								</ul>
+								<a
+									class="project__link"
+									href="https://mecstroi.ru/"
+									target="_blank"
+									rel="noopener"
+									>Открыть сайт ↗</a
+								>
+							</div>
+						</article>
+
+						<!-- 4 · Archilite -->
+						<article class="project project--reverse" data-reveal>
+							<div class="project__media">
+								<div class="browser" data-spot data-frame>
+									<div class="browser__bar">
+										<span class="browser__dots"><i></i><i></i><i></i></span>
+										<span class="browser__url">archilite</span>
+									</div>
+									<div class="browser__viewport browser__viewport--gallery">
+										<div class="gallery">
+											<img
+												class="gallery__hero"
+												src="projects/archilite/assets/poster.jpg"
+												alt="Archilite — hero"
+												loading="lazy"
+												decoding="async"
+											/>
+											<div class="gallery__row">
+												<img
+													src="projects/archilite/assets/cases/villa.jpg"
+													alt="Проект: вилла"
+													loading="lazy"
+													decoding="async"
+												/>
+												<img
+													src="projects/archilite/assets/cases/residence.jpg"
+													alt="Проект: резиденция"
+													loading="lazy"
+													decoding="async"
+												/>
+												<img
+													src="projects/archilite/assets/cases/senator.jpg"
+													alt="Проект: сенатор"
+													loading="lazy"
+													decoding="async"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="project__info">
+								<span class="project__index">04</span>
+								<span class="project__tag">WP-тема</span>
+								<h3 class="project__title">Archilite</h3>
+								<p class="project__role">
+									Архитектура · премиальная тема WordPress
+								</p>
+								<p class="project__desc">
+									Тема для архитектурного бюро: canvas-анимация hero из кадров,
+									прелоадер, галерея объектов и двуязычный контент через ACF.
+									Показана реальными материалами проекта.
+								</p>
+								<ul class="project__stack">
+									<li>HTML</li>
+									<li>CSS</li>
+									<li>Canvas JS</li>
+									<li>WordPress</li>
+									<li>ACF</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+			</div>
+			<!-- /Sticky-стек -->
+
+			<!-- ==================== ПРОЦЕСС ==================== -->
+			<section class="process section" id="process">
+				<div class="container">
+					<header class="section__head" data-reveal>
+						<span class="section__num">03</span>
+						<h2 class="section__title">Как я работаю</h2>
+					</header>
+					<ol class="steps">
+						<li class="step" data-tilt data-reveal data-reveal-delay="1">
+							<span class="step__num">01</span>
+							<h3>Разбор макета</h3>
+							<p>Смотрю дизайн, задаю вопросы, согласую детали и сроки.</p>
+						</li>
+						<li class="step" data-tilt data-reveal data-reveal-delay="2">
+							<span class="step__num">02</span>
+							<h3>Вёрстка</h3>
+							<p>
+								Пиксель-в-пиксель, адаптив, анимации. Показываю промежуточный
+								результат.
+							</p>
+						</li>
+						<li class="step" data-tilt data-reveal data-reveal-delay="3">
+							<span class="step__num">03</span>
+							<h3>WordPress</h3>
+							<p>
+								Натягиваю на CMS, подключаю ACF — контент правится без
+								программиста.
+							</p>
+						</li>
+						<li class="step" data-tilt data-reveal data-reveal-delay="4">
+							<span class="step__num">04</span>
+							<h3>Запуск</h3>
+							<p>
+								Оптимизирую, тестирую на устройствах и передаю готовый сайт.
+							</p>
+						</li>
+					</ol>
+				</div>
+			</section>
+
+			<!-- ==================== КОНТАКТ ==================== -->
+			<section class="contact section" id="contact">
+				<div class="container">
+					<div class="contact__panel" data-reveal data-spot>
+						<div class="contact__glow" aria-hidden="true"></div>
+						<div class="contact__body">
+							<p class="contact__eyebrow">
+								<span class="contact__status" aria-hidden="true"></span>
+								Свободен для новых проектов
+							</p>
+							<h2 class="contact__title">
+								Есть макет или идея? <br /><span class="line--accent"
+									>Давай соберём сайт.</span
+								>
+							</h2>
+							<p class="contact__lead">
+								Отвечаю в течение дня. Пришли ссылку на макет или опиши задачу —
+								предложу решение и сроки.
+							</p>
+							<div class="contact__actions">
+								<a
+									class="btn btn--primary btn--lg"
+									href="mailto:anton.k0non0v@yandex.ru"
+									data-magnetic
+								>
+									Написать на почту
+								</a>
+								<a
+									class="btn btn--ghost btn--lg"
+									href="https://t.me/k0nonovanton"
+									data-edit="telegram"
+									data-magnetic
+								>
+									Telegram →
+								</a>
+							</div>
+						</div>
+						<ul class="contact__links">
+							<li>
+								<span class="contact__links-label">Почта</span>
+								<a href="mailto:anton.k0non0v@yandex.ru"
+									>anton.k0non0v@yandex.ru</a
+								>
+							</li>
+							<li>
+								<span class="contact__links-label">Telegram</span>
+								<a href="https://t.me/k0nonovanton" data-edit="telegram"
+									>@k0nonovanton</a
+								>
+							</li>
+							<li>
+								<span class="contact__links-label">GitHub</span>
+								<a
+									href="https://github.com/L1F41K/capetownian"
+									data-edit="github"
+									>Anton</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container footer__inner">
+				<span class="footer__logo"
+					><span class="nav__logo-mark">a</span>antoweb</span
+				>
+				<span class="footer__copy"
+					>© <span data-year>2026</span> Антон · Вёрстка и WordPress</span
+				>
+				<a href="#top" class="footer__up">Наверх ↑</a>
+			</div>
+		</footer>
+
+		<script src="assets/js/main.js" defer></script>
+	</body>
+</html>

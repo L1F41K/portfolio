@@ -1,0 +1,538 @@
+.dotted-path-container {
+	position: absolute;
+	top: -127px;
+	left: 60%;
+	transform: translateX(-10%) rotate(-4.05deg);
+	z-index: 1;
+}
+/* Этот блок берет на себя роль "ножниц" для линии */
+.ins-bg-overflow-clipping {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden; /* Обрезает линию строго по краям секции */
+	z-index: 1;
+	pointer-events: none;
+	border-radius: 66px 66px 0 0; /* Чтобы линия не вылезала за скругления секции */
+}
+.insufficient-section {
+	position: relative;
+	background-color: #fff;
+	border-radius: 66px 66px 0 0;
+	margin-top: -36px;
+	padding: 0;
+	z-index: 5;
+	overflow: hidden;
+	padding-bottom: 40px;
+}
+.insufficient-content {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	/* Левая и правая колонки фиксированы, центр забирает остаток */
+	grid-template-columns: 346px 1fr 430px;
+	gap: 0 40px;
+	padding: 120px 90px 100px;
+	max-width: 100%; /* На всю ширину экрана */
+}
+
+/* --- ЛЕВАЯ КОЛОНКА --- */
+.ins-col--left {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* Колонки в гриде должны быть одной высоты */
+}
+
+/* Контейнер-ограничитель для заголовка */
+.ins-sticky-wrapper {
+	position: relative;
+	flex-grow: 1; /* Занимает всё место до видео */
+
+	/* ВАЖНО: этот паддинг отключит sticky, когда до видео останется 90px */
+	padding-bottom: 90px;
+}
+
+.ins-title {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 100px; /* По твоему запросу */
+
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 0.95;
+	letter-spacing: -0.05em;
+	white-space: nowrap;
+	z-index: 10;
+}
+.ins-title .highlight {
+	color: var(--c-orange);
+}
+/* Убираем лишний spacer, так как теперь работаем через padding контейнера */
+.ins-spacer {
+	display: none;
+}
+
+/* ВИДЕО */
+.insufficient-video {
+	width: 346px;
+	height: 562px;
+	border-radius: 22px;
+	overflow: hidden;
+	flex-shrink: 0;
+
+	/* Видео всегда прижато к низу колонки */
+	margin-top: auto;
+}
+
+/* ПРОВЕРКА РОДИТЕЛЕЙ */
+.insufficient-section,
+.insufficient-content {
+	/* Если тут будет overflow: hidden, sticky НЕ СРАБОТАЕТ */
+	overflow: visible !important;
+}
+/* --- ЦЕНТРАЛЬНАЯ КОЛОНКА --- */
+.ins-col--center {
+	display: flex;
+	justify-content: center; /* Центрируем контент внутри колонки */
+	margin-left: 90px;
+}
+
+.ins-text-content {
+	padding-top: 30px;
+	width: 100%;
+	max-width: 600px; /* Ограничение по ТЗ */
+}
+
+.ins-description {
+	font-family: 'Inter Tight';
+	font-weight: 500;
+	font-style: Medium;
+	font-size: 24px;
+	line-height: 130%;
+	letter-spacing: 0%;
+}
+
+.ins-quote-card {
+	background: #fff5ed;
+	padding: 32px;
+	border-radius: 30px;
+	margin-top: 282px;
+
+	width: 100%; /* Занимает все 600px */
+	font-family: 'Inter Tight';
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 130%;
+}
+.ins-quote-card p strong {
+	color: var(--c-orange);
+	font-weight: 500 !important;
+}
+.insufficient-section.format {
+	z-index: 23 !important;
+}
+.ins-quote-card.format {
+	margin: 30px 0 !important;
+}
+.v2-features-row.format {
+	justify-content: flex-start !important;
+}
+.ins-description.format {
+	margin-bottom: 16px !important;
+}
+.v2-itinerary-title.format {
+	color: var(--c-black) !important;
+}
+.v2-itinerary-title.format strong {
+	color: var(--c-orange) !important;
+}
+.card-number.format {
+	margin-bottom: 30px !important;
+}
+.v2-day-title.format {
+	font-size: 36px !important;
+	margin-bottom: 30px !important;
+}
+.v2-features-row.format .v2-tag-item {
+	color: var(--c-black) !important;
+}
+.ins-subtitle,
+.ins-subtitle p span {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 6.4rem;
+	font-weight: 600 !important;
+	line-height: 1;
+	margin-bottom: 90px;
+}
+.ins-subtitle .highlight {
+	color: var(--c-orange);
+}
+/* --- ПРАВАЯ КОЛОНКА (Зона для фото) --- */
+.ins-col--right {
+	position: relative; /* Чтобы absolute для карт работал внутри этой зоны */
+}
+.ins-quote-card .highlight-orange {
+	color: var(--c-orange);
+}
+.v2-day-card__image-wrapper {
+	width: 100%;
+	margin: 15px 0; /* Отступы между номером и заголовком */
+	overflow: hidden;
+	border-radius: 8px; /* Если нужны скругленные углы у фото */
+}
+
+.v2-day-card__img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	display: block;
+}
+.ins-text {
+	font-family: 'Inter Tight';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 140%;
+	letter-spacing: 0%;
+	margin-bottom: 30px;
+	color: var(--c-purple);
+}
+.ins-text.format {
+	margin-bottom: 30px;
+}
+.mini-card {
+	position: absolute;
+	/* Точные размеры и запрет на сжатие */
+	width: 176.8px !important;
+	height: 191.87px !important;
+	border-radius: 30px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mini-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Позиционирование карточек внутри правой колонки (430px) */
+.card-1 {
+	top: 270px;
+	left: -50px;
+	transform: rotate(-15deg);
+}
+.card-2 {
+	top: 270px;
+	right: 60px;
+	transform: scaleX(-1) rotate(-15deg);
+}
+.card-3 {
+	top: 510px;
+	left: -50px;
+	transform: rotate(15deg);
+}
+.card-4 {
+	top: 510px;
+	right: 60px;
+	transform: scaleX(-1) rotate(15deg);
+}
+@media (min-width: 1500px) and (max-width: 1900px) {
+	.ins-description,
+	.ins-quote-card {
+		font-size: 1.3vw;
+	}
+	.ins-quote-card {
+		margin-top: 40vh;
+	}
+}
+@media (min-width: 1440px) and (max-width: 1500px) {
+	.ins-description,
+	.ins-quote-card {
+		font-size: 1.6vw; /* Уменьшаем размер текста */
+	}
+}
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.insufficient-content {
+		/* Переводим колонки в гибкие значения */
+		grid-template-columns: 20vw 1fr 25vw;
+		padding: 100px 4vw;
+		gap: 0 30px;
+	}
+
+	.ins-title {
+		font-size: 3.6vw; /* Уменьшаем заголовок плавно */
+	}
+
+	.ins-subtitle {
+		font-size: 3.6vw;
+	}
+
+	.insufficient-video {
+		width: 20vw;
+		height: 32vw; /* Сохраняем пропорцию */
+	}
+
+	.ins-col--center {
+		margin-left: 40px; /* Уменьшаем отступ слева */
+	}
+	/* Масштабируем правую зону с карточками */
+	.mini-card {
+		width: 12vw !important;
+		height: 13vw !important;
+	}
+	.card-1,
+	.card-3 {
+		left: -15px;
+	}
+	.card-2,
+	.card-4 {
+		right: 0;
+	}
+}
+.insufficient-section.dirrection {
+	position: relative;
+	z-index: 22;
+}
+.insufficient-section.dirrection .insufficient-content {
+	min-height: 120vh;
+}
+.dirrect-text {
+	margin-top: auto;
+}
+
+/* Общие стили для центральной колонки */
+.insufficient-section.dirrection .ins-col--center {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start; /* Верхний контент остается сверху */
+	margin-left: 150px;
+	height: 100%; /* Обязательно, чтобы колонка растянулась на всю высоту грида */
+}
+
+.insufficient-section.dirrection .ins-text-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* Растягиваем обертку текста на всю высоту */
+	padding-top: 30px;
+	width: 100%;
+	max-width: 550px;
+}
+.ins-title span {
+	font-weight: 600 !important;
+}
+.ins-subtitle b,
+.ins-title b {
+	color: var(--c-orange);
+}
+.insufficient-section.dirrection
+	.ins-text-content
+	.ins-description.ins-description:last-child {
+	margin-top: 20px;
+}
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.insufficient-section.dirrection .ins-text {
+		margin-bottom: 30px;
+	}
+}
+.ins-video-slider-container {
+	display: none;
+}
+/* Адаптация для устройств меньше 1440px */
+@media (max-width: 1439px) {
+	.mission-landing {
+		height: auto;
+		min-height: 100vh;
+		max-height: none;
+		padding-bottom: 60px;
+		position: relative;
+		top: 0;
+		margin-top: -4rem; /* Немного уменьшаем наплыв */
+	}
+
+	.mission-container {
+		padding: 0 40px;
+	}
+
+	.mission-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 120px;
+		height: auto;
+	}
+
+	/* Расфиксируем центральную колонку, чтобы она не перекрывала боковые */
+	.mission-col--center {
+		position: relative;
+		left: auto;
+		top: auto;
+		transform: none;
+		order: 1; /* Заголовок идет первым */
+		margin-bottom: 60px;
+		max-width: 100%;
+	}
+
+	.mission-title {
+		font-size: clamp(42px, 6vw, 68px);
+		margin-bottom: 30px;
+	}
+
+	.mission-subtitle {
+		font-size: 20px;
+		max-width: 100%;
+	}
+
+	.mission-nav {
+		margin-bottom: 40px;
+	}
+
+	/* Группируем визуал под текстом */
+	.mission-col--left {
+		order: 2;
+		margin-bottom: 40px;
+	}
+
+	.video-wrapper {
+		width: 100%;
+		max-width: 500px;
+		height: auto;
+		aspect-ratio: 16 / 9; /* Для мобильных горизонтальное видео часто лучше, либо сохрани пропорции */
+	}
+
+	.mission-col--right {
+		order: 3;
+		flex-direction: row;
+		gap: 20px;
+		width: 100%;
+		justify-content: center;
+		height: auto;
+	}
+
+	.img-wrapper--top,
+	.img-wrapper--bottom {
+		width: 45%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		margin-top: 0;
+	}
+
+	.img-wrapper img {
+		width: 100%;
+		object-fit: cover;
+	}
+	.ins-col--right {
+		display: none;
+	}
+	.insufficient-content {
+		grid-template-columns: 346px 1fr;
+	}
+	/* Основной контейнер слайдера */
+	.ins-video-slider-container {
+		width: 100%;
+		max-width: 100vw; /* Гарантируем, что он не шире экрана */
+		overflow: hidden; /* Скрываем вылезающие слайды */
+		position: relative;
+	}
+
+	/* Если вы используете стандартную разметку Swiper, 
+   убедитесь, что wrapper не растягивает родителя */
+	.swiper-wrapper {
+		display: flex;
+		box-sizing: content-box;
+	}
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+	/* 1. Переключаем видимость */
+	.desktop-only {
+		display: none !important;
+	}
+
+	.mobile-only {
+		display: block !important;
+		margin: 30px 0; /* Отступы для слайдера в тексте */
+	}
+
+	/* 2. Контент в одну колонку */
+	.insufficient-content {
+		display: flex;
+		flex-direction: column;
+		padding: 60px 20px;
+	}
+
+	.ins-col--center {
+		margin-left: 0;
+		width: 100%;
+	}
+	.ins-title,
+	.ins-subtitle {
+		font-size: 4rem;
+	}
+	.ins-title,
+	.ins-subtitle {
+		text-align: center;
+	}
+	.ins-quote-card {
+		margin-top: 30px;
+	}
+	/* 3. Настройка слайдера */
+	.ins-video-slider-container {
+		overflow: hidden;
+	}
+
+	.swiper-slide.insufficient-video,
+	.swiper-slide.insufficient-image {
+		width: 280px !important; /* Ширина карточки видео */
+	}
+
+	.insufficient-video {
+		width: 100%;
+		height: 450px;
+		border-radius: 20px;
+	}
+	.ins-sticky-wrapper {
+		padding-bottom: 3rem;
+	}
+	.ins-col--right {
+		display: none;
+	}
+	.ins-text,
+	.ins-description {
+		text-align: center;
+	}
+	.ins-subtitle {
+		margin: 3rem 0;
+	}
+	.ins-quote-card {
+		font-size: 18px;
+	}
+	.v2-day-title.format {
+		font-size: 24px !important;
+		margin-bottom: 15px !important;
+	}
+	/* Убираем лишние переносы текста для мобилок */
+	.ins-text br,
+	.ins-description br {
+		display: none;
+	}
+	.swiper-slide .video-wrapper {
+		aspect-ratio: 9/16;
+	}
+
+	.insufficient-section.dirrection .ins-col--center {
+		margin-left: 0;
+		align-items: center;
+	}
+	.ins-subtitle {
+		padding-top: 0;
+	}
+	.dotted-path-container.format {
+		position: relative;
+	}
+}

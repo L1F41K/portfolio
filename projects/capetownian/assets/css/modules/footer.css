@@ -1,0 +1,149 @@
+.footer {
+	position: relative;
+	z-index: 50;
+	margin-top: -6.6rem;
+	border-top-left-radius: 6.6rem;
+	border-top-right-radius: 6.6rem;
+	background: var(--c-cream);
+	padding: 12rem 0 8rem 0;
+	color: var(--c-black);
+}
+
+.footer__container {
+	display: grid;
+	grid-template-columns: 2.5fr 1fr 1fr 1fr;
+	gap: 4rem;
+}
+
+.footer__col--info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4rem;
+	padding-right: 35rem;
+}
+.footer__agreement {
+	margin: 150px auto;
+	max-width: 1200px;
+}
+.footer__text {
+	font-size: 1.6rem;
+	line-height: 1.5;
+	opacity: 0.8;
+}
+
+.footer__text p {
+	margin-bottom: 2rem;
+}
+
+.footer__policy {
+	color: var(--c-orange);
+	text-decoration: none;
+	border-bottom: 0.1rem solid transparent;
+}
+
+.footer__policy:hover {
+	border-bottom-color: var(--c-orange);
+}
+
+.footer__socials {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.footer__socials .social-stroke {
+	stroke: var(--c-black);
+}
+
+.footer__socials .social-fill {
+	fill: var(--c-black);
+}
+
+.footer__btn {
+	padding: 1.4rem 3.2rem;
+	font-family: var(--f-head);
+	font-size: 1.8rem;
+	gap: 1rem;
+	border-radius: 6rem;
+}
+
+.footer__btn svg {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.footer__title {
+	font-family: var(--f-head);
+	font-weight: 600;
+	font-size: 2.8rem;
+	margin-bottom: 3rem;
+	line-height: 1.1;
+}
+
+.footer__list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+.footer__link {
+	font-size: 1.6rem;
+	opacity: 0.9;
+	transition: 0.3s;
+}
+
+.footer__link:hover {
+	color: var(--c-orange);
+	opacity: 1;
+}
+
+.footer__logo svg {
+	min-width: 30rem;
+	height: auto;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+	.footer {
+		margin-top: -4rem;
+		border-top-left-radius: 4rem;
+		border-top-right-radius: 4rem;
+		padding: 6rem 2rem;
+	}
+
+	.footer__container {
+		grid-template-columns: 1fr;
+		gap: 6rem;
+	}
+
+	.footer__col--info {
+		padding-right: 0;
+		gap: 3rem;
+		order: -1;
+	}
+
+	.footer__btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.footer__title {
+		font-size: 3.2rem;
+		margin-bottom: 2rem;
+	}
+
+	.footer__link {
+		font-size: 1.8rem;
+	}
+
+	.footer__socials .social-icon svg {
+		width: 4.8rem;
+		height: 4.8rem;
+	}
+	.footer__col--info .btn {
+		margin-left: 0;
+	}
+	.footer__logo svg {
+		min-width: 30rem;
+	}
+}

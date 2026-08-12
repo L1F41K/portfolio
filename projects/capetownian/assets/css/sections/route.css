@@ -1,0 +1,370 @@
+.route-section {
+	position: relative;
+	background-color: var(--c-cream);
+	border-radius: 66px 66px 0 0;
+	padding: 120px 90px;
+	padding-bottom: 230px;
+	margin-top: -66px;
+	z-index: 5;
+	overflow: visible;
+}
+
+/* Фоновая линия */
+.route-bg-clip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 1;
+	border-radius: 66px;
+}
+
+.route-svg-line {
+	position: absolute;
+	top: 82px;
+	left: 80px;
+	object-fit: cover;
+}
+
+.route-container {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	/* GAP МЕЖДУ КОЛОНКАМИ 90px */
+	gap: 90px;
+	align-items: center;
+	margin-top: 140px;
+}
+
+.route-info {
+	flex: 0 0 460px; /* Немного расширил, чтобы слово "внутренние" точно не переносилось раньше времени */
+}
+
+.route-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 1; /* Плотный межстрочный интервал для эффекта из макета */
+	letter-spacing: -0.04em;
+	margin-bottom: 65px;
+	text-transform: none; /* Убедись, что нет лишних преобразований текста */
+}
+
+.route-title .highlight {
+	color: var(--c-orange);
+	display: inline; /* Чтобы span не ломал структуру строки */
+}
+
+.route-text-small {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 140%;
+	color: #1a1a1a;
+	opacity: 0.7;
+	margin-bottom: 16px;
+}
+
+.route-text-main {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 130%;
+	color: #1a1a1a;
+}
+
+/* КОНТЕЙНЕР КАРТОЧЕК */
+.route-cards {
+	display: flex;
+	gap: 20px;
+	flex-grow: 1;
+}
+.route-cards-wrapper {
+	gap: 30px;
+}
+.route-card {
+	background: var(--c-white);
+	border-radius: 22px;
+	/* ПАДДИНГ 36px */
+	padding: 36px !important;
+	flex: 1;
+	/* ВЫСОТА КАРТОЧЕК 420px */
+	height: 420px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	box-sizing: border-box; /* Чтобы паддинги не раздували высоту */
+}
+.card-header {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.card-number {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 64px;
+	font-weight: 600;
+	color: var(--c-orange);
+	line-height: 1;
+}
+
+p strong {
+	display: inline !important; /* или просто inline */
+	font-weight: 600 !important;
+	/* если нужно, добавь: */
+	/* vertical-align: baseline; */
+}
+.ut-card__gallery.swiper {
+	margin: 0 !important;
+}
+.card-text {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 400;
+	font-size: 18px; /* Немного уменьшил, чтобы влезло в 420px при паддинге 36 */
+	line-height: 130%;
+	margin-bottom: auto;
+}
+
+/* ИЗОБРАЖЕНИЯ */
+.card-image {
+	width: 204.75px !important;
+	height: 151px !important;
+	border-radius: 12px;
+	overflow: hidden;
+	flex-shrink: 0;
+	margin-top: auto;
+}
+.route-card--reverse .card-image {
+	margin-bottom: 0;
+	margin-bottom: auto;
+}
+.card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.card-image--top {
+	margin-top: 0;
+	margin-bottom: 45px; /* Фото 02 сверху */
+}
+.route-card.card--cta .card-text {
+	font-size: 18px;
+	line-height: 1.25;
+	letter-spacing: -0.03em;
+	margin-bottom: 0;
+	text-align: left;
+	width: 100%;
+}
+.btn-route-consult {
+	margin-top: auto; /* Прижимает к низу карточки */
+	background-color: var(--c-orange);
+	color: var(--c-white);
+	padding: 12px 20px; /* Компактные отступы */
+	border-radius: 100px;
+	border: 1px solid var(--c-orange);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-decoration: none;
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 500;
+	font-size: 16px; /* Меньше, чем в хедере, для баланса */
+	transition:
+		background-color 0.3s,
+		transform 0.3s;
+}
+
+.btn-route-consult svg {
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	margin-left: 10px;
+}
+
+/* Анимация при наведении */
+.btn-route-consult:hover {
+	background-color: transparent;
+	color: var(--c-black);
+}
+.btn-route-consult svg {
+	transition: transform 0.3s ease;
+}
+/* Стили для SVG внутри кнопки */
+.btn-route-consult .btn-stroke {
+	stroke: white;
+	transition: stroke 0.3s;
+}
+.btn-route-consult:hover .btn-stroke {
+	stroke: var(--c-black);
+}
+/* Если хочешь эффект вращения или движения стрелки как в хедере */
+.btn-route-consult:hover svg {
+	transform: rotate(180deg);
+}
+@media (max-width: 1900px) and (min-width: 1733px) {
+	.route-title {
+		/* Шрифт плавно «сдувается» */
+		font-size: 2.5vw !important;
+	}
+}
+@media (max-width: 1733px) and (min-width: 1540px) {
+	.route-title {
+		/* Шрифт плавно «сдувается» */
+		font-size: 3.2vw !important;
+	}
+}
+
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.route-section {
+		/* Паддинги секции уменьшаются пропорционально ширине экрана */
+		padding: 6.25vw 4.68vw;
+	}
+
+	.route-container {
+		display: flex;
+		flex-direction: row;
+		/* Уменьшаем gap пропорционально, чтобы высвободить место карточкам */
+		gap: 4.68vw;
+		margin-top: 7.29vw;
+		align-items: center;
+	}
+
+	.route-info {
+		/* Левая колонка теперь занимает ровно столько, сколько нужно, но не более 25% */
+		flex: 0 1 25%;
+		min-width: 320px;
+	}
+
+	.route-title {
+		/* Шрифт плавно «сдувается» */
+		font-size: 3.6vw;
+		line-height: 1;
+		margin-bottom: 3.38vw;
+		white-space: normal; /* Разрешаем перенос, если слово "внутренние" совсем не лезет */
+	}
+
+	/* КОНТЕЙНЕР КАРТОЧЕК */
+	.route-cards {
+		display: flex;
+		flex-direction: row;
+		gap: 1.04vw; /* 20px при 1920px */
+		flex: 1 1 auto;
+		min-width: 0; /* Важно для сжатия flex-элементов */
+	}
+
+	.route-card {
+		/* Карточки будут сжиматься одинаково */
+		flex: 1 1 0;
+		min-width: 0;
+		height: 21.8vw; /* Высота тоже становится резиновой (420px при 1920px) */
+		padding: 1.87vw !important; /* Внутренние отступы сжимаются */
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card-number {
+		font-size: 3.33vw; /* 64px при 1920px */
+		margin-bottom: 1.56vw;
+	}
+
+	.card-text {
+		/* Уменьшаем шрифт текста, чтобы он не выталкивал картинку */
+		font-size: 0.93vw; /* ~18px при 1920px, ~13px при 1440px */
+		line-height: 1.3;
+	}
+
+	/* ИЗОБРАЖЕНИЯ */
+	.card-image {
+		/* Картинки сжимаются пропорционально карточке */
+		width: 100% !important;
+		height: 7.8vw !important; /* ~150px при 1920px */
+		max-width: 204px;
+		margin-top: auto; /* Всегда прижаты к низу */
+	}
+
+	.btn-route-consult {
+		padding: 0.6vw 1vw;
+		font-size: 0.83vw;
+	}
+}
+/* --- ПЛАНШЕТЫ (от 768px до 1440px) --- */
+@media (max-width: 1440px) {
+	.route-container {
+		flex-direction: column; /* Текст сверху, карточки снизу */
+		align-items: flex-start;
+		gap: 40px;
+		margin-top: 0;
+	}
+
+	.route-info {
+		flex: none;
+		width: 100%;
+		max-width: 700px;
+	}
+
+	/* Позволяем карточкам перекидываться на новую строку */
+	.route-cards-wrapper {
+		display: flex;
+		flex-wrap: wrap; /* Автоматический перенос */
+		gap: 20px;
+	}
+
+	.route-card {
+		flex: 1 1 calc(50% - 20px); /* По 2 карточки в ряд */
+		min-width: 300px;
+		height: 400px;
+	}
+}
+
+/* --- МОБИЛЬНЫЕ (до 768px) --- */
+@media (max-width: 768px) {
+	html,
+	body {
+		overflow-x: hidden;
+	}
+	.route-section {
+		padding: 60px 30px;
+		border-radius: 40px 40px 0 0;
+		padding-bottom: 100px;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+	.card-image {
+		width: 100% !important;
+	}
+	.route-title {
+		text-align: center;
+		font-size: 4rem;
+	}
+
+	/* Готовим контейнер к работе Swiper */
+	.swiper-route {
+		width: 100vw;
+	}
+
+	.route-cards-wrapper {
+		flex-wrap: nowrap; /* Отключаем перенос для работы слайдера */
+		display: flex;
+		gap: 0; /* Swiper сам управляет расстоянием через spaceBetween */
+		box-sizing: content-box;
+	}
+	.route-cards {
+		max-width: 100vw;
+		overflow: hidden;
+	}
+	.route-card {
+		flex-shrink: 0;
+		width: 280px; /* Фиксированная ширина слайда */
+		height: 380px;
+		margin-right: 15px; /* Отступ между слайдами */
+	}
+
+	.card-number {
+		font-size: 48px;
+	}
+}

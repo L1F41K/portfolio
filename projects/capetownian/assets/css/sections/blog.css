@@ -1,0 +1,328 @@
+.blog-section {
+	padding: 10rem 0;
+	background: #fff;
+	margin-top: 90px;
+	padding-bottom: 140px;
+}
+.blog-section .container {
+	padding: 0 19.4rem;
+	margin: 0;
+	max-width: none;
+}
+/* Хлебные крошки */
+.breadcrumbs {
+	display: flex;
+	gap: 1rem;
+	font-size: 18px;
+	color: #888;
+	justify-content: center;
+	margin-bottom: 3rem;
+}
+.breadcrumbs .sep {
+	color: var(--c-black);
+}
+.breadcrumbs a {
+	color: var(--c-black);
+	text-decoration: none;
+}
+
+.blog-main-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	font-weight: 600;
+	margin-bottom: 9rem;
+	text-align: center;
+}
+
+/* Кнопки-фильтры */
+.blog-filters {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin-bottom: 6rem;
+}
+
+/* Сетка */
+.blog-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+}
+
+/* Карточка (кликабельная) */
+.blog-card {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border-radius: 2.4rem;
+	overflow: hidden;
+	text-decoration: none;
+	color: inherit;
+	border: 1px solid #f0f0f0;
+	padding: 3.6rem;
+	max-width: 49.3rem;
+	width: 100%;
+}
+
+.blog-card-img img {
+	width: 100%;
+	height: 25rem;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+.blog-card-content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin-top: 3.6rem;
+}
+
+.blog-card-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 1.2;
+	margin-bottom: 3rem;
+}
+
+.blog-card-desc {
+	font-size: 16px;
+	color: var(--c-black);
+	line-height: 1.5;
+	margin-bottom: 3.6rem;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden; /* ОБЯЗАТЕЛЬНО: это "отрезает" лишнее */
+	text-overflow: ellipsis; /* Добавляет "..." в конце */
+}
+.info-row {
+	display: grid;
+	grid-template-columns: 56.4rem 1fr;
+	gap: 9rem;
+	margin-bottom: 80px;
+}
+
+.sticky-title {
+	position: sticky;
+	top: 120px;
+}
+.blog-card-footer {
+	margin-top: auto;
+}
+
+.blog-date {
+	font-size: 1.3rem;
+	color: #999;
+}
+
+/* Центрирование кнопки внизу */
+.blog-load-more {
+	display: flex;
+	justify-content: center;
+	margin-top: 6rem;
+}
+
+/* Стили кнопок (универсальные) */
+.blog-filters .btn {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 24px 32px;
+	border-radius: 10rem;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 20px;
+	transition: 0.4s;
+	cursor: pointer;
+	border: none;
+}
+.blog-filters .btn--outline {
+	border: 1px solid var(--c-orange);
+	color: #000;
+}
+.blog-filters .btn--orange {
+	background: var(--c-orange);
+	color: #fff;
+	border: 1px solid var(--c-orange);
+}
+.blog-filters .btn--orange:hover {
+	background: transparent;
+	color: var(--c-black);
+}
+.blog-filters .btn--outline:hover {
+	background: var(--c-orange);
+	color: #fff;
+}
+.blog-load-more .btn--outline {
+	background: transparent;
+	border: 1px solid #e0e0e0;
+	color: #000;
+	gap: 16px;
+}
+.blog-load-more .btn--outline:hover {
+	background: var(--c-orange);
+	color: var(--c-white);
+}
+.blog-card-img {
+	width: 100%;
+	height: 25rem;
+	overflow: hidden; /* Чтобы зум не выходил за границы */
+}
+
+.blog-card-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease; /* Плавный зум */
+}
+
+.blog-date {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	background: #e8f5e9; /* Светлый фон плашки даты */
+	padding: 0.6rem 1.2rem;
+	border-radius: 0.8rem;
+	width: fit-content;
+}
+
+.blog-date span {
+	font-size: 14px;
+	font-weight: 500;
+	color: #3d3d3d;
+}
+
+/* Настраиваем цвет иконки внутри SVG через fill, если нужно */
+.blog-date svg path {
+	fill: #3d3d3d;
+}
+.blog-card.is-hidden {
+	display: none;
+}
+.post-columns-text p img {
+	margin: 30px 0;
+}
+.post-columns-text h2 {
+	font-family: Inter Tight;
+	font-weight: 600;
+	font-size: 6.5rem;
+	line-height: 100%;
+	letter-spacing: -5%;
+	margin: 60px 0;
+}
+.blog-load-more.is-hidden {
+	display: none; /* Скроем саму кнопку, если карточек мало */
+}
+/* --- Адаптив для планшетов и малых ноутбуков (1439px и ниже) --- */
+@media (max-width: 1439px) {
+	.blog-section {
+		padding: 8rem 0 10rem;
+	}
+
+	.blog-section .container {
+		padding: 0 4rem; /* Уменьшаем огромные боковые отступы */
+	}
+
+	.blog-main-title {
+		margin-bottom: 6rem;
+	}
+
+	.blog-grid {
+		grid-template-columns: repeat(2, 1fr) !important; /* 2 колонки вместо 3 */
+		gap: 2rem;
+	}
+
+	.blog-card {
+		max-width: none; /* Карточки тянутся по сетке */
+		padding: 2.4rem;
+	}
+	.post-columns-text h2 {
+		font-size: 5.2rem;
+	}
+}
+
+/* --- Адаптив для мобильных устройств (784px и ниже) --- */
+@media (max-width: 784px) {
+	.blog-section {
+		padding: 6rem 0 8rem;
+		margin-top: 60px; /* Уменьшаем отступ сверху */
+		border-radius: 40px 40px 0 0; /* Если нужно соответствовать стилю скруглений */
+	}
+
+	.blog-section .container {
+		padding: 0 2rem;
+	}
+
+	.blog-main-title {
+		font-size: 40px;
+		margin-bottom: 4rem;
+		line-height: 1.1;
+	}
+
+	.breadcrumbs {
+		font-size: 14px;
+		margin-bottom: 2rem;
+		flex-wrap: wrap; /* Чтобы не вылезали за экран */
+	}
+
+	/* Фильтры делаем скроллящимися горизонтально, если их много */
+	.blog-filters {
+		justify-content: flex-start;
+		overflow-x: auto;
+		padding-bottom: 1rem;
+		gap: 20px;
+		-webkit-overflow-scrolling: touch;
+		flex-direction: column;
+		margin-bottom: 40px;
+	}
+
+	.blog-filters .btn {
+		padding: 14px 24px;
+		font-size: 16px;
+		white-space: nowrap; /* Не даем тексту переноситься */
+	}
+
+	.blog-grid {
+		grid-template-columns: 1fr !important; /* 1 колонка */
+		gap: 2.5rem;
+	}
+
+	.blog-card {
+		padding: 2rem;
+	}
+
+	.blog-card-img,
+	.blog-card-img img {
+		height: 20rem; /* Уменьшаем высоту картинки на мобильных */
+	}
+
+	.blog-card-content {
+		margin-top: 2rem;
+	}
+
+	.blog-card-title {
+		font-size: 2.2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.blog-card-desc {
+		font-size: 1.5rem;
+		margin-bottom: 2.5rem;
+		-webkit-line-clamp: 2; /* Меньше текста на мобилках */
+	}
+
+	.blog-load-more {
+		margin-top: 4rem;
+	}
+	.info-row {
+		display: block;
+		padding: 0 2rem;
+		padding-bottom: 40px;
+		margin-bottom: 0;
+	}
+	.post-columns-text h2 {
+		font-size: 40px;
+	}
+}

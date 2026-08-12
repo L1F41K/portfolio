@@ -1,0 +1,399 @@
+.v2-about-section {
+	position: relative;
+	padding: 120px 90px;
+	padding-right: 0;
+	background-color: #fff;
+	overflow: hidden;
+	z-index: 24;
+	border-radius: 66px 66px 0 0;
+}
+
+/* Фоновая линия */
+.v2-about-bg-line {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+	object-fit: contain;
+	object-position: right center;
+}
+
+.v2-about-col-left {
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* Обязательно, чтобы колонка растянулась */
+}
+
+.v2-about-col-left .video-wrapper {
+	margin-top: auto; /* Магия прижатия к низу */
+}
+.v2-about-grid {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 8rem;
+	align-items: flex-start;
+	max-width: none;
+}
+/* Колонка 1 */
+.v2-about-title {
+	font-family: 'Inter Tight', sans-serif !important;
+	font-weight: 600 !important;
+	font-size: 7.8rem !important;
+	line-height: 100% !important;
+	letter-spacing: -0.05em !important;
+	color: var(--c-black);
+	margin-bottom: 8.3rem;
+}
+.v2-about-title .highlight {
+	color: var(--c-orange);
+}
+
+/* Колонка 2 */
+.v2-about-content-right {
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* Растягиваем на всю высоту родительского грида */
+	width: 100%;
+	min-width: 0;
+}
+.v2-text-lead {
+	font-family: 'Inter Tight', sans-serif !important;
+	font-weight: 500 !important;
+	font-size: 24px !important; /* 24px */
+	line-height: 130% !important;
+	letter-spacing: 0 !important;
+	color: var(--c-black);
+	margin-bottom: 2.4rem;
+	margin-bottom: 4.8rem; /* Отступ до карточек, если они вдруг сблизятся */
+}
+
+.v2-text-sub {
+	font-family: 'Inter Tight', sans-serif !important;
+	font-weight: 400 !important;
+	font-size: 18px !important; /* 18px */
+	line-height: 140% !important;
+	letter-spacing: 0 !important;
+	color: var(--c-purple);
+	max-width: 60rem;
+	margin-bottom: 1rem;
+}
+.v2-about-content-right .v2-about-title {
+	margin-top: 8rem;
+	margin-bottom: 6rem;
+}
+.v2-text-sub2 {
+	font-family: 'Inter Tight', sans-serif !important;
+	font-weight: 400 !important;
+	font-size: 18px !important; /* 18px */
+	line-height: 140% !important;
+	letter-spacing: 0 !important;
+	color: var(--c-purple);
+	max-width: 54rem;
+}
+/* Сетка карточек внутри правой колонки */
+.v2-about-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* Две колонки для карточек */
+	gap: 2.1rem;
+	margin-top: auto; /* Магия: выталкивает блок максимально вниз */
+}
+
+/* Большая карточка проживания на всю ширину сетки карточек */
+.card-full {
+	grid-column: span 2;
+}
+.v2-info-card {
+	padding: 3.7rem;
+	border-radius: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.v2-info-card h3 {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 32px;
+	font-weight: 500;
+}
+
+.v2-info-card p {
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+/* Цвета из макета */
+.card-beige {
+	background-color: #fff2e6;
+}
+.card-green {
+	background-color: #e6f7e6;
+}
+.card-blue {
+	background-color: #e6f5fa;
+}
+.card-pink {
+	background-color: #fce6f0;
+}
+.card-orange-light {
+	background-color: #fff2e6;
+}
+@media (max-width: 575px) {
+	.v2-card-image {
+		max-width: 100%; /* Картинка будет гибко подстраиваться под новую ширину слайда */
+	}
+}
+/* Обертка для слайдера и кнопок */
+.v2-about-slider-wrapper {
+	position: relative;
+	margin-top: 40px;
+	width: max-content;
+	/* Убеждаемся, что родитель не режет контент */
+	overflow: hidden;
+}
+.v2-about-swiper.format .v2-about-card {
+	max-width: 500px;
+}
+.v2-about-swiper.format .v2-about-card .v2-card-image {
+	max-width: 440px;
+}
+/* Контейнер Swiper */
+.v2-about-swiper {
+	width: 100%;
+	padding-right: 80px; /* сколько хочешь показать следующего слайда */
+}
+.v2-about-swiper .swiper-wrapper {
+	display: flex;
+	align-items: stretch; /* Растягивает все .swiper-slide до одинаковой высоты */
+}
+.v2-about-swiper .swiper-slide {
+	height: auto; /* Позволяет слайдам гибко подстраиваться под контент */
+	display: flex; /* Чтобы карточка внутри слайда тоже могла использовать height: 100% */
+}
+/* Карточка */
+.v2-about-card {
+	background: #f7f3e8;
+	border-radius: 20px;
+	padding: 30px;
+	height: 100%; /* Теперь это свойство сработает идеально */
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	transition: transform 0.3s ease;
+
+	/* Карточка просто заполняет весь слайд */
+	width: 100%;
+	max-width: 100%;
+}
+
+.v2-card-image {
+	width: 100%;
+	max-width: 240px;
+	aspect-ratio: 16 / 10;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.v2-card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.v2-card-content h3 {
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 16px;
+	color: #000;
+}
+
+.v2-card-content p {
+	font-size: 18px;
+	line-height: 1.4;
+	color: var(--c-purple);
+}
+
+/* Навигация */
+.v2-slider-nav {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+.v2-slider-prev,
+.v2-slider-next {
+	width: 74px;
+	height: 74px;
+	border-radius: 50%;
+	background: #f7f3e8;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.v2-slider-prev:hover,
+.v2-slider-next:hover {
+	background: #efeadc;
+}
+
+/* Адаптив: на мобилках обычно overflow: hidden или другие отступы */
+@media (max-width: 768px) {
+	.v2-about-swiper {
+		overflow: hidden !important;
+	}
+	.v2-suitability-section.regions-section {
+		margin-top: -6.6rem !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+	}
+}
+/* --- Адаптация для ноутбуков (до 1439px) --- */
+@media (max-width: 1439px) {
+	.v2-about-section {
+		padding: clamp(80px, 8vh, 120px) 0;
+		border-radius: 40px 40px 0 0; /* Смягчаем радиус под меньший экран */
+		padding-bottom: 140px;
+		padding-left: 9rem;
+	}
+	.v2-suitability-section.regions-section {
+		margin-top: -12.6rem;
+	}
+	.v2-about-grid {
+		gap: clamp(4rem, 5vw, 8rem);
+	}
+
+	.v2-about-title {
+		font-size: clamp(4.2rem, 5.5vw, 6.4rem) !important;
+		margin-bottom: 4rem;
+	}
+
+	.v2-text-lead,
+	.v2-text-sub {
+		max-width: none !important;
+	}
+	.v2-about-col-left .video-wrapper {
+		aspect-ratio: 9/16;
+		max-height: 562px;
+	}
+}
+
+/* --- Адаптация для смартфонов и узких экранов (до 784px) --- */
+@media (max-width: 784px) {
+	.v2-about-section {
+		padding: 60px 20px;
+		margin-top: -30px; /* Нахлест на предыдущую секцию */
+		padding-bottom: 100px;
+	}
+
+	.v2-about-grid {
+		grid-template-columns: 1fr; /* В одну колонку */
+		gap: 32px;
+	}
+
+	.v2-about-title {
+		font-size: 40px !important;
+		line-height: 1.1 !important;
+		margin-bottom: 24px;
+		text-align: center;
+	}
+
+	.v2-about-title br {
+		display: none; /* Убираем переносы из десктопной версии */
+	}
+	/* Видео блок */
+	.v2-about-content-right .video-wrapper.mobile-only {
+		aspect-ratio: 9/16;
+		border-radius: 20px;
+		overflow: hidden;
+		max-width: 362px !important;
+		max-height: 562px !important;
+		margin: 0 auto;
+		margin-bottom: 40px;
+	}
+	.v2-about-content-right .video-wrapper.mobile-only .play-btn {
+		bottom: 3rem;
+	}
+	.v2-text-lead {
+		font-size: 24px !important;
+		margin-bottom: 20px;
+	}
+
+	.v2-text-sub {
+		font-size: 18px !important;
+	}
+
+	/* Карточки: делаем их в 2 колонки даже на мобилках, если текст короткий, 
+     либо в 1 колонку для лучшей читаемости */
+	.v2-about-cards-grid {
+		grid-template-columns: 1fr; /* Для мобильных лучше 1 колонка, чтобы текст не жался */
+		gap: 16px;
+		margin-top: 0;
+	}
+
+	.card-full {
+		grid-column: span 1;
+	}
+	.v2-about-content-right {
+		margin: 0 auto;
+	}
+	.v2-about-content-right .v2-about-title {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+	.v2-info-card {
+		padding: 24px;
+		gap: 16px;
+		border-radius: 20px;
+	}
+
+	.v2-info-card h3 {
+		font-size: 24px;
+	}
+
+	.v2-info-card p {
+		font-size: 18px;
+	}
+
+	/* Скрываем сложную фоновую линию, если она мешает контенту */
+	.v2-about-bg-line {
+		display: none;
+	}
+	.v2-about-col-left .video-wrapper {
+		display: none;
+	}
+	.v2-about-content-right .v2-about-title {
+		margin-top: 3rem;
+	}
+	.v2-about-slider-wrapper {
+		margin-top: 0;
+	}
+}
+
+/* Фикс для средних экранов (планшеты), где 2 колонки еще ок */
+@media (min-width: 481px) and (max-width: 784px) {
+	.v2-about-cards-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.card-full {
+		grid-column: span 2;
+	}
+}
+@media (min-width: 785px) {
+	.v2-about-swiper .swiper-slide {
+		max-width: 300px; /* Ограничиваем ширину самого слайда, Swiper это учтет */
+	}
+}
+@media (max-width: 784px) {
+	.v2-card-image {
+		max-width: 100% !important;
+	}
+}

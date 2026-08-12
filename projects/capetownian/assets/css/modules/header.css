@@ -1,0 +1,498 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	height: 9.6rem;
+	background: var(--h-bg);
+	border-bottom: 0.1rem solid var(--h-border);
+	transition:
+		background 0.3s,
+		border-color 0.3s;
+}
+.header.var2 {
+	position: fixed;
+	background: var(--c-white);
+	border-bottom: var(--h-border);
+	color: var(--c-black);
+}
+.header__container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 6rem;
+	max-width: 100%;
+}
+
+.header__logo svg {
+	width: 19.4rem;
+	height: 4.2rem;
+}
+/* По умолчанию скрываем "темный" лого и показываем "светлый" */
+.header__logo .logo-variant-dark {
+	display: none;
+}
+.header__logo .logo-variant-white {
+	display: block;
+}
+
+/* А вот тут магия: если у хедера появляется класс .var2 
+   (неважно, от PHP или от твоего JS при скролле) */
+.header.var2 .header__logo .logo-variant-dark {
+	display: block;
+}
+.header.var2 .header__logo .logo-variant-white {
+	display: none;
+}
+.header__logo .logo-fill {
+	fill: var(--h-content);
+	transition: fill 0.3s;
+}
+
+.header__nav {
+	display: flex;
+	gap: 4rem;
+}
+
+.header__link {
+	font-family: var(--f-body);
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 1;
+	color: var(--h-content);
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	transition: color 0.3s;
+}
+.header.var2 .header__link {
+	color: var(--c-black);
+}
+.header__link:hover {
+	color: var(--c-orange);
+}
+
+.nav-arrow {
+	width: 1.2rem;
+	height: 0.7rem;
+	margin-top: 0.2rem;
+	transition:
+		stroke 0.3s,
+		transform 0.3s ease;
+}
+
+.nav-arrow path {
+	stroke: var(--h-content);
+	transition: stroke 0.3s;
+}
+
+/* .header.var2 .header__link .nav-arrow path {
+	stroke: var(--c-black);
+} */
+.header__link:hover .nav-arrow path,
+.header.var2 .header__link:hover .nav-arrow path {
+	stroke: var(--c-orange);
+}
+
+.link-with-arrow:hover .nav-arrow {
+	transform: rotate(180deg);
+}
+
+.header__actions {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+
+.header__socials {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.social-icon svg {
+	width: 3.6rem;
+	height: 3.6rem;
+}
+
+.social-stroke {
+	stroke: var(--h-content);
+	transition: stroke 0.3s;
+}
+.header.var2 .social-stroke,
+.btn-contact .social-stroke {
+	stroke: var(--c-black);
+}
+.social-fill {
+	fill: var(--h-content);
+	transition: fill 0.3s;
+}
+.header.var2 .social-fill,
+.btn-contact .social-fill {
+	fill: var(--c-black);
+}
+.btn-contact:hover .contact-icon {
+	transform: none;
+}
+.social-icon:hover .social-stroke,
+.btn-contact:hover .social-stroke {
+	stroke: var(--c-orange);
+}
+.btn-contact svg {
+	width: 2.6rem;
+	height: 2.6rem;
+}
+.social-icon:hover .social-fill,
+.btn-contact:hover .social-fill {
+	fill: var(--c-orange);
+}
+
+.btn--book {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1rem 1rem 2rem;
+	background: var(--h-btn-bg);
+	border: 0.1rem solid var(--h-btn-border);
+	border-radius: 5rem;
+	color: var(--h-content);
+	font-family: var(--f-head);
+	font-size: 1.8rem;
+	line-height: 1;
+	font-weight: 400;
+	transition: 0.3s;
+	gap: 2rem;
+}
+
+.header--invert .btn--book {
+	color: var(--h-btn-text);
+}
+
+.btn--book:hover {
+	border-color: var(--c-orange);
+	background: var(--c-orange);
+	color: var(--c-white);
+}
+.header.var2 .btn--book {
+	border-color: var(--c-orange);
+	background: var(--c-orange);
+	color: var(--c-white);
+}
+.header.var2 .btn--book:hover {
+	background: var(--h-btn-bg);
+	color: var(--c-black);
+}
+.header.var2 .mobile-trigger {
+	color: var(--c-black);
+}
+.btn--book svg {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.btn--book svg .btn-stroke {
+	stroke: currentColor;
+	transition: stroke 0.3s;
+}
+/* Контейнер выпадающего списка */
+.header-dropdown {
+	display: none;
+	position: absolute;
+	top: calc(100% + 20px); /* Отступ равен высоте "мостика" (20px) */
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 240px;
+	padding: 36px;
+	background: #ffffff;
+	border-radius: 32px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	z-index: 100;
+}
+.header-dropdown-wrapper {
+	position: relative;
+	display: inline-block;
+}
+.header.var2 .nav-arrow path {
+	stroke: var(--c-black);
+}
+/* Стили элементов списка */
+.header-dropdown li {
+	margin-bottom: 16px;
+}
+
+.header-dropdown li:last-child {
+	margin-bottom: 0;
+}
+
+/* Ссылки внутри списка */
+.header-dropdown li a {
+	color: #1a1a1a !important; /* Темный цвет текста */
+	font-size: 18px;
+	font-weight: 500;
+	transition: color 0.3s ease;
+	display: block;
+}
+
+/* Цвет при наведении (оранжевый как в макете) */
+.header-dropdown li a:hover {
+	color: var(--c-orange) !important;
+}
+.header-dropdown-wrapper:hover .header-dropdown {
+	display: block;
+}
+
+.header-dropdown-wrapper::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 20px; /* Высота "зазора", чтобы мышка не теряла фокус */
+	background: transparent;
+	z-index: 99;
+}
+
+/* Mobile Trigger & Menu */
+.mobile-trigger {
+	display: none;
+	align-items: center;
+	gap: 0.8rem;
+	color: var(--h-content);
+	font-family: var(--f-head);
+	font-weight: 500;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	height: 2rem;
+}
+
+.mobile-trigger svg {
+	width: 1.4rem;
+	height: 1.4rem;
+}
+
+.mobile-trigger .dot {
+	transition: transform 0.3s ease;
+	transform-origin: center;
+	fill: currentColor;
+}
+
+.mobile-trigger.is-active .dot-tl {
+	transform: translate(0.1rem, 0.1rem);
+}
+.mobile-trigger.is-active .dot-tr {
+	transform: translate(-0.1rem, 0.1rem);
+}
+.mobile-trigger.is-active .dot-bl {
+	transform: translate(0.1rem, -0.1rem);
+}
+.mobile-trigger.is-active .dot-br {
+	transform: translate(-0.1rem, -0.1rem);
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100dvh;
+	background: var(--c-white);
+	z-index: 90;
+	padding-top: 9.6rem;
+	transform: translateY(-100%);
+	transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.mobile-menu.is-open {
+	transform: translateY(0);
+	opacity: 1;
+	visibility: visible;
+}
+
+.header.is-menu-open {
+	background-color: var(--c-white) !important;
+	border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+	--h-content: var(--c-black);
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+	.header {
+		height: 6.5rem;
+	}
+
+	.header__container {
+		padding: 0 2rem;
+	}
+
+	.header__logo svg {
+		width: 15.5rem;
+	}
+
+	.mobile-trigger {
+		display: flex;
+	}
+
+	.mobile-menu {
+		padding-top: 6.5rem;
+		transition:
+			transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+			opacity 0.6s ease,
+			visibility 0.6s ease;
+	}
+
+	.mobile-nav__link,
+	.mobile-actions {
+		opacity: 0;
+		transform: translateY(2rem);
+		transition:
+			opacity 0.5s ease,
+			transform 0.5s ease;
+	}
+
+	.mobile-menu.is-open .mobile-nav__link,
+	.mobile-menu.is-open .mobile-actions {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.mobile-menu.is-open .mobile-nav__link:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+	.mobile-menu.is-open .mobile-nav__link:nth-child(2) {
+		transition-delay: 0.15s;
+	}
+	.mobile-menu.is-open .mobile-nav__link:nth-child(3) {
+		transition-delay: 0.2s;
+	}
+	.mobile-menu.is-open .mobile-nav__link:nth-child(4) {
+		transition-delay: 0.25s;
+	}
+	.mobile-menu.is-open .mobile-nav__link:nth-child(5) {
+		transition-delay: 0.3s;
+	}
+	.mobile-menu.is-open .mobile-actions {
+		transition-delay: 0.35s;
+	}
+
+	.mobile-menu__container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 4rem 2rem 4rem 2rem;
+	}
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.mobile-nav__link {
+		font-family: var(--f-body);
+		font-weight: 500;
+		font-size: 3.6rem;
+		letter-spacing: -0.05em;
+		color: var(--c-black);
+		line-height: 1;
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.mobile-nav-arrow {
+		width: 1.8rem;
+		height: 1rem;
+		display: block;
+		margin-top: 0.6rem;
+		transition: transform 0.3s ease;
+	}
+
+	.mobile-nav-arrow path {
+		stroke: currentColor;
+		stroke-width: 0.15rem;
+	}
+
+	.mobile-link-with-arrow:hover .mobile-nav-arrow {
+		transform: rotate(180deg);
+	}
+
+	.mobile-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.mobile-socials {
+		gap: 1.5rem;
+		display: flex;
+	}
+
+	.mobile-socials .social-icon svg {
+		width: 4.8rem;
+		height: 4.8rem;
+	}
+
+	.mobile-socials .social-stroke {
+		stroke: var(--c-black) !important;
+	}
+	.mobile-socials .social-fill {
+		fill: var(--c-black) !important;
+	}
+
+	.mobile-btn {
+		width: fit-content !important;
+		background: var(--c-orange);
+		color: var(--c-white);
+		border-color: var(--c-orange);
+		padding: 2rem 2rem 2rem 3rem;
+		margin-left: 0;
+	}
+
+	.mobile-btn svg .btn-stroke {
+		stroke: var(--c-white);
+	}
+	/* Контейнер подменю */
+	.mobile-submenu {
+		max-height: 0;
+		overflow: hidden;
+		list-style: none;
+		transition:
+			max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+			margin-top 0.4s ease;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	/* Ссылки внутри подменю */
+	.mobile-submenu__link {
+		font-size: 2rem; /* Чуть меньше основного меню */
+		font-weight: 400;
+		color: var(--c-black);
+		text-decoration: none;
+	}
+
+	/* Активное состояние (когда открыто) */
+	.mobile-nav__item-wrapper.is-active .mobile-submenu {
+		max-height: 500px; /* Достаточное значение для всех пунктов */
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	/* Поворот стрелочки */
+	.mobile-nav__item-wrapper.is-active .mobile-nav-arrow {
+		transform: rotate(180deg);
+	}
+
+	/* Убираем ховер-эффект десктопа для мобилки, заменяем на класс */
+	.mobile-link-with-arrow:hover .mobile-nav-arrow {
+		transform: none;
+	}
+	.mobile-nav__item-wrapper.is-active .mobile-nav-arrow {
+		transform: rotate(180deg);
+	}
+}

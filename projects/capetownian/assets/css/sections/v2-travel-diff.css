@@ -1,0 +1,194 @@
+.travel-diff-section {
+	position: relative;
+	padding: 10rem 0;
+	background-color: var(--c-cream); /* Фоновый бежевый цвет из дизайна */
+	overflow: hidden;
+	z-index: 28;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+	padding-bottom: 160px;
+}
+
+/* Линия на заднем плане */
+.travel-diff-bg-line {
+	position: absolute;
+	top: 270px;
+	left: 0;
+	width: auto;
+	height: auto;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.travel-diff-section .container {
+	position: relative;
+	z-index: 2;
+}
+
+/* Главный контейнер: Заголовок занимает 1 часть, Грид — 2 части */
+.travel-diff-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 2fr; /* Соотношение 1 к 2 */
+	gap: 6rem;
+	align-items: start;
+}
+
+/* Заголовок */
+.travel-diff-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -0.04em;
+	color: var(--c-black);
+	max-width: 45rem;
+}
+
+.travel-diff-title .c-orange {
+	color: var(--c-orange);
+	display: block;
+}
+
+/* Сетка карточек */
+.travel-diff-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 колонки в правой части */
+	gap: 3rem;
+}
+
+/* Карточка */
+.travel-diff-card {
+	background: #fff;
+	border-radius: 2.4rem;
+	padding: 3.6rem;
+	min-height: 28rem;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease;
+}
+
+.travel-diff-card:hover {
+	transform: translateY(-5px);
+}
+
+/* Номер в карточке */
+.travel-diff-number {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	font-weight: 600;
+	color: var(--c-orange);
+	margin-bottom: 3rem;
+	line-height: 1;
+}
+
+/* Текст в карточке */
+.travel-diff-text {
+	font-size: 18px;
+	line-height: 1.4;
+	color: #000;
+	font-weight: 400;
+}
+
+/* Адаптив под планшеты и мобилки */
+@media (max-width: 1200px) {
+	.travel-diff-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 991px) {
+	.travel-diff-wrapper {
+		grid-template-columns: 1fr;
+	}
+	.travel-diff-title {
+		margin-bottom: 4rem;
+	}
+}
+
+/* АДАПТИВ 784px */
+@media (max-width: 784px) {
+	.travel-diff-section {
+		padding: 60px 20px;
+		padding-bottom: 120px;
+	}
+	.travel-diff-title {
+		font-size: 40px;
+		margin-bottom: 4rem;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.travel-diff-bg-line {
+		display: none;
+	}
+	/* Превращаем грид в флекс-контейнер для Swiper */
+	.travel-diff-grid {
+		display: flex;
+		gap: 0; /* Swiper сам управляет отступами через spaceBetween */
+	}
+
+	.travel-diff-card {
+		padding: 3rem;
+		min-height: 220px;
+		height: 100% !important; /* Одинаковая высота */
+	}
+
+	.travel-diff-number {
+		font-size: 78px;
+	}
+
+	.travel-diff-text {
+		font-size: 18px;
+	}
+}
+@media (min-width: 785px) {
+	.travel-diff-grid.swiper-wrapper {
+		display: grid !important; /* Перебиваем инлайновый flex от Swiper */
+		transform: none !important; /* Отключаем смещение слайдов */
+		grid-template-columns: repeat(3, 1fr); /* Твои 3 колонки */
+		gap: 3rem;
+		width: 100% !important;
+	}
+
+	.travel-diff-card.swiper-slide {
+		width: auto !important; /* Сбрасываем расчетную ширину Swiper */
+		margin-right: 0 !important;
+	}
+
+	/* Если на больших экранах нужно 2 колонки (согласно твоему коду до 1200px) */
+	@media (max-width: 1200px) {
+		.travel-diff-grid.swiper-wrapper {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+/* На мобилках возвращаем как должно быть для Swiper */
+/* На мобилках (до 784px) */
+@media (max-width: 784px) {
+	.travel-diff-slider {
+		overflow: hidden !important;
+		width: 100%;
+		/* Добавь padding, если хочешь, чтобы крайняя карточка не прилипала к краю экрана */
+		padding: 0 10px;
+		box-sizing: border-box;
+		align-self: stretch;
+	}
+	.travel-diff-grid.swiper-wrapper {
+		display: flex !important;
+		flex-direction: row !important;
+		/* Убираем gap, так как Swiper управляет отступами через spaceBetween в JS */
+		gap: 0 !important;
+	}
+
+	.travel-diff-card.swiper-slide {
+		/* УБИРАЕМ width: 100% !important! */
+		/* Даем Swiper самому выставить нужную ширину (например, 85%) */
+		width: auto;
+		flex-shrink: 0;
+		height: auto;
+		box-sizing: border-box;
+	}
+
+	/* Если хочешь, чтобы следующая карточка чуть-чуть выглядывала (0.1), 
+     поставь в JS slidesPerView: 1.1 и тогда overflow: visible здесь */
+}

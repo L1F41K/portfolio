@@ -1,0 +1,295 @@
+.benefits-section {
+	position: relative;
+	padding: 10rem 0;
+	background-color: #fff;
+	padding-left: 8.7rem;
+	z-index: 29;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+	padding-bottom: 160px;
+}
+
+/* Декоративная линия */
+.benefits-bg-line {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	pointer-events: none;
+	z-index: 1;
+}
+.benefits-content {
+	min-width: 0;
+}
+.benefits-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 2fr; /* 3 колонки суммарно (1 под заголовок, 2 под грид) */
+	gap: 4rem;
+	position: relative;
+	z-index: 2;
+}
+
+/* Sticky заголовок */
+.benefits-aside {
+	position: -webkit-sticky; /* Для поддержки Safari */
+	position: sticky;
+	top: 10rem; /* Отступ от верхнего края экрана */
+	align-self: start; /* Важно: чтобы aside не растягивался на всю высоту родителя, иначе sticky не сработает */
+	height: max-content;
+}
+
+.benefits-main-title {
+	/* Убираем sticky отсюда, так как теперь липнет весь родитель */
+	position: static;
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	font-weight: 600;
+	line-height: 1.1;
+	color: var(--c-black);
+}
+
+.benefits-main-title strong {
+	color: var(--c-orange);
+	display: block;
+}
+.benefits-lead {
+	font-size: 24px;
+	font-weight: 500;
+	font-family: 'Inter Tight', sans-serif;
+	line-height: 1.4;
+	margin-top: 60px;
+}
+/* Сетки карточек */
+.benefits-group {
+	margin-bottom: 3.7rem;
+}
+
+.benefits-sub-title {
+	font-size: 7.8rem;
+	font-weight: 600;
+	margin-bottom: 3.6rem;
+	font-family: 'Inter Tight', sans-serif;
+	letter-spacing: -0.05em;
+}
+
+.benefits-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* Карточка */
+.benefit-card {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	border-radius: 22px;
+}
+
+/* Широкая карточка на 2 колонки */
+.wide-card {
+	grid-column: span 2;
+}
+
+/* Иконки */
+.benefit-icon {
+	flex-shrink: 0;
+	width: 65px;
+	height: 65px;
+	background: #dcfff1;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.benefit-card.is-negative .benefit-icon {
+	background: #fff1e3;
+}
+.benefits-section .container {
+	max-width: none;
+}
+.benefit-text {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 18px;
+	line-height: 1.4;
+	color: var(--c-purple);
+}
+/* Родитеские контейнеры */
+.benefits-wrapper {
+	overflow: hidden;
+}
+
+.v2-about-slider-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+/* Контейнер слайдера */
+.v2-custom-slider {
+	display: flex !important;
+	flex-wrap: nowrap !important;
+	gap: 24px;
+	width: 100%;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	cursor: grab;
+	user-select: none;
+	clip-path: inset(0 -100vw 0 0);
+	padding-bottom: 10px; /* Запас снизу под тени/скролл */
+	padding-right: 90px;
+}
+
+.v2-custom-slider:active {
+	cursor: grabbing;
+}
+
+.v2-custom-slider::-webkit-scrollbar {
+	display: none;
+}
+
+/* ==========================================================================
+   ЛОГИКА КАРТОЧЕК (Десктоп: одинаковая высота + адаптивная ширина)
+   ========================================================================== */
+
+/* Базовая карточка в слайдере */
+.v2-custom-slider .v2-about-card {
+	scroll-snap-align: start;
+	flex: 0 0 460px; /* Фиксированная ширина для десктопа */
+	width: 460px;
+	flex-shrink: 0; /* Запрещаем сжатие */
+	pointer-events: none; /* Защита от drag-конфликтов картинок */
+
+	/* Flex-логика для одинаковой высоты */
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+
+/* Карточка в слайдере с модификатором .format */
+.v2-custom-slider.format .v2-about-card {
+	flex: 0 0 580px; /* Более широкая карточка для спец. формата */
+	width: 580px;
+}
+
+/* Медиа-контент внутри карточки .format */
+.v2-custom-slider.format .v2-about-card .v2-card-image {
+	width: 100%;
+	max-width: 100%;
+	object-fit: cover;
+}
+
+/* Возвращаем интерактивность ссылкам, кнопкам, тексту и медиа внутри карточек */
+.v2-custom-slider .v2-about-card h3,
+.v2-custom-slider .v2-about-card p,
+.v2-custom-slider .v2-about-card a,
+.v2-custom-slider .v2-about-card button,
+.v2-custom-slider .v2-about-card img,
+.v2-custom-slider .v2-about-card video {
+	pointer-events: auto;
+}
+/* Адаптив */
+@media (max-width: 1024px) {
+	.benefits-wrapper {
+		grid-template-columns: 1fr;
+	}
+	.benefits-aside {
+		position: static; /* На мобилках отключаем липкость */
+	}
+
+	.benefits-main-title {
+		font-size: 40px;
+		line-height: 1.2;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+}
+
+@media (max-width: 784px) {
+	.benefits-section {
+		padding: 60px 20px;
+		border-radius: 40px 40px 0 0;
+		margin-top: -40px;
+		padding-bottom: 120px;
+	}
+
+	/* Разворачиваем главный контейнер в одну колонку */
+	.benefits-wrapper {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	/* Отключаем залипание заголовка на мобилках */
+	.benefits-main-title,
+	.format-target-title,
+	.uniq-tour-title {
+		position: static;
+		font-size: 40px !important;
+		line-height: 1.2;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	/* Подзаголовки (Что включено / Что не включено) */
+	.benefits-sub-title {
+		font-size: 40px;
+		line-height: 1.2;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	/* Сетку карточек в одну колонку */
+	.benefits-grid {
+		grid-template-columns: 1fr !important;
+	}
+
+	/* Широкая карточка теперь тоже обычная */
+	.wide-card {
+		grid-column: span 1 !important;
+	}
+
+	/* Сама карточка: чуть меньше отступы */
+	.benefit-card {
+		gap: 1.5rem;
+	}
+
+	.benefit-text {
+		font-size: 1.6rem;
+	}
+
+	/* Прячем декоративную линию на мобилках, если она перекрывает текст */
+	.benefits-bg-line {
+		display: none;
+	}
+	.benefits-lead {
+		text-align: center;
+	}
+	.v2-custom-slider {
+		padding-right: 0;
+	}
+}
+@media (max-width: 784px) {
+	/* Пересчет под 1.1 слайда */
+	.v2-custom-slider .v2-about-card,
+	.v2-custom-slider.format .v2-about-card {
+		flex: 0 0 calc(98% - 24px) !important;
+		width: calc(98% - 24px) !important;
+
+		/* На мобилках тоже сохраняем flex-растяжение */
+		display: flex !important;
+		flex-direction: column;
+		height: auto !important;
+	}
+	.v2-custom-slider {
+		gap: 15px;
+	}
+	.benefits-lead {
+		font-size: 18px;
+		margin-top: 0;
+	}
+}

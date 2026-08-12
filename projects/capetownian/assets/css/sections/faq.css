@@ -1,0 +1,212 @@
+.faq-section {
+	position: relative;
+	background-color: #fff;
+	/* Резиновый паддинг: минимум 80px, максимум 140px */
+	padding: clamp(120px, 8vh, 180px) 0;
+	z-index: 30;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+}
+/* ФОНОВАЯ ЛИНИЯ (самый нижний слой) */
+.faq-line-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1; /* Линия под всеми элементами */
+	pointer-events: none;
+}
+.faq-line-wrapper img {
+	position: absolute;
+	width: auto;
+	height: auto;
+	right: 0;
+}
+.faq-container {
+	display: grid;
+	/* Соотношение колонок чуть меняем для баланса на 1440px */
+	grid-template-columns: minmax(400px, 1fr) 2fr;
+	/* Динамический зазор между заголовком и вопросами */
+	gap: clamp(40px, 6vw, 100px);
+	padding: 0 5vw; /* Паддинг в % от ширины экрана */
+	max-width: 1900px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+}
+
+/* STICKY ЗАГОЛОВОК */
+.faq-sticky-col {
+	position: sticky;
+	/* Чтобы заголовок не прилипал слишком высоко на маленьких экранах */
+	top: clamp(60px, 10vh, 140px);
+	height: fit-content;
+	z-index: 10;
+}
+
+.faq-main-title {
+	font-family: 'Inter Tight', sans-serif;
+	/* Шрифт плавно растет от 48px до 78px */
+	font-size: 7.8rem;
+	line-height: 1.05;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	margin: 0;
+}
+
+/* ВОПРОСЫ */
+.faq-content-col {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	z-index: 20; /* Перекрывает заголовок при скролле */
+}
+
+.faq-item {
+	background: var(--c-cream);
+	border-radius: 22px;
+	overflow: hidden;
+	transition: background-color 0.3s ease;
+}
+
+.faq-trigger {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* Адаптивные внутренние отступы карточки */
+	padding: clamp(24px, 2.5vw, 32px) clamp(30px, 3vw, 40px);
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+}
+
+.faq-question {
+	font-family: 'Inter Tight', sans-serif;
+	/* Шрифт вопроса чуть меньше на ноутбуках */
+	font-size: clamp(20px, 1.4vw, 24px);
+	font-weight: 500;
+	color: var(--c-black);
+	padding-right: 20px; /* Отступ от иконки */
+}
+
+/* АНИМАЦИЯ ИКОНКИ (+ в -) */
+.faq-icon-box {
+	flex-shrink: 0;
+}
+
+.line-vert {
+	transition:
+		transform 0.4s ease,
+		opacity 0.3s ease;
+	transform-origin: center;
+}
+
+/* Когда вопрос открыт (добавляем класс через JS) */
+.faq-item.active .line-vert {
+	transform: rotate(90deg);
+	opacity: 0; /* Вертикальная линия исчезает, остается горизонтальная (-) */
+}
+
+.faq-item.active .line-hor {
+	transition: transform 0.4s ease;
+}
+
+/* ПЛАВНОЕ ОТКРЫТИЕ ТЕКСТА */
+.faq-answer {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.active .faq-answer {
+	max-height: 500px; /* Достаточное значение для контента */
+}
+
+.answer-inner {
+	font-family: 'Inter Tight', sans-serif;
+	padding: 0 clamp(30px, 3vw, 40px) clamp(24px, 2.5vw, 32px);
+	font-size: clamp(16px, 1.1vw, 18px);
+	line-height: 1.5;
+	color: var(--c-purple);
+	max-width: 90%; /* Чтобы текст не растягивался на всю ширину на 1900px */
+}
+/* Адаптация для ноутбуков и планшетов */
+@media (max-width: 1439px) {
+	.faq-section {
+		padding: 80px 0;
+		margin-top: -4rem;
+		border-radius: 40px 40px 0 0;
+	}
+
+	.faq-container {
+		display: flex;
+		flex-direction: column; /* Переключаем в одну колонку */
+		gap: 40px;
+		padding: 0 40px;
+	}
+
+	.faq-sticky-col {
+		position: relative; /* Отключаем липкость */
+		top: 0;
+		text-align: left;
+	}
+
+	/* Скрываем или корректируем фоновую линию, чтобы не ломала ширину */
+	.faq-line-wrapper img {
+		width: auto;
+		height: auto;
+	}
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+	.faq-section {
+		padding: 60px 0;
+		margin-top: -3rem;
+		padding-bottom: 100px;
+	}
+
+	.faq-container {
+		padding: 0 20px;
+		gap: 40px;
+	}
+
+	.faq-main-title {
+		font-size: 4rem; /* Компактный размер для смартфонов */
+		line-height: 1.1;
+		text-align: center;
+	}
+
+	.faq-item {
+		border-radius: 16px; /* Чуть меньше скругления для узких экранов */
+	}
+
+	.faq-trigger {
+		padding: 20px;
+	}
+
+	.faq-question {
+		font-size: 20px;
+		padding-right: 15px;
+	}
+
+	.answer-inner {
+		padding: 0 20px 20px;
+		font-size: 16px;
+		max-width: 100%;
+	}
+
+	/* Иконка чуть меньше на мобилках */
+	.faq-icon-box svg {
+		width: 20px;
+		height: 20px;
+	}
+	.faq-line-wrapper {
+		display: none;
+	}
+	.btn--primary {
+		gap: 1rem;
+	}
+}

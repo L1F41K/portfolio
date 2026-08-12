@@ -1,0 +1,226 @@
+/* Базовые стили для секции */
+.uniq-tour-section {
+	background-color: var(--c-orange, #de7e34);
+	padding: 100px 0;
+	color: #fff;
+	position: relative;
+	z-index: 30;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+	padding-bottom: 160px;
+}
+
+.uniq-tour-container {
+	display: grid;
+	grid-template-columns: 500px 1fr;
+	gap: 60px;
+	align-items: start; /* Обязательно для работы sticky */
+}
+
+/* Левая прилипающая колонка */
+.uniq-tour-aside {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 100px; /* Отступ сверху при прилипании */
+	height: max-content;
+}
+
+.uniq-tour-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	line-height: 1.1;
+	font-weight: 600;
+	margin-bottom: 60px;
+}
+
+.uniq-tour-lead {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+/* Правая колонка с карточками */
+.uniq-tour-list {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+/* Стили карточки */
+.ut-card {
+	background-color: #fff;
+	border-radius: 24px;
+	display: flex;
+	padding: 16px;
+	gap: 30px;
+	color: #000;
+}
+
+/* Слайдер / Картинка */
+.ut-card__gallery {
+	position: relative;
+	width: 45%;
+	flex-shrink: 0;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.ut-gallery-controls {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+	display: flex;
+	gap: 16px;
+	z-index: 2;
+}
+
+.ut-gallery-btn {
+	width: 74px;
+	height: 74px;
+	border-radius: 50%;
+	background-color: #fff;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+}
+
+/* Контент карточки (текст) */
+.ut-card__content {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 20px 20px 0;
+}
+
+.ut-card__heading {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 36px;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+
+/* Теги */
+.ut-card__labels {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 24px;
+}
+.ut-card__labels .v2-tag-item {
+	color: var(--c-black);
+}
+
+/* Список */
+.ut-card__features {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ut-card__features-wrapper li {
+	font-family: 'Inter Tight', sans-serif;
+	position: relative;
+	padding-left: 14px;
+	margin-bottom: 12px;
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--c-black);
+}
+
+.ut-card__features-wrapper li::before {
+	content: '•';
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: var(--c-orange, #de7e34);
+	font-size: 18px;
+	line-height: 1.2;
+}
+.ut-card__gallery.swiper {
+	width: 412px;
+	height: 412px;
+	flex-shrink: 0;
+	border-radius: 24px;
+	overflow: hidden;
+	position: relative;
+}
+
+.ut-card__gallery .swiper-slide {
+	height: 100%;
+}
+
+/* Убедимся, что кнопки всегда сверху */
+.ut-gallery-controls {
+	pointer-events: none; /* Чтобы контейнер не мешал кликам по слайдам */
+}
+
+.ut-gallery-btn {
+	pointer-events: auto; /* А сами кнопки были кликабельны */
+	z-index: 10;
+}
+.ut-card__image {
+	width: 412px;
+	height: 412px;
+	object-fit: cover; /* Картинка заполнит квадрат без деформации */
+	display: block;
+}
+@media (max-width: 1439px) {
+	.uniq-tour-container {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.uniq-tour-aside {
+		position: static;
+	}
+	.uniq-tour-title,
+	.uniq-tour-lead {
+		text-align: center;
+	}
+}
+/* Адаптив для планшетов и мобилок */
+@media (max-width: 1024px) {
+	.ut-card {
+		flex-direction: column;
+	}
+
+	.ut-card__gallery {
+		width: 100%;
+		height: 250px;
+	}
+
+	.ut-card__content {
+		padding: 10px;
+	}
+	.ut-card__heading {
+		text-align: center;
+	}
+	.uniq-tour-section,
+	.intro-start-section,
+	.format-target-section {
+		padding: 60px 20px !important;
+		padding-bottom: 80px !important;
+	}
+}
+@media (max-width: 480px) {
+	.ut-card__gallery.swiper,
+	.ut-card__image {
+		width: 350px;
+		height: 350px;
+	}
+	.intro-start-title {
+		text-align: center;
+	}
+}
+@media (max-width: 420px) {
+	.ut-card__gallery.swiper,
+	.ut-card__image {
+		width: auto !important;
+	}
+	.ut-gallery-btn {
+		width: 54px;
+		height: 54px;
+	}
+}

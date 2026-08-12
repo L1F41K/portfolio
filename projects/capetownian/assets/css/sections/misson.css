@@ -1,0 +1,367 @@
+/* Основная секция */
+.mission-landing {
+	position: -webkit-sticky;
+	position: sticky;
+	top: -97px;
+	z-index: 5;
+	height: 105vh; /* меняем с фиксированных 1042px на 100vh — это безопаснее */
+	min-height: 860px; /* ← ключевой фикс: не даём секции стать меньше этого значения */
+	max-height: 1150px;
+	margin-top: -6.6rem;
+	border-top-left-radius: 6.6rem;
+	border-top-right-radius: 6.6rem;
+	background-size: cover;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+
+.mission-nav .nav-link {
+	font-family: 'Inter';
+	font-weight: 400;
+	color: var(--c-black);
+	font-size: 18px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}
+
+.mission-nav .nav-link.active {
+	opacity: 0.5;
+}
+
+.mission-nav .nav-separator {
+	color: var(--c-black);
+
+	font-size: 18px;
+}
+
+.mission-container {
+	width: 100%;
+	padding: 0 90px;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.mission-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end; /* Видео и нижнее фото прижаты к нижней линии */
+	height: 100%;
+	padding-top: 282px; /* Изначальный отступ сверху */
+	padding-bottom: 58px; /* Отступ от низа */
+	box-sizing: border-box;
+	position: relative;
+}
+
+/* --- ЦЕНТРАЛЬНАЯ КОЛОНКА --- */
+
+.mission-col--center {
+	position: absolute;
+	left: 50%;
+	top: 282px;
+	transform: translateX(-50%);
+	width: 100%;
+	/* Подбираем ширину, при которой текст ложится ровно в 3 строки */
+	max-width: 960px;
+	text-align: center;
+	z-index: 1;
+}
+
+.mission-nav {
+	display: block;
+	margin-bottom: 60px; /* Между крошками и заголовком */
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	color: #777;
+}
+
+.mission-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 100%;
+	letter-spacing: -0.05em; /* -5% */
+	color: #1a1a1a;
+	margin-bottom: 60px;
+	/* Гарантируем отсутствие лишних переносов */
+	word-break: keep-all;
+	white-space: normal;
+}
+
+.mission-title .highlight {
+	color: var(--c-orange);
+}
+
+.mission-subtitle {
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 130%;
+	max-width: 616px;
+	margin: 0 auto;
+}
+
+/* --- ЛЕВАЯ КОЛОНКА (Видео) --- */
+
+.mission-col--left {
+	flex-shrink: 0;
+	z-index: 2;
+}
+
+.video-wrapper {
+	width: 346px;
+	height: 562px;
+	border-radius: 22px;
+	overflow: hidden;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (Изображения) --- */
+
+.mission-col--right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	height: 100%;
+	flex-shrink: 0;
+	z-index: 2;
+}
+
+.img-wrapper {
+	border-radius: 22px;
+	overflow: hidden;
+}
+
+.img-wrapper img {
+	height: 100%;
+}
+
+.img-wrapper--top {
+	width: 210px;
+	height: 279px;
+	/* Отрицательный margin, чтобы поднять выше крошек */
+	margin-top: -60px;
+	margin-bottom: auto;
+}
+
+.img-wrapper--bottom {
+	width: 430px;
+	height: 279px;
+	/* Прижато к низу по умолчанию за счет align-items: flex-end */
+}
+@media (min-width: 1440px) and (max-width: 1900px) {
+	.mission-landing {
+		min-height: 880px; /* чуть выше, чем общий минимум — для комфорта на 900–1000 px высоты */
+		height: 94vh; /* меньше, чем 100vh, чтобы был запас снизу при sticky */
+		max-height: 1080px;
+	}
+
+	.mission-container {
+		padding: 0 4.5vw; /* 5vw ≈ 72–95 px — комфортный отступ по бокам */
+		padding-bottom: clamp(50px, 6vh, 100px); /* гибкий воздух снизу */
+	}
+
+	.mission-content {
+		padding-top: clamp(
+			160px,
+			20vh,
+			260px
+		); /* гибкий верхний отступ — не улетает слишком высоко */
+		padding-bottom: 0; /* убираем жёсткий нижний отступ здесь */
+		align-items: flex-end; /* низ прижат */
+	}
+
+	/* Правая колонка — стабильный отступ между картинками */
+	.mission-col--right {
+		gap: 28px; /* фиксированный и всегда одинаковый промежуток */
+		justify-content: flex-end;
+	}
+
+	.img-wrapper--top {
+		margin-top: -32px; /* небольшой подъём верхней картинки, чтобы не висела слишком низко */
+	}
+
+	/* Центр — корректируем позицию, чтобы не конфликтовал с высотой */
+	.mission-col--center {
+		top: clamp(200px, 24vh, 280px); /* гибкое позиционирование заголовка */
+		max-width: 880px; /* чуть уже, чтобы текст не растягивался */
+	}
+
+	.mission-title {
+		font-size: clamp(54px, 5.2vw, 78px);
+		margin-bottom: 36px;
+	}
+
+	.mission-subtitle {
+		font-size: clamp(18px, 1.45vw, 24px);
+		max-width: 560px;
+	}
+
+	/* Размеры боковых элементов — чуть компактнее */
+	.video-wrapper {
+		width: 19.5vw;
+		max-width: 340px;
+		/* aspect-ratio: 346 / 562; */
+		height: auto;
+	}
+
+	.img-wrapper--top {
+		width: 12.8vw;
+		max-width: 215px;
+		aspect-ratio: 210 / 279;
+	}
+
+	.img-wrapper--bottom {
+		width: 23.8vw;
+		max-width: 415px;
+		aspect-ratio: 430 / 279;
+	}
+}
+/* Адаптация для устройств меньше 1440px */
+@media (max-width: 1439px) {
+	.mission-landing {
+		height: auto;
+		min-height: 100vh;
+		max-height: none;
+		padding-bottom: 60px;
+		position: relative;
+		top: 0;
+		margin-top: -4rem; /* Немного уменьшаем наплыв */
+	}
+
+	.mission-container {
+		padding: 0 40px;
+	}
+
+	.mission-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-top: 240px !important;
+		height: auto;
+	}
+
+	/* Расфиксируем центральную колонку, чтобы она не перекрывала боковые */
+	.mission-col--center {
+		position: relative;
+		left: auto;
+		top: auto;
+		transform: none;
+		order: 1; /* Заголовок идет первым */
+		margin-bottom: 60px;
+		max-width: 100%;
+	}
+
+	.mission-title {
+		font-size: clamp(42px, 6vw, 68px);
+		margin-bottom: 30px;
+	}
+
+	.mission-subtitle {
+		font-size: 20px;
+		max-width: 100%;
+	}
+
+	.mission-nav {
+		margin-bottom: 40px;
+	}
+
+	/* Группируем визуал под текстом */
+	.mission-col--left {
+		order: 2;
+		margin-bottom: 40px;
+	}
+
+	.video-wrapper {
+		width: 100%;
+		max-width: 500px;
+		height: auto;
+		aspect-ratio: 16 / 9; /* Для мобильных горизонтальное видео часто лучше, либо сохрани пропорции */
+	}
+
+	.mission-col--right {
+		order: 3;
+		flex-direction: row;
+		gap: 20px;
+		width: 100%;
+		justify-content: center;
+		height: auto;
+	}
+
+	.img-wrapper--top,
+	.img-wrapper--bottom {
+		width: 45%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		margin-top: 0;
+	}
+
+	.img-wrapper img {
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+/* Планшеты и мобильные (до 768px) */
+@media (max-width: 768px) {
+	.mission-landing {
+		border-radius: 40px 40px 0 0;
+		margin-top: -3rem;
+	}
+
+	.mission-container {
+		padding: 0 20px;
+	}
+
+	.mission-title {
+		font-size: 34px;
+		letter-spacing: -0.02em;
+	}
+
+	.mission-subtitle {
+		font-size: 18px;
+	}
+
+	.mission-col--right {
+		display: none;
+	}
+
+	.img-wrapper--top,
+	.img-wrapper--bottom {
+		width: 100%;
+		max-width: 350px;
+	}
+
+	.video-wrapper {
+		aspect-ratio: 346 / 562; /* Возвращаем вертикальный формат для мобилок */
+	}
+	.video-wrapper.desktop-only {
+		display: none !important;
+	}
+	.ins-video-slider-container.mobile-only {
+		display: block !important;
+		margin: 30px 0; /* Отступы для слайдера в тексте */
+	}
+	.ins-video-slider-container .image-wrapper img {
+		border-radius: 22px;
+		height: 100%;
+		aspect-ratio: 346 / 555;
+	}
+	.mission-title {
+		font-size: 4rem !important;
+	}
+	.mission-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-top: 50% !important;
+		height: auto;
+	}
+	.mission-col--left {
+		display: none;
+	}
+	.video-wrapper.dekstop_only {
+		display: none;
+	}
+}

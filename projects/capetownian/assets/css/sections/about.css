@@ -1,0 +1,335 @@
+/* sections/about.css */
+
+/* ДЕСКТОПНЫЕ СТИЛИ (КАК БЫЛИ) */
+.about-section {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	margin-top: -6.6rem;
+	border-top-left-radius: 6.6rem;
+	border-top-right-radius: 6.6rem;
+	background-color: var(--c-white);
+	color: var(--c-black);
+	padding: 8rem 0 10rem 0;
+	overflow: hidden;
+	box-shadow: 0 -1rem 4rem rgba(0, 0, 0, 0.05);
+	max-height: 108rem;
+}
+.about-section.mission {
+	background-color: transparent;
+	background-image: url(/assets/img/background.png);
+	border-radius: 0;
+}
+.bg-line-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.line-bg-about {
+	position: absolute;
+	top: 7%;
+	left: 0;
+	width: 90%;
+	height: auto;
+	opacity: 1;
+}
+
+.about__container {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 1fr 2.4fr 1fr;
+	gap: 4rem;
+	align-items: center;
+	padding-bottom: 15rem;
+}
+
+.about__col--video {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+	height: 100%;
+}
+
+.video-wrapper {
+	position: relative;
+	width: 36rem;
+	height: 47.8rem;
+	border-radius: 2.2rem;
+	overflow: hidden;
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+	flex-shrink: 0;
+	cursor: pointer; /* подсказка, что область кликабельна */
+}
+
+.about-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+	background: #000; /* запасной фон на время загрузки */
+}
+
+.video-cover {
+	position: absolute;
+	inset: 0; /* top:0; left:0; right:0; bottom:0; */
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.25); /* лёгкий оверлей вместо #000 */
+	transition: background-color 0.4s ease;
+	pointer-events: none; /* пропускаем клики сквозь оверлей */
+}
+
+.video-cover:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Убрал .video-poster — он больше не нужен, т.к. обложка теперь через оверлей + видео само по себе */
+
+.play-btn {
+	position: absolute;
+	bottom: 3rem;
+	left: 3rem;
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+	background-color: var(--c-orange);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	transition:
+		transform 0.3s ease,
+		opacity 0.3s ease;
+	z-index: 3;
+	pointer-events: auto; /* только кнопка реагирует на клики */
+}
+
+.play-btn:hover {
+	transform: scale(1.1);
+}
+
+/* Когда видео играет — можно сделать кнопку чуть прозрачнее (опционально) */
+.play-btn.is-playing {
+	opacity: 0.85; /* или 0.7, если хочешь сильнее приглушить */
+}
+
+/* Иконки внутри кнопки */
+.play-btn svg {
+	width: 24px; /* подогнал под твои 6rem */
+	height: 24px;
+}
+
+.play-btn .pause-icon {
+	display: none; /* по умолчанию скрыта */
+}
+
+.play-btn.is-playing .play-icon {
+	display: none;
+}
+
+.play-btn.is-playing .pause-icon {
+	display: block;
+}
+.about__col--content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding-top: 14rem;
+}
+h2 strong,
+h3 strong {
+	color: var(--c-orange);
+}
+.about-title {
+	font-family: var(--f-head);
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 1;
+	letter-spacing: -0.05em;
+	margin-bottom: 3rem;
+	text-align: center;
+}
+.about-title strong {
+	font-weight: 600;
+	color: var(--c-orange);
+}
+.text-orange {
+	color: var(--c-orange);
+}
+
+.about-desc {
+	font-family: var(--f-body);
+	font-weight: 400;
+	font-size: 2.4rem;
+	line-height: 1.3;
+	letter-spacing: -0.05em;
+	text-align: center;
+	width: 100%;
+	max-width: 66rem;
+	margin-bottom: 4rem;
+	color: var(--c-black);
+}
+
+.about__col--images {
+	position: relative;
+	height: 100%;
+	min-height: 60rem;
+}
+
+.image-stack {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.img-card {
+	position: absolute;
+	overflow: hidden;
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+}
+
+.img-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.img-card--top {
+	width: 21rem;
+	height: 27.9rem;
+	border-radius: 2.2rem;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.img-card--bottom {
+	width: 42rem;
+	height: 28rem;
+	border-radius: 2.2rem;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+}
+
+/* === MOBILE ADAPTIVE === */
+@media (max-width: 768px) {
+	.bg-line-wrapper {
+		display: none;
+	}
+	/* 1. Отключаем Sticky и правим отступы */
+	.about-section {
+		position: relative; /* Убрал sticky, чтобы не ломалось */
+		top: auto;
+		margin-top: -3.2rem;
+		padding: 6rem 0 8rem 0;
+		max-height: none; /* Убрал ограничение высоты */
+		border-top-left-radius: 3.2rem;
+		border-top-right-radius: 3.2rem;
+	}
+
+	.about-section .bg-line-wrapper {
+		top: 33%;
+		width: 220%;
+	}
+
+	/* 2. Контейнер: Вертикальная колонка, без паддингов для слайдера */
+	.about-mobile.container {
+		display: flex !important;
+		flex-direction: column;
+		padding: 0;
+		gap: 4rem;
+		width: 100%;
+	}
+
+	/* 3. Блок с текстом */
+	.about-mobile__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 0 2rem;
+	}
+
+	/* Типографика */
+	.about-mobile__content .about-title {
+		font-size: 4rem; /* Адекватный размер для мобилки */
+		line-height: 1.1;
+		margin-bottom: 2rem;
+	}
+
+	.about-mobile__content .about-title br {
+		display: none;
+	}
+
+	.about-mobile__content .about-desc {
+		font-size: 1.8rem;
+		line-height: 1.5;
+		margin-bottom: 3rem;
+		max-width: 100%;
+	}
+
+	/* Кнопка */
+	.about-mobile__content .btn {
+		width: fit-content !important;
+	}
+
+	/* 4. Слайдер */
+	.about-mobile__slider {
+		display: flex;
+		gap: 1.6rem;
+		overflow-x: auto;
+		padding: 0 2rem;
+		width: 100%;
+
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+
+		scrollbar-width: none;
+	}
+
+	.about-mobile__slider::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Карточка в слайдере */
+	.about-card {
+		flex: 0 0 85%;
+		width: 85%;
+		aspect-ratio: 4 / 5;
+		height: auto;
+		border-radius: 2.4rem;
+		overflow: hidden;
+		scroll-snap-align: center;
+		position: relative;
+		box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+		background-color: #eee;
+	}
+
+	.about-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	.about-desc br {
+		display: none;
+	}
+	.video-wrapper-mobile {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+}

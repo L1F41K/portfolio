@@ -1,0 +1,210 @@
+.format-target-section {
+	background-color: var(--c-orange, #de7e34);
+	padding: 100px 0;
+	color: #fff;
+	overflow: hidden; /* Чтобы слайды не создавали горизонтальный скролл страницы */
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px; /* Наползание на предыдущую оранжевую секцию */
+	position: relative;
+	z-index: 32;
+	padding-bottom: 160px;
+}
+
+.format-target-wrapper {
+	display: flex;
+	gap: 60px;
+	align-items: flex-start;
+}
+
+.format-target-aside {
+	flex: 0 0 450px; /* Фиксированная ширина левой части */
+}
+
+.format-target-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	line-height: 1.1;
+	font-weight: 600;
+	margin-bottom: 60px;
+}
+
+.format-target-subtitle {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+/* Слайдер */
+.format-target-slider {
+	flex: 1;
+	min-width: 0;
+	position: relative;
+
+	/* УБИРАЕМ overflow: visible !important; */
+	/* ВМЕСТО НЕГО: */
+	overflow: hidden;
+
+	/* Если хочешь, чтобы слайды ПЛОТНО прижимались к заголовку при скролле, 
+     но не заезжали на него: */
+	padding-right: 100vw; /* Даем запас вправо для отрисовки */
+	margin-right: -100vw; /* Компенсируем этот запас, чтобы не было скролла */
+}
+
+.format-card {
+	background: #fff;
+	border-radius: 32px;
+	padding: 40px;
+	color: #000;
+	height: auto; /* Карточки будут одной высоты в ряду */
+	display: flex;
+	flex-direction: column;
+}
+
+.format-card__num {
+	font-size: 78px;
+	font-weight: 600;
+	color: var(--c-orange);
+	line-height: 1;
+	margin-bottom: 24px;
+	display: block;
+}
+
+.format-card__title {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.3;
+	margin-bottom: 20px;
+}
+
+.format-card__text {
+	font-size: 18px;
+	line-height: 1.3;
+	color: var(--c-black);
+}
+.testimonials-section.format {
+	z-index: 32;
+}
+.faq-section.format {
+	z-index: 33;
+}
+.js-format-target-slider {
+	overflow: visible !important; /* Внутри обертки разрешаем вылет */
+	clip-path: inset(
+		0 -100vw 0 0
+	); /* Магия: обрезает всё, что СЛЕВА от блока, но разрешает ВСЁ справа */
+}
+.format-target-aside {
+	flex: 0 0 450px;
+	position: relative;
+	z-index: 40;
+}
+.format-target-controls {
+	display: flex;
+	gap: 12px;
+	margin-top: 40px;
+}
+.format-btn-prev,
+.format-btn-next {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background-color: #fff;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: var(--c-black);
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+	.format-target-wrapper {
+		flex-direction: column;
+		display: block; /* Упрощаем поток для мобилок */
+	}
+	.format-target-aside {
+		flex: none;
+		width: 100%;
+		margin-bottom: 40px;
+		position: relative;
+		z-index: 1; /* Опускаем заголовок ниже кнопок слайдера */
+	}
+	.js-format-target-slider {
+		overflow: visible !important;
+		clip-path: none !important; /* Отключаем обрезку, она блокирует клики */
+		touch-action: pan-y; /* Помогает браузеру понять, что свайп вправо-влево — это Swiper */
+	}
+
+	.format-target-slider {
+		width: 100%;
+		overflow: visible !important;
+		margin-right: 0; /* Убираем десктопные хаки */
+		padding-right: 0;
+	}
+	/* Общий фикс для кнопок, чтобы они всегда были сверху */
+	.format-target-controls {
+		position: relative;
+		z-index: 50; /* Выше всего остального */
+		pointer-events: auto;
+	}
+
+	.format-btn-prev,
+	.format-btn-next {
+		pointer-events: auto; /* Гарантируем кликабельность */
+	}
+	.uniq-tour-lead {
+		font-size: 18px;
+	}
+	.ut-card__gallery.swiper {
+		width: auto;
+	}
+	.ut-card__gallery .swiper-wrapper .swiper-slide {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100% !important;
+		margin: 0;
+	}
+	.ut-card__gallery .ut-card__image {
+		width: 100% !important;
+		display: block;
+		object-fit: cover; /* Чтобы не было искажений, если пропорции контейнера и фото разные */
+	}
+	.format-target-subtitle {
+		font-size: 18px;
+	}
+}
+/* Контейнер слайдера должен позволять слайдам быть своей ширины */
+.js-format-target-slider .swiper-slide {
+	width: 85%; /* На мобилках */
+	height: auto; /* Чтобы работало выравнивание по высоте */
+}
+
+@media (min-width: 768px) {
+	.js-format-target-slider .swiper-slide {
+		width: 45%; /* На планшетах примерно 2.2 слайда */
+	}
+}
+
+@media (min-width: 1200px) {
+	.js-format-target-slider .swiper-slide {
+		/* На десктопе фиксируем ширину так, чтобы на 1440px влезало ~2.5 карточки, 
+       а на 1920px ~3.2. Ширина 400-450px — золотая середина */
+		width: 420px;
+	}
+}
+
+/* Если хочешь, чтобы на ОЧЕНЬ больших экранах карточки были чуть шире */
+@media (min-width: 1600px) {
+	.js-format-target-slider .swiper-slide {
+		width: 480px;
+	}
+}
+
+/* Убедись, что обертка слайдера не обрезает контент раньше времени */
+.format-target-slider {
+	overflow: visible !important;
+}

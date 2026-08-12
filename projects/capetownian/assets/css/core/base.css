@@ -1,0 +1,92 @@
+@charset "UTF-8";
+html {
+	font-size: var(--scale-desktop);
+	scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+	html {
+		font-size: var(--scale-tablet);
+	}
+}
+
+@media (max-width: 540px) {
+	html {
+		font-size: var(--scale-mobile);
+	}
+}
+html,
+body {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+body {
+	font-family: var(--f-body);
+	font-size: 16px;
+	color: var(--c-black);
+	background-color: var(--c-white);
+	margin: 0;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	transition: 0.3s ease;
+}
+
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-family: inherit;
+	color: inherit;
+}
+
+img,
+video {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	max-width: 176rem;
+	margin: 0 auto;
+	z-index: 1;
+}
+h1 strong {
+	color: var(--c-orange);
+}
+/* Скрываем мобильные элементы на десктопе */
+.mobile-only {
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+	/* Скрываем десктопные элементы на мобилке */
+	.desktop-only {
+		display: none !important;
+	}
+
+	/* Показываем мобильные элементы */
+	.mobile-only {
+		display: flex !important;
+	}
+}

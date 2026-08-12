@@ -1,0 +1,81 @@
+/* === FX: анимированные фоновые паттерны (чёрно-жёлтая тема) ===
+   Движение сделано через transform у GPU-слоя (не background-position),
+   поэтому кадры не вызывают перерисовку и не грузят CPU.
+   Слой перекрывает секцию с запасом (overscan), чтобы шов при сдвиге не был виден. */
+
+/* Диагональные «движущиеся полосы» — для янтарных секций (эффект строительной ленты) */
+.fx-diagonal {
+	position: relative;
+	overflow: hidden;
+}
+.fx-diagonal > * {
+	position: relative;
+	z-index: 1; /* контент секции — над паттерном */
+}
+.fx-diagonal::before {
+	content: '';
+	position: absolute;
+	inset: -40px; /* overscan на один тайл, чтобы скрыть шов */
+	z-index: 0;
+	pointer-events: none;
+	background-image: linear-gradient(
+		45deg,
+		rgba(0, 0, 0, 0.05) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(0, 0, 0, 0.05) 50%,
+		rgba(0, 0, 0, 0.05) 75%,
+		transparent 75%
+	);
+	background-size: 34px 34px;
+	will-change: transform;
+	animation: fx-stripe 6s linear infinite;
+}
+@keyframes fx-stripe {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(34px, 34px, 0); /* ровно один тайл — бесшовный цикл */
+	}
+}
+
+/* Дрейфующая точечная сетка — для тёмных секций (янтарь на чёрном) */
+.fx-dots {
+	position: relative;
+	overflow: hidden;
+}
+.fx-dots > * {
+	position: relative;
+	z-index: 1;
+}
+.fx-dots::before {
+	content: '';
+	position: absolute;
+	inset: -40px;
+	z-index: 0;
+	pointer-events: none;
+	background-image: radial-gradient(
+		rgba(255, 184, 0, 0.22) 1.4px,
+		transparent 1.6px
+	);
+	background-size: 34px 34px;
+	will-change: transform;
+	animation: fx-drift 24s linear infinite;
+}
+@keyframes fx-drift {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(34px, 68px, 0);
+	}
+}
+
+/* Уважаем системную настройку «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+	.fx-diagonal::before,
+	.fx-dots::before {
+		animation: none;
+	}
+}

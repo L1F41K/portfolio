@@ -1,0 +1,146 @@
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2.4rem 4.8rem;
+	border-radius: 6rem;
+	font-size: 2rem;
+	font-weight: 400;
+	transition: 0.3s;
+	line-height: 1;
+}
+
+.btn svg {
+	transition: transform 0.3s ease;
+}
+
+.btn:hover svg {
+	transform: rotate(180deg);
+}
+
+.btn--primary {
+	background: var(--c-yellow);
+	color: var(--c-on-accent);
+	display: flex;
+	gap: 2rem;
+	padding: 2.4rem 3rem 2.4rem 3.4rem;
+}
+
+.btn--primary svg {
+	width: auto;
+}
+
+.btn--primary--white {
+	background: var(--c-white);
+	color: var(--c-black);
+}
+
+.btn--primary--border {
+	background: var(--c-white);
+	border: 0.1rem solid var(--c-orange);
+	color: var(--c-black);
+}
+
+.btn--primary--border:hover {
+	background: var(--c-yellow);
+	color: var(--c-on-accent);
+}
+
+.btn--primary:hover {
+	opacity: 0.9;
+}
+
+.btn--outline {
+	border: 0.1rem solid rgba(255, 255, 255, 0.4);
+	color: var(--c-white);
+}
+
+.btn--outline:hover {
+	border-color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+	.btn {
+		width: fit-content !important;
+		align-self: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.modal .cta-section {
+		padding-top: 10rem;
+	}
+	.modal .cta-section .cta__col--right {
+		margin-right: 0 !important;
+	}
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	display: flex; /* Возвращаем flex для центровки */
+	align-items: center; /* Центровка по вертикали */
+	justify-content: center; /* Центровка по горизонтали */
+	overflow-y: auto;
+	overflow-x: hidden;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s ease;
+	padding: 40px 20px; /* Отступы от краев экрана */
+}
+
+.modal.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(5px);
+	z-index: -1;
+}
+
+.modal__content {
+	position: relative;
+	width: 100%;
+	background: #fff;
+	border-radius: 40px;
+	z-index: 1001;
+	margin: auto; /* Важно для корректного скролла при flex-центровке */
+	overflow: hidden; /* Чтобы скругление углов применялось к внутреннему контенту */
+}
+
+/* Скругление снизу только для секции внутри модалки */
+.modal .cta-section {
+	border-radius: 0 0 40px 40px; /* Скругление только снизу */
+	/* Если нужно, чтобы и фон формы/картинки не вылезал: */
+	overflow: hidden;
+}
+.modal .cta-section .cta__col--right {
+	margin-right: 4rem;
+}
+.modal__close {
+	position: absolute; /* Внутри модалки лучше абсолют, если контент не гигантский */
+	top: 20px;
+	right: 2rem;
+	background: white;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	z-index: 1002;
+	border: none;
+}

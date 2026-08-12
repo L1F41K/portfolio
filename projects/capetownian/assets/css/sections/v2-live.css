@@ -1,0 +1,235 @@
+.v2-live-section {
+	padding: 100px 0;
+	background-color: var(--c-cream);
+	border-radius: 66px 66px 0 0;
+	z-index: 25;
+	position: relative;
+	margin-top: -6.6rem;
+	padding-bottom: 140px;
+}
+
+.v2-live-grid {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 6rem;
+	align-items: flex-start;
+}
+
+/* --- Sticky блок для заголовка и текста --- */
+.v2-live-col-left {
+	position: sticky;
+	top: 10rem; /* Отступ от верхнего края экрана */
+	align-self: start;
+	height: fit-content;
+}
+.v2-arrow.live {
+	border: 1px solid #eeeeee;
+}
+.v2-arrow.live:hover {
+	border: 1px solid var(--c-orange);
+}
+.v2-arrow.live:hover svg path {
+	stroke: var(--c-orange);
+}
+.v2-live-title {
+	font-family: 'Inter Tight', sans-serif !important;
+	font-weight: 600 !important;
+	font-size: 7.8rem !important;
+	line-height: 100% !important;
+	letter-spacing: -0.05em !important;
+	margin-bottom: 3.2rem;
+	color: var(--c-black);
+}
+
+.v2-live-title .c-orange {
+	color: var(--c-orange);
+}
+
+.v2-text-lead {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 400;
+	font-size: 2.4rem;
+	line-height: 1.3;
+	color: var(--c-purple);
+	max-width: 42rem;
+}
+
+/* --- Правый контент --- */
+.v2-live-content {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.v2-live-header {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 3rem;
+}
+
+/* Изображения по ТЗ */
+.v2-live-img {
+	width: 528.5px !important;
+	height: 378px !important;
+	border-radius: 32px;
+	object-fit: cover;
+	display: block;
+}
+
+.v2-live-slider.swiper {
+	width: 100%;
+	overflow: visible; /* Чтобы слайды плавно уходили вправо */
+	margin-bottom: 6rem;
+}
+
+.v2-live-slider .swiper-slide {
+	width: auto; /* Оставляем ширину картинки 528.5px */
+}
+
+/* Инфо-карточка */
+.v2-live-info-card {
+	background: #fff;
+	border-radius: 32px;
+	padding: 6rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+}
+
+.v2-live-info-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.v2-live-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+.v2-live-list li {
+	font-size: 18px;
+	position: relative;
+	padding-left: 2.5rem;
+}
+
+.v2-live-list li::before {
+	content: '\2022';
+	color: var(--c-orange);
+	position: absolute;
+	left: 0;
+	font-weight: bold;
+}
+
+/* Белый баббл */
+.v2-live-bubble {
+	width: 100%;
+	background: var(--c-cream);
+	border-radius: 20px;
+	padding: 3.2rem;
+	align-self: flex-start;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Легкая тень для объема */
+}
+
+.v2-live-bubble p {
+	font-size: 18px;
+	margin: 0;
+	line-height: 1.4;
+}
+
+/* Адаптив: убираем sticky на мобилках */
+/* --- Адаптация для ноутбуков (до 1439px) --- */
+@media (max-width: 1439px) {
+	.v2-live-title {
+		font-size: clamp(4.2rem, 5.5vw, 6.4rem) !important;
+	}
+
+	.v2-live-img {
+		width: 440px !important; /* Уменьшаем картинки пропорционально */
+		height: 315px !important;
+	}
+}
+
+/* --- Адаптация для смартфонов (до 784px) --- */
+@media (max-width: 784px) {
+	.v2-live-section {
+		padding: 60px 0;
+		margin-top: -40px;
+		border-radius: 40px 40px 0 0;
+		padding-bottom: 120px;
+	}
+
+	.v2-live-grid {
+		grid-template-columns: 1fr; /* Колонки в один ряд */
+		gap: 0;
+	}
+
+	/* Левая колонка (Заголовок) */
+	.v2-live-col-left {
+		position: relative; /* Убираем sticky */
+		top: 0;
+		padding: 0 20px;
+		margin-bottom: 40px;
+		text-align: left;
+	}
+
+	.v2-live-title {
+		font-size: 40px !important;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.v2-text-lead {
+		font-size: 18px !important;
+		max-width: 100%;
+		text-align: center;
+	}
+
+	/* Правая колонка (Слайдер и карточка) */
+	.v2-live-header {
+		display: none;
+	}
+
+	/* Слайдер на мобилках */
+	.v2-live-slider.swiper {
+		padding: 0 20px; /* Отступ для первого слайда */
+		margin-bottom: 40px;
+	}
+
+	.v2-live-img {
+		width: 280px !important; /* Компактные картинки на мобилке */
+		height: 200px !important;
+		border-radius: 20px;
+	}
+
+	/* Инфо-карточка */
+	.v2-live-info-card {
+		margin: 0 20px; /* Чтобы карточка не прилипала к краям экрана */
+		padding: 32px 24px;
+		gap: 24px;
+		border-radius: 24px;
+	}
+
+	.v2-live-info-title {
+		font-size: 24px;
+	}
+
+	.v2-live-list li {
+		font-size: 16px;
+	}
+
+	.v2-live-bubble {
+		padding: 16px 20px;
+		align-self: stretch; /* Баббл на всю ширину */
+	}
+
+	.v2-live-bubble p {
+		font-size: 16px;
+	}
+}

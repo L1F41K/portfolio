@@ -1,0 +1,72 @@
+/* 1. Ядро и переменные */
+@import url('./core/variables.css');
+@import url('./core/base.css');
+@import url('./core/ui.css');
+@import url('./core/fx.css');
+
+/* 2. Основные модули сайта */
+@import url('./modules/header.css');
+@import url('./modules/article.css');
+
+/* 3. Секции (по порядку появления на сайте) */
+@import url('./sections/hero.css');
+@import url('./sections/about.css');
+@import url('./sections/destinations.css');
+@import url('./sections/world.css');
+@import url('./sections/founder.css');
+@import url('./sections/reviews.css');
+@import url('./sections/testimonials.css');
+@import url('./sections/how.css');
+@import url('./sections/steps.css');
+@import url('./sections/cta.css');
+
+@import url('./sections/misson.css');
+@import url('./sections/insufficient.css');
+@import url('./sections/route.css');
+@import url('./sections/origin.css');
+@import url('./sections/details.css');
+@import url('./sections/regions.css');
+@import url('./sections/format.css');
+@import url('./sections/practice.css');
+@import url('./sections/feedback.css');
+@import url('./sections/faq.css');
+@import url('./sections/v2-africa.css');
+@import url('./sections/v2-about.css');
+@import url('./sections/v2-suit.css');
+@import url('./sections/v2-live.css');
+@import url('./sections/v2-itinerary.css');
+@import url('./sections/v2-program.css');
+@import url('./sections/v2-team.css');
+@import url('./sections/v2-travel-diff.css');
+@import url('./sections/v2-benefits.css');
+@import url('./sections/v2-payment.css');
+@import url('./sections/blog.css');
+@import url('./sections/uniq.css');
+@import url('./sections/intro-start.css');
+@import url('./sections/format-target.css');
+/* 4. Подвал */
+@import url('./modules/footer.css');
+
+/* Расширяем мета-боксы */
+.postbox {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Делаем поля ввода шире */
+#acf-group_направления .acf-field,
+#acf-group_направления .acf-input {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Увеличиваем textarea для тезисов */
+textarea {
+    min-height: 120px !important;
+    width: 100% !important;
+}
+
+/* Для тегов */
+.acf-field[data-name="tegi"] .acf-input {
+    width: 100% !important;
+}

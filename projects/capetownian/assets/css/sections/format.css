@@ -1,0 +1,384 @@
+/* ============================================================
+   FORMATS SECTION
+   ============================================================ */
+.formats-section {
+	position: relative;
+	background-color: var(--c-cream); /* Светло-бежевый фон */
+	padding: 120px 0;
+	overflow: hidden;
+	z-index: 24;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem; /* Наплыв на предыдущую секцию */
+}
+
+/* Линия на фоне */
+.formats-bg-overflow-clipping {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.formats-svg-line {
+	position: absolute;
+	bottom: -290px;
+}
+
+.formats-container {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 60px;
+	padding: 0 90px;
+}
+
+/* Левая колонка с текстом */
+.formats-info {
+	max-width: 480px;
+	/* Можно добавить position: sticky; top: 100px; если нужно зафиксировать */
+}
+.feedback-section.format .feedback-container {
+	align-items: flex-start;
+}
+.feedback-section.format .feedback-container .how-photo-wrapper img {
+	bottom: -17%;
+}
+.formats-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 78px;
+	line-height: 1;
+	font-weight: 600;
+	color: var(--c-black);
+	margin-bottom: 40px;
+}
+
+.formats-title .highlight {
+	color: var(--c-orange);
+}
+
+.formats-main-text {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 20px;
+	color: var(--c-black);
+}
+
+.formats-sub-text {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 18px;
+	line-height: 1.4;
+	color: var(--c-purple);
+}
+
+/* Правая колонка: Сетка карточек */
+.formats-grid-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.formats-top-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	align-items: stretch; /* Растягивает все карточки до одной высоты */
+}
+
+.format-card {
+	background: #fff;
+	border-radius: 30px;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+/* Вторая карточка: Видео/Фото сверху, текст прижат к низу */
+.format-card.card-reverse {
+	justify-content: flex-start;
+}
+
+.format-card.card-reverse .format-card-content {
+	margin-top: auto; /* Выталкивает контент вниз */
+	padding-top: 20px;
+}
+
+.format-number {
+	display: block;
+	font-size: 64px;
+	font-weight: 600;
+	color: var(--c-orange);
+	line-height: 1;
+	margin-bottom: 20px;
+}
+
+.format-card-title {
+	font-size: 28px;
+	font-weight: 500;
+	line-height: 1.1;
+	margin-bottom: 15px;
+	color: var(--c-black);
+}
+.formats-title b {
+	color: var(--c-orange);
+}
+.format-card-desc {
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--c-black);
+	margin-bottom: 20px;
+}
+
+/* Контейнер для изображений */
+.format-card-media {
+	width: 100%;
+	border-radius: 20px;
+	overflow: hidden;
+	margin-top: auto; /* Для 1 и 3 карточки прижимает фото вниз */
+}
+
+.format-card.card-reverse .format-card-media {
+	margin-top: 0;
+	margin-bottom: 20px; /* Для 2 карточки фото остается сверху */
+}
+
+.format-card-media img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	display: block;
+}
+
+/* Нижняя широкая карточка (Новый дизайн) */
+.formats-bottom-wide-card {
+	background: var(--c-orange);
+	border-radius: 40px;
+	padding: 30px;
+	display: grid;
+	grid-template-columns: 1fr 2.3fr; /* Заголовок слева, список справа */
+
+	align-items: center;
+}
+
+.wide-card-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	line-height: 1.1;
+	font-weight: 600;
+	color: var(--c-white);
+	max-width: 290px;
+}
+
+.wide-card-list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.wide-card-list li {
+	font-size: 16px;
+	line-height: 1.4;
+	position: relative;
+	padding-left: 15px;
+	color: var(--c-white);
+	letter-spacing: -0.05em;
+}
+
+.wide-card-list li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 10px;
+	width: 6px;
+	height: 6px;
+	background-color: var(--c-white);
+	border-radius: 50%;
+}
+
+/* ============================================================
+   RESPONSIVE (1440px - 1920px)
+   ============================================================ */
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.formats-container {
+		padding: 0 4.68vw;
+		gap: 3.12vw;
+	}
+
+	.formats-title {
+		font-size: 4.06vw;
+	}
+
+	.wide-card-title {
+		font-size: 24px;
+	}
+
+	.wide-card-list li {
+		font-size: 1vw;
+	}
+
+	.format-card {
+		padding: 1.56vw;
+		border-radius: 1.56vw;
+	}
+
+	.format-card-title {
+		font-size: 1.45vw;
+	}
+}
+/* --- АДАПТАЦИЯ (1439px - 1025px) --- */
+@media (max-width: 1439px) {
+	.formats-container {
+		padding: 0 40px;
+		gap: 40px;
+		grid-template-columns: 1fr 1.8fr;
+	}
+
+	.formats-title {
+		font-size: 56px;
+	}
+
+	.formats-top-cards {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 15px;
+	}
+
+	.format-card {
+		padding: 20px;
+	}
+
+	.format-card-title {
+		font-size: 22px;
+	}
+	.formats-section {
+		margin-top: -10rem;
+	}
+}
+
+/* --- ТАБЛЕТЫ (1024px - 769px) --- */
+@media (max-width: 1024px) {
+	.formats-container {
+		grid-template-columns: 1fr; /* В одну колонку */
+		display: flex;
+		flex-direction: column;
+	}
+
+	.formats-info {
+		max-width: 100%;
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	.formats-top-cards {
+		grid-template-columns: 1fr 1fr 1fr; /* Пока держим 3 в ряд */
+	}
+
+	.formats-bottom-wide-card {
+		grid-template-columns: 1fr; /* Широкая карточка в одну колонку */
+		text-align: center;
+		gap: 20px;
+	}
+
+	.wide-card-title {
+		max-width: 100%;
+	}
+
+	.wide-card-list {
+		text-align: left;
+		display: inline-block;
+		margin: 0 auto;
+	}
+}
+
+/* --- МОБИЛЬНЫЕ (768px и ниже) --- */
+@media (max-width: 768px) {
+	.formats-section {
+		padding: 80px 0;
+		border-radius: 40px 40px 0 0;
+		margin-top: -40px;
+	}
+
+	.formats-container {
+		padding: 0 20px;
+	}
+
+	/* Заголовок по твоему требованию: 4rem */
+	.formats-title {
+		font-size: 4rem;
+		line-height: 1.1;
+		margin-bottom: 25px;
+	}
+
+	.formats-main-text {
+		font-size: 20px;
+	}
+
+	/* Карточки в одну колонку */
+	.formats-top-cards {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.format-card {
+		height: auto;
+		padding: 25px;
+	}
+
+	/* Для второй карточки убираем реверс на мобилках, 
+     чтобы все выглядели одинаково: Номер -> Заголовок -> Текст -> Фото */
+	.format-card.card-reverse {
+		flex-direction: column;
+	}
+
+	.format-card.card-reverse .format-card-media {
+		order: 4; /* Переносим медиа вниз */
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+
+	.format-card.card-reverse .format-card-content {
+		order: 1;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.format-number {
+		font-size: 48px;
+		margin-bottom: 20px;
+	}
+
+	.format-card-title {
+		font-size: 24px;
+		font-weight: 500;
+	}
+
+	.format-card-media img {
+		height: 180px; /* Немного ниже на мобилках */
+	}
+
+	.formats-bottom-wide-card {
+		padding: 25px;
+		border-radius: 30px;
+	}
+
+	.wide-card-title {
+		font-size: 24px;
+	}
+
+	.wide-card-list li {
+		font-size: 16px;
+	}
+
+	/* Скрываем или уменьшаем SVG линию, чтобы не мешала скроллу */
+	.formats-svg-line {
+		width: 150%;
+		left: -25%;
+		bottom: -100px;
+	}
+	.v2-breadcrumbs {
+		display: none;
+	}
+}

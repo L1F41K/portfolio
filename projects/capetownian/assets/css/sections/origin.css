@@ -1,0 +1,285 @@
+.origin-section {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0; /* Секция прилипает к верху экрана */
+
+	background-color: var(--c-orange);
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px;
+	z-index: 20;
+
+	/* Высота секции должна быть больше экрана, чтобы было куда скроллить */
+	min-height: 110vh;
+	padding: 140px 0; /* Твой паддинг снизу */
+	padding-bottom: 350px;
+}
+
+.origin-container {
+	/* Внутренний контейнер тоже sticky, чтобы контент не уезжал, 
+     пока мы идем по длинному пути паддинга секции */
+	position: -webkit-sticky;
+	position: sticky;
+	top: 120px;
+	z-index: 5;
+	padding: 0 90px;
+}
+
+/* Карта в этом случае будет двигаться вместе с телом секции */
+.origin-bg {
+	position: absolute;
+	bottom: -38%;
+	left: 566px;
+	z-index: 1;
+	pointer-events: none;
+}
+.world-map-svg {
+	width: 400%;
+	max-width: none;
+	height: auto;
+	object-fit: contain;
+}
+
+/* СЕТКА НА 5 КОЛОНОК */
+.origin-grid-5 {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 40px;
+	align-items: start;
+}
+
+/* Колонка заголовка (2 из 5) */
+.origin-col--title {
+	grid-column: span 2;
+}
+
+.origin-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 0.95;
+	letter-spacing: -0.04em;
+	color: #fff;
+}
+
+/* Колонка текста (3 из 5) */
+.origin-col--text {
+	grid-column: span 3;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	padding-left: 20px; /* Небольшой отступ от заголовка */
+	max-width: 600px;
+}
+
+.origin-description {
+	max-width: 620px; /* Чтобы текст не растягивался слишком широко */
+	color: #fff;
+}
+
+.text-main {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.3;
+	margin-bottom: 24px;
+	letter-spacing: -0.01em;
+}
+
+.text-secondary {
+	font-family: 'Inter', sans-serif;
+	font-size: 18px;
+	line-height: 1.4;
+	letter-spacing: -0.08em;
+}
+
+/* Белая плашка */
+.origin-quote-card {
+	background: #fff;
+	border-radius: 40px;
+	padding: 32px;
+	max-width: 620px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.origin-quote-card p {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.3;
+	color: #1a1a1a;
+	margin: 0;
+}
+
+.origin-quote-card p strong {
+	color: var(--c-orange);
+	font-weight: 500 !important;
+}
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.origin-section {
+		/* Скругления и отступы масштабируются */
+		border-radius: 3.43vw 3.43vw 0 0;
+		margin-top: -3.43vw;
+		padding: 7.29vw 0;
+		padding-bottom: 18.22vw; /* 350px при 1920px */
+		min-height: 110vh;
+	}
+
+	.origin-container {
+		/* Резиновые паддинги сторон */
+		padding: 0 4.68vw;
+		top: 6.25vw; /* 120px при 1920px */
+	}
+
+	/* КАРТА НА ФОНЕ */
+	.origin-bg {
+		/* Используем vw для позиционирования карты, чтобы она не "уплывала" */
+		left: 23.4vw;
+		bottom: -19.4vw;
+		width: 65vw; /* Ограничиваем ширину, чтобы не вылезала за края */
+	}
+
+	.world-map-svg {
+		width: 100%;
+	}
+
+	/* ГИБКАЯ СЕТКА */
+	.origin-grid-5 {
+		/* Соотношение 2:3 остается, но зазоры становятся резиновыми */
+		gap: 2.08vw;
+	}
+
+	.origin-col--text {
+		/* Убираем жесткий padding и даем тексту дышать */
+		padding-left: 1.04vw;
+		max-width: 31.25vw; /* ~600px при 1920px */
+		gap: 2.6vw;
+	}
+
+	.text-main {
+		font-size: 1.25vw; /* ~24px */
+		margin-bottom: 1.25vw;
+	}
+
+	.text-secondary {
+		font-size: 0.93vw; /* ~18px */
+	}
+
+	/* БЕЛАЯ ПЛАШКА */
+	.origin-quote-card {
+		border-radius: 2.08vw;
+		padding: 1.66vw;
+		max-width: 32.29vw; /* ~620px */
+	}
+
+	.origin-quote-card p {
+		font-size: 1.25vw;
+	}
+}
+/* --- ПЛАНШЕТЫ (от 769px до 1439px) --- */
+@media (max-width: 1439px) {
+	.origin-section {
+		position: relative;
+		top: auto;
+		min-height: auto;
+		padding: 100px 0;
+		padding-bottom: 150px;
+		border-radius: 40px 40px 0 0;
+		margin-top: -40px;
+	}
+
+	.origin-container {
+		position: relative;
+		top: auto;
+		padding: 0 40px; /* На планшетах даем чуть больше воздуха по бокам */
+	}
+
+	.origin-grid-5 {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		align-items: center; /* Центрируем содержимое колонки */
+	}
+
+	.origin-col--title,
+	.origin-col--text {
+		grid-column: span 5;
+		padding-left: 0;
+		max-width: 800px; /* Ограничиваем ширину для читаемости при центрировании */
+		text-align: center;
+	}
+
+	.origin-col--title {
+		margin: 0 auto;
+	}
+
+	.origin-description,
+	.origin-quote-card {
+		max-width: none;
+	}
+
+	.origin-title {
+		text-align: center;
+	}
+
+	.origin-bg {
+		left: 25px;
+		bottom: -75%;
+		width: 100%;
+		opacity: 0.2;
+		overflow: hidden;
+	}
+	.world-map-svg {
+		width: 100%;
+	}
+	.text-main {
+		font-size: 22px;
+	}
+
+	.text-secondary {
+		font-size: 18px;
+		letter-spacing: normal;
+	}
+
+	.origin-quote-card {
+		padding: 32px;
+		border-radius: 32px;
+	}
+}
+
+/* --- ТЕЛЕФОНЫ (768px и ниже) --- */
+@media (max-width: 768px) {
+	.origin-section {
+		padding: 60px 0;
+		padding-bottom: 100px;
+	}
+
+	.origin-container {
+		padding: 0 20px;
+	}
+
+	.origin-title {
+		font-size: 4rem;
+		line-height: 1.1;
+	}
+
+	.origin-grid-5 {
+		gap: 40px;
+	}
+
+	.text-main {
+		font-size: 18px;
+	}
+
+	.origin-quote-card {
+		padding: 24px;
+		border-radius: 24px;
+	}
+
+	.origin-quote-card p {
+		font-size: 18px;
+	}
+
+	.origin-bg {
+		width: 60%; /* На узких экранах карту раздуваем сильнее */
+	}
+}

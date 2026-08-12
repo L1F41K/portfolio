@@ -1,0 +1,36 @@
+:root {
+	--c-white: #ffffff;
+	--c-black: #000000;
+	/* Оригинальный акцент проекта — оранжевый #ff7b00 (как на боевом сайте capetrip.ru).
+	   Весь акцентный цвет сайта разведён через эти токены, поэтому цвет задаётся тут в одном месте.
+	   --c-yellow оставлен алиасом оранжевого для обратной совместимости со старым кодом. */
+	--c-orange: #ff7b00;
+	--c-orange-deep: #d96400; /* затемнённый оранжевый для hover/градиентов */
+	--c-yellow: var(--c-orange);
+	--c-yellow-deep: var(--c-orange-deep);
+	--c-on-accent: var(--c-black); /* текст поверх акцентного фона (чёрный контраст) */
+	--c-cream: #fff1e3;
+	--c-purple: #3b2f42;
+	--f-head: 'Inter Tight', sans-serif;
+	--f-body: 'Inter', sans-serif;
+	--scale-desktop: 0.520833333vw;
+	--scale-tablet: 1.5vw;
+	--scale-mobile: 2.5vw;
+
+	/* Header variables default */
+	--h-bg: transparent;
+	--h-content: var(--c-white);
+	--h-border: rgba(255, 255, 255, 0.15);
+	--h-btn-bg: transparent;
+	--h-btn-border: rgba(255, 255, 255, 0.3);
+	--h-btn-text: var(--c-white);
+}
+
+.header--invert {
+	--h-bg: var(--c-white);
+	--h-content: var(--c-black);
+	--h-border: rgba(0, 0, 0, 0.1);
+	--h-btn-bg: var(--c-yellow);
+	--h-btn-border: var(--c-yellow);
+	--h-btn-text: var(--c-on-accent);
+}

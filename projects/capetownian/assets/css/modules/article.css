@@ -1,0 +1,874 @@
+.blog-hero-section {
+	position: relative;
+	padding: 180px 0;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	min-height: 80rem;
+	display: flex;
+	align-items: center; /* Текст прижат к низу как на фото */
+	padding-top: 270px;
+}
+
+/* Затемнение фона для читаемости */
+.blog-hero-section::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.2) 0%,
+		rgba(0, 0, 0, 0.6) 100%
+	);
+	z-index: 1;
+}
+
+.blog-hero-section .container {
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+.blog-hero-section .container .v2-breadcrumbs {
+	margin-bottom: 0;
+}
+.blog-hero-section .container .v2-breadcrumbs .nav-link {
+	color: var(--c-white);
+}
+.blog-hero-section .container .v2-breadcrumbs .nav-separator {
+	color: var(--c-white);
+}
+.blog-hero-title {
+	font-size: 7.8rem;
+	font-weight: 600;
+	line-height: 1.1;
+	max-width: 160rem;
+	margin: 6rem 0;
+	text-align: center;
+}
+
+.v2-breadcrumbs {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	font-size: 0.9rem;
+	margin-bottom: 40px;
+}
+
+.v2-breadcrumbs .nav-link {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+}
+
+.v2-breadcrumbs .nav-link.active {
+	color: #fff;
+}
+
+.date-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #fff;
+	color: #000;
+	padding: 8px 16px;
+	border-radius: 50px;
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+.blog-hero-date {
+	text-align: center;
+}
+/* --- Адаптив для планшетов и малых ноутбуков (1439px и ниже) --- */
+@media (max-width: 1439px) {
+	.blog-hero-section {
+		min-height: 60rem; /* Уменьшаем общую высоту */
+		padding-top: 200px;
+		padding-bottom: 100px;
+	}
+
+	.blog-hero-title {
+		font-size: 5.2rem; /* Уменьшаем шрифт заголовка */
+		max-width: 110rem; /* Ограничиваем ширину для читаемости */
+		margin: 4rem 0;
+	}
+}
+
+/* --- Адаптив для мобильных устройств (784px и ниже) --- */
+@media (max-width: 784px) {
+	.blog-hero-section {
+		min-height: 50rem; /* Еще меньше на мобильных */
+		padding-top: 150px; /* Отступ под шапку сайта */
+		padding-bottom: 80px;
+	}
+
+	.blog-hero-title {
+		font-size: 40px; /* Компактный размер для смартфонов */
+		margin: 3rem 0;
+		line-height: 1.2;
+		padding: 0 1rem; /* Доп. отступ, чтобы текст не лип к краям */
+	}
+
+	.v2-breadcrumbs {
+		font-size: 1.4rem; /* Делаем текст крошек чуть крупнее для кликабельности */
+		margin-bottom: 2rem;
+	}
+
+	.date-badge {
+		padding: 6px 14px;
+		font-size: 1.4rem; /* Чуть меньше плашка даты */
+	}
+
+	.date-badge svg {
+		width: 16px;
+		height: 16px; /* Уменьшаем иконку календаря */
+	}
+}
+
+/* Оптимизация для совсем маленьких экранов (по желанию) */
+
+/* POST */
+.post-content-section {
+	padding: 100px 0;
+	background-color: #fff;
+	padding-bottom: 140px;
+}
+
+.post-grid {
+	display: grid;
+	/* Первая колонка 300px, вторая занимает остаток */
+	grid-template-columns: 56.4rem 1fr;
+	gap: 9rem;
+	align-items: start;
+}
+
+/* Фиксация левой колонки */
+.sticky-sidebar {
+	position: sticky;
+	top: 100px; /* Отступ сверху при скролле */
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+/* Текстовый блок, который внутри делится на 2 колонки */
+.post-columns-text {
+	max-width: 85rem;
+}
+
+/* Заголовок внутри текста, который растягивается на 2 колонки */
+.section-title {
+	font-family: 'Inter Tight';
+	font-size: 7.8rem;
+	font-weight: 600;
+	margin: 40px 0 30px;
+	line-height: 1;
+}
+
+/* Стили плашки содержания */
+.post-toc {
+	background: var(--c-cream);
+	padding: 6rem;
+	border-radius: 32px;
+}
+.toc-title {
+	font-family: 'Inter Tight';
+	font-weight: 600;
+	font-size: 36px;
+	margin-bottom: 3.2rem;
+}
+.toc-list {
+	list-style: disc;
+	padding: 0;
+	margin: 0;
+}
+
+.toc-list li {
+	font-family: 'Inter Tight';
+	font-weight: 400;
+	font-size: 18px;
+	margin-bottom: 1.3rem;
+}
+.toc-list li::marker {
+	color: var(--c-orange);
+}
+.toc-list li:hover {
+	color: var(--c-orange);
+}
+/* Автор */
+.post-author {
+	padding: 3.6rem;
+	border-radius: 22px;
+	border: 1px solid #ececec;
+}
+.author-avatar {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	margin-bottom: 15px;
+}
+
+.author-name {
+	font-weight: 700;
+	font-size: 24px;
+	margin-bottom: 8px;
+}
+
+.author-desc {
+	font-size: 18px;
+	color: var(--c-black);
+}
+.author-info svg {
+	margin-top: 1.6rem;
+	transition: transform 0.3s ease;
+}
+.post-author:hover .author-info svg {
+	transform: rotate(45deg);
+}
+
+.post-columns-text p {
+	font-family: 'Inter Tight';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.4;
+}
+.post-columns-text p a {
+	color: var(--c-orange);
+	text-decoration: underline;
+}
+.post-columns-text p span {
+	text-decoration: underline;
+}
+/* Адаптив */
+@media (max-width: 1024px) {
+	.post-grid {
+		grid-template-columns: 1fr; /* На планшетах всё в одну колонку */
+	}
+	.sticky-sidebar {
+		position: static;
+		margin-bottom: 40px;
+	}
+	.post-columns-text {
+		column-count: 1; /* Убираем две колонки текста на малых экранах */
+		max-width: none;
+	}
+	.toc-list {
+		padding-left: 20px;
+	}
+}
+/* POST-INFO */
+.post-info-section {
+	position: relative;
+	z-index: 30;
+	padding: 100px 0;
+	background-color: #fff;
+	padding-bottom: 140px;
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px;
+}
+
+/* Стили для Sticky заголовка */
+.info-sidebar {
+	position: sticky;
+	top: 120px; /* Отступ сверху для эффекта свободного пространства */
+}
+
+.sticky-title {
+	font-size: 4.8rem; /* Крупный акцентный шрифт */
+	font-weight: 600;
+	line-height: 1;
+	margin: 0;
+	letter-spacing: -2px;
+}
+.post-columns-text p {
+	margin-bottom: 30px;
+}
+/* Контентная часть */
+.info-content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	max-width: 90rem;
+}
+.article-card-v2 .card-image {
+	max-width: 341px !important;
+	max-height: 276px !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+.info-image-wrapper {
+	width: 100%;
+}
+
+.info-main-image {
+	width: 100%;
+	height: auto;
+	border-radius: 30px; /* Закругление как на макете */
+	display: block;
+}
+
+.post-info-section.season-prep {
+	background-color: var(
+		--c-cream
+	); /* Нежно-бежевый, если секция должна отличаться */
+}
+.info-text-columns p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: 25px;
+	color: #1a1a1a;
+}
+
+.lead-text {
+	font-size: 1.25rem !important;
+	line-height: 1.4;
+	font-weight: 500;
+}
+.t-text.t-text_md {
+	margin: 30px 0;
+}
+/* Адаптив */
+/* --- Адаптив для планшетов и малых ноутбуков (1439px и ниже) --- */
+@media (max-width: 1439px) {
+	.post-info-section {
+		padding: 8rem 0;
+	}
+
+	/* Переходим на двухколоночную сетку, если у вас используется grid/flex */
+	.post-grid {
+		display: flex;
+		gap: 4rem;
+		padding: 0 4rem;
+	}
+
+	.sticky-title {
+		font-size: 5.2rem; /* Уменьшаем гигантский шрифт */
+		letter-spacing: -1px;
+	}
+
+	.info-content {
+		max-width: 100%; /* Позволяем контенту занять больше места */
+	}
+}
+
+/* --- Адаптив для мобильных устройств (784px и ниже) --- */
+@media (max-width: 784px) {
+	.post-info-section {
+		padding: 6rem 0;
+		margin-top: -40px; /* Уменьшаем отрицательный отступ */
+		border-radius: 40px 40px 0 0;
+		padding-bottom: 0px;
+	}
+
+	.post-grid {
+		display: block; /* Отключаем сетку, всё в один столбец */
+		padding: 0 2rem;
+	}
+
+	.info-sidebar {
+		position: static; /* Отключаем sticky эффект */
+		margin-bottom: 3rem;
+	}
+
+	.sticky-title {
+		font-size: 3.6rem;
+		line-height: 1.1;
+		text-align: left; /* Можно по центру, если стиль требует */
+	}
+
+	.info-image-wrapper {
+		margin-bottom: 2.5rem;
+	}
+
+	.info-main-image {
+		border-radius: 20px; /* Чуть меньше скругление для мобильных */
+	}
+
+	.post-columns-text p {
+		font-size: 16px; /* Стандартный читабельный размер для текста статьи */
+		line-height: 1.5;
+	}
+
+	/* Исправляем отступы между параграфами */
+	.post-columns-text br {
+		display: block;
+		content: '';
+		margin-top: 10px;
+	}
+}
+
+/* Дополнительная правка для совсем узких экранов */
+@media (max-width: 480px) {
+	.post-columns-text {
+		text-align: left; /* Убираем возможную оправку по ширине */
+	}
+}
+/* TELEGRAM */
+.telegram-section {
+	background-color: var(--c-orange); /* Используем ваш оранжевый из конфига */
+	padding: 100px 0;
+	color: white;
+	padding-bottom: 140px;
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px;
+	position: relative;
+	z-index: 31;
+}
+
+/* Переиспользуем сетку из предыдущих этапов */
+.telegram-section .post-grid {
+	display: grid;
+	grid-template-columns: 56.4rem 1fr;
+	gap: 60px;
+	align-items: start;
+}
+
+.telegram-sidebar .sticky-content {
+	position: sticky;
+	top: 100px;
+}
+
+.telegram-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 7.8rem;
+	font-weight: 600;
+	line-height: 1;
+	margin-bottom: 3.6rem;
+	color: var(--c-white);
+	letter-spacing: -0.05em;
+}
+
+.telegram-subtitle {
+	font-size: 2.4rem;
+	line-height: 1.4;
+	margin-bottom: 3.6rem;
+	opacity: 1;
+	letter-spacing: -0.05em;
+}
+
+/* Кнопка с SVG */
+.btn-telegram {
+	display: inline-flex;
+	align-items: center;
+	gap: 15px;
+	padding: 3.2rem 5rem 3.2rem 3.2rem;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 50px;
+	color: white;
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.btn-telegram:hover {
+	background: white;
+	color: var(--c-orange);
+}
+
+.btn-telegram:hover .social-fill {
+	fill: var(--c-orange);
+}
+
+.btn-telegram:hover .social-stroke {
+	stroke: var(--c-orange);
+}
+
+/* Список карточек */
+.ctn-widget__list {
+	display: grid;
+	grid-template-columns: 1fr; /* Карточки идут одна за другой в контентной зоне */
+	gap: 16px;
+	list-style: none;
+	padding: 0;
+}
+
+.ctn-widget__list li {
+	background: white;
+	color: black;
+	padding: 40px;
+	border-radius: 20px;
+	font-size: 2.4rem;
+	line-height: 1.5;
+	position: relative;
+	padding-left: 50px; /* Место для маркера */
+}
+
+/* Маркер карточки */
+.ctn-widget__list li::before {
+	content: '\2022';
+	color: var(--c-orange);
+	font-size: 2rem;
+	position: absolute;
+	left: 25px;
+	top: 38%;
+}
+.post-columns-text ul {
+	padding-left: 30px;
+}
+.post-columns-text ul li {
+	list-style-type: disc;
+	margin: 15px 0;
+	font-size: 21px;
+}
+.ctn-widget__list li a {
+	color: var(--c-orange);
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+/* Адаптив */
+/* --- Адаптив для планшетов и малых ноутбуков (1439px и ниже) --- */
+@media (max-width: 1439px) {
+	.telegram-section {
+		padding: 8rem 0 10rem;
+	}
+
+	.telegram-section .post-grid {
+		grid-template-columns: 1fr 1fr; /* Равные колонки вместо фиксированных rem */
+		gap: 40px;
+		padding: 0 4rem;
+	}
+
+	.telegram-title {
+		font-size: 5.2rem;
+	}
+
+	.tg-card {
+		padding: 30px 30px 30px 45px;
+		font-size: 2rem; /* Немного уменьшаем текст в карточках */
+	}
+}
+
+/* --- Адаптив для мобильных устройств (784px и ниже) --- */
+@media (max-width: 784px) {
+	.telegram-section {
+		padding: 6rem 0 8rem;
+		margin-top: -40px;
+		border-radius: 40px 40px 0 0;
+	}
+	.post-toc {
+		padding: 4rem 2rem;
+	}
+	.telegram-section .post-grid {
+		grid-template-columns: 1fr; /* Одна колонка */
+		gap: 30px;
+		padding: 0 16px;
+	}
+
+	.telegram-sidebar .sticky-content {
+		position: static; /* Отключаем залипание */
+		margin-bottom: 20px;
+	}
+
+	.telegram-title {
+		font-size: 3.4rem;
+		margin-bottom: 2rem;
+		text-align: center;
+		word-break: break-word;
+	}
+
+	.telegram-subtitle {
+		font-size: 1.8rem;
+		margin-bottom: 3rem;
+	}
+
+	.btn-telegram {
+		width: fit-content; /* Кнопка на всю ширину */
+		justify-content: center;
+		padding: 2.4rem 2rem;
+		font-size: 16px;
+		margin: 0 auto;
+		display: flex;
+	}
+
+	.tg-card {
+		padding: 25px 20px 25px 40px;
+		font-size: 1.7rem; /* Компактный текст для мобильных */
+		line-height: 1.4;
+	}
+
+	.tg-card::before {
+		left: 15px;
+		top: 28px; /* Выравниваем маркер по первой строке */
+	}
+	.ctn-widget__list li {
+		display: flex;
+		flex-wrap: wrap; /* Позволяет элементам перепрыгивать на новую строку */
+		gap: 5px; /* Удобный отступ между элементами вместо &nbsp; */
+		padding: 25px 20px 25px 45px;
+		font-size: 18px;
+	}
+}
+
+.post-info-section.turist {
+	z-index: 31;
+}
+/* More Articles */
+.more-articles-section {
+	background-color: var(--c-orange);
+	padding: 100px 0;
+	position: relative;
+	overflow: hidden; /* Чтобы пунктир не вылезал за края */
+	color: white;
+	z-index: 31;
+	padding-bottom: 140px;
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px;
+}
+
+.bg-decor-dashed {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	pointer-events: none;
+	z-index: 1;
+}
+.section-title.text-center {
+	text-align: center;
+	margin-bottom: 6rem;
+}
+.btn-arrow.prev {
+	transform: rotateY(180deg);
+}
+/* Стили карточки */
+.article-card-v2 {
+	background: white;
+	border-radius: 24px;
+	padding: 3.6rem;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	transition: transform 0.3s ease;
+	max-width: 41.3rem;
+}
+.article-card-v2 .card-image {
+	width: auto !important;
+	height: auto !important;
+}
+
+.article-card-v2 .card-title {
+	color: black;
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.3;
+	margin: 0;
+}
+/* 1. Обеспечиваем одинаковую высоту всех карточек в ряду */
+.swiper-slide.article-card-v2 {
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box; /* Чтобы padding не раздувал карточку */
+}
+
+/* 2. Фиксируем пропорции изображения, чтобы заголовки всегда были в одной линии */
+.article-card-v2 .card-image {
+	width: 100%;
+	height: 220px; /* Установите нужную вам высоту */
+	overflow: hidden;
+	border-radius: 12px; /* Если нужно скругление у самой картинки */
+	flex-shrink: 0; /* Чтобы картинка не сжималась */
+}
+
+.article-card-v2 .card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Картинка заполнит область без деформации */
+	display: block;
+}
+.post-columns-text ol li {
+	font-size: 21px;
+	margin-bottom: 20px;
+}
+
+/* 3. Управление телом карточки */
+.article-card-v2 .card-body {
+	flex-grow: 1; /* Заставляет тело карточки занимать все свободное место */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Заголовок сверху, дата снизу */
+	margin-top: 20px;
+}
+
+.article-card-v2 .card-title {
+	margin-bottom: auto; /* Выталкивает дату вниз, если заголовок короткий */
+}
+
+.article-card-v2 .date-badge {
+	margin-top: 2.4rem; /* Немного уменьшил, чтобы не было гигантских дыр */
+	align-self: flex-start; /* Чтобы бейдж не растягивался на всю ширину */
+}
+.date-badge {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: #f0f7f9;
+	padding: 6px 12px;
+	border-radius: 50px;
+	width: fit-content;
+	font-size: 16px !important;
+	color: #444;
+}
+.article-card-v2 .date-badge {
+	margin-top: 3.6rem;
+	background-color: #d9f7ff;
+}
+
+/* Линия управления */
+.slider-controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.nav-arrows {
+	display: flex;
+	gap: 15px;
+}
+
+.btn-arrow {
+	width: 7.5rem;
+	height: 7.5rem;
+	border-radius: 50%;
+	border: none;
+	background: white;
+	cursor: pointer;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--c-white);
+	transition: all 0.4s ease;
+}
+.btn-arrow:hover {
+	background-color: transparent;
+}
+.btn-arrow svg path {
+	transition: all 0.4s ease;
+}
+.btn-arrow:hover svg path {
+	stroke: var(--c-white);
+}
+.btn-all-articles {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	background: var(--c-white);
+	color: black;
+	border: 1px solid var(--c-white);
+	padding: 2.4rem 3.2rem;
+	border-radius: 100px;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 2rem;
+	transition: all 0.4s ease;
+}
+.btn-all-articles:hover {
+	background-color: transparent;
+	color: var(--c-white);
+}
+.btn-all-articles:hover svg {
+	transition: transform 0.4s ease;
+}
+.btn-all-articles:hover svg {
+	transform: rotate(-45deg);
+	stroke: var(--c-white);
+}
+.btn-all-articles svg .btn-stroke {
+	stroke: black; /* перекрашиваем в черный для контраста на белой кнопке */
+}
+/* --- Адаптив для More Articles Section --- */
+
+@media (max-width: 1439px) {
+	.more-articles-section {
+		padding: 8rem 0 10rem;
+	}
+
+	.article-card-v2 {
+		padding: 2.5rem;
+		max-width: 100%; /* Позволяем Swiper управлять шириной */
+	}
+
+	.section-title.text-center {
+		font-size: 4.8rem;
+		margin-bottom: 4rem;
+	}
+	.telegram-section .post-grid {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+	.tg-card {
+		padding: 30px 0;
+	}
+}
+
+@media (max-width: 784px) {
+	.more-articles-section {
+		padding: 6rem 0 8rem;
+		margin-top: -40px;
+		border-radius: 40px 40px 0 0;
+	}
+
+	/* Декоративный пунктир на мобильных может мешать, уменьшаем или скрываем */
+	.bg-decor-dashed {
+		display: none;
+	}
+	.section-title {
+		font-size: 40px;
+		margin-bottom: 4rem;
+	}
+	.section-title.text-center {
+		font-size: 40px;
+		text-align: center; /* На мобилках часто лучше смотрится по левому краю */
+		margin-bottom: 3rem;
+		padding: 0 2rem;
+	}
+
+	.article-card-v2 {
+		padding: 2rem;
+		gap: 15px;
+	}
+
+	.article-card-v2 .card-title {
+		font-size: 18px;
+	}
+
+	/* Перестраиваем панель управления */
+	.slider-controls {
+		gap: 3rem;
+		margin-top: 4rem;
+		padding: 0 2rem;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.nav-arrows {
+		width: 100%;
+	}
+
+	.btn-arrow {
+		width: 6rem;
+		height: 6rem;
+	}
+
+	.btn-all-articles {
+		width: 100%;
+		justify-content: center;
+		padding: 2rem;
+		font-size: 18px;
+	}
+
+	.article-card-v2 .date-badge {
+		margin-top: 2rem;
+	}
+	.post-columns-text ul li {
+		list-style-type: disc;
+		margin: 15px 0;
+		font-size: 16px;
+	}
+}

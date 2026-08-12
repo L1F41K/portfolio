@@ -1,0 +1,384 @@
+.team-section {
+	position: relative;
+	background: #f97316;
+	padding: 100px 0;
+	border-radius: 66px 66px 0 0;
+	margin-top: -66px;
+	overflow: hidden;
+	z-index: 27;
+	padding-bottom: 140px;
+}
+
+.team-title {
+	font-family: 'Inter Tight';
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 1;
+	letter-spacing: -0.04em;
+	text-align: center;
+	color: #fff;
+	margin: 0 auto;
+	margin-bottom: 6rem;
+	max-width: 110rem;
+}
+.team-dashed-line {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30rem;
+	pointer-events: none;
+}
+.team-card {
+	background: var(--c-white);
+	align-items: center;
+	border-radius: 2rem;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	max-width: 57rem;
+	width: 100%;
+	padding-bottom: 0;
+}
+.team-slide {
+	height: auto; /* Позволяет Swiper растягивать слайды */
+	display: flex; /* Чтобы вложенная карточка могла растянуться */
+	flex-shrink: 0; /* Не дает Swiper сжимать слайд меньше контента */
+}
+.team-card h3 {
+	font-family: 'Inter Tight';
+	font-weight: 500;
+	font-size: clamp(24px, 2.2vw, 36px);
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.team-role {
+	font-size: 18px;
+	color: #929292;
+	margin-bottom: 2rem;
+	display: block;
+	text-align: center;
+}
+.v2-about-content-right .video-wrapper-mobile {
+	display: none;
+}
+.team-text {
+	font-family: 'Inter Tight';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.4;
+	text-align: center;
+	vertical-align: center;
+	color: var(--c-purple);
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* количество строк */
+	-webkit-box-orient: vertical;
+
+	overflow: hidden;
+}
+
+.short-text {
+	display: -webkit-box;
+	-webkit-line-clamp: 100;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin-bottom: 2rem;
+}
+.team-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	max-height: 28rem;
+	margin: 2rem auto 0;
+}
+.team-full {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 2rem;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0.97);
+
+	transition:
+		opacity 0.4s ease,
+		transform 0.4s ease,
+		visibility 0.4s;
+
+	z-index: 1000;
+}
+.read-more-team {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.6rem 2.8rem;
+	border-radius: 5rem;
+	border: 1px solid var(--c-orange);
+	background: transparent;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.read-more-team:hover {
+	background: var(--c-orange);
+	color: var(--c-white);
+}
+.team-full.is-visible {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+.team-full-inner {
+	display: flex;
+	gap: 4rem;
+	background: var(--c-white);
+	border-radius: 2rem;
+	padding: 4rem;
+	height: 100%;
+}
+
+.team-full-info {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.team-full-info h3 {
+	font-family: 'Inter Tight';
+	font-weight: 600;
+	font-size: 6.4rem;
+	margin-bottom: 1rem;
+}
+.team-full-info span {
+	font-size: 1.8rem;
+	color: #929292;
+	margin-bottom: 6hrem;
+	display: block;
+	margin-bottom: 6rem;
+}
+.team-full-info p {
+	font-family: 'Inter Tight';
+	font-weight: 400;
+	font-size: 2.4rem;
+	line-height: 1.4;
+	color: var(--c-purple);
+	vertical-align: middle;
+	max-width: 78.5rem;
+}
+.team-full-photo {
+	flex: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.team-full-photo img {
+	max-height: 100%;
+	object-fit: contain;
+}
+.close-full {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	width: 4rem;
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.close-full svg {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.close-full:hover {
+	transform: rotate(90deg);
+	transition: transform 0.3s ease;
+}
+.team-controls {
+	margin-top: 4rem;
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.v2-slider-controls {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.team-about-btn {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.6rem 2.8rem;
+	border-radius: 5rem;
+	border: 1px solid #fff;
+	background: #fff;
+	font-size: 1.6rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.team-about-btn:hover {
+	background-color: transparent;
+	color: #fff;
+}
+
+.team-plus {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.team-full.is-visible {
+	pointer-events: auto;
+}
+
+.team-full {
+	pointer-events: none;
+}
+.team-whatsapp {
+	display: inline-flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 2.4rem 3.2rem;
+	border-radius: 100px;
+	border: 0.1rem solid var(--c-orange);
+	background: #fff;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: auto; /* вот это теперь сработает */
+	align-self: flex-start;
+}
+
+.team-whatsapp:hover {
+	background-color: var(--c-orange);
+	color: var(--c-white);
+}
+.team-whatsapp:hover .team-plus {
+	color: var(--c-white);
+}
+.team-whatsapp .team-plus {
+	margin-bottom: 0;
+	display: flex;
+	color: var(--c-black);
+}
+@media (max-width: 784px) {
+	.team-section {
+		padding: 60px 0 100px;
+		border-radius: 40px 40px 0 0;
+		margin-top: -40px;
+		padding-bottom: 80px;
+	}
+
+	.team-title {
+		font-size: 3.4rem;
+		margin-bottom: 4rem;
+		padding: 0 2rem;
+	}
+
+	.team-card {
+		padding: 2.4rem;
+		padding-bottom: 0;
+		max-width: 100%;
+	}
+	.team-slider {
+		overflow: hidden;
+	}
+	.team-card h3 {
+		font-size: 2.8rem;
+	}
+	.team-dashed-line {
+		display: none;
+	}
+	.team-photo {
+		max-height: 25rem;
+	}
+
+	/* Попап на мобилке */
+	.team-full {
+		position: fixed; /* На мобилке фиксируем на весь экран */
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 1000;
+		padding: 2rem;
+		background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+	}
+	.team-slide {
+		width: 100% !important;
+	}
+	.team-full-inner {
+		flex-direction: column;
+		padding: 3rem 2rem;
+		gap: 2rem;
+		overflow-y: auto;
+		height: 100%;
+		position: relative;
+		margin-top: 4rem;
+	}
+	.team-whatsapp {
+		margin: auto auto;
+	}
+	.team-full-info h3 {
+		font-size: 3.2rem;
+	}
+
+	.team-full-info span {
+		margin-bottom: 2rem;
+	}
+
+	.team-full-info p {
+		font-size: 1.8rem;
+		max-width: 100%;
+	}
+
+	.team-full-photo {
+		align-items: center;
+	}
+
+	.team-full-photo img {
+		max-height: 250px;
+	}
+
+	.team-controls {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+	.team-controls .v2-slider-controls {
+		margin-top: 0;
+		display: flex !important;
+		justify-content: flex-start;
+	}
+	.testi-body .short-text {
+		font-size: 14px;
+		-webkit-line-clamp: 100;
+	}
+	.team-about-btn {
+		justify-content: center;
+		/* НОВОЕ: */
+		white-space: nowrap; /* Запрещаем перенос текста */
+		width: max-content; /* Кнопка будет шириной ровно по тексту */
+		flex-shrink: 0; /* Запрещаем кнопке сжиматься, если места мало */
+	}
+	.team-section .container {
+		padding: 0 20px;
+	}
+}
+@media (max-width: 450px) {
+	.team-photo {
+		max-height: 23rem;
+	}
+}

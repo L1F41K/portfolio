@@ -1,0 +1,712 @@
+/* === SECTION 5: FOUNDER === */
+.founder-section {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	margin-top: -6.6rem;
+	background-color: var(--c-cream);
+	border-top-left-radius: 6.6rem;
+	border-top-right-radius: 6.6rem;
+	padding-top: 10rem;
+	padding-bottom: 0;
+	overflow: hidden;
+}
+
+.founder-section .bg-line-wrapper img {
+	position: absolute;
+	bottom: 10%;
+	top: auto;
+	right: auto;
+	z-index: 0;
+	width: 120rem;
+	left: 0;
+}
+
+.founder-bg-line {
+	position: absolute;
+	top: 10rem;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.founder-bg-line svg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.founder__container {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 1fr 1.6fr 1fr; /* Центр чуть шире для фото */
+	align-items: center; /* Выравнивание по центру по вертикали */
+	min-height: 70rem;
+}
+
+/* === КОЛОНКИ === */
+.founder__col {
+	position: relative;
+}
+
+/* Левая колонка */
+.founder__col--left {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	align-self: start; /* Прижимаем контент к верху */
+}
+
+.founder-title {
+	font-family: var(--f-head);
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+	margin-bottom: 4rem;
+}
+.founder-section.misson .info-card__text {
+	font-weight: 700 !important;
+}
+.founder-role {
+	font-family: var(--f-body);
+	font-size: 1.8rem;
+	opacity: 0.7;
+}
+
+/* Карточка Instagram */
+.insta-card {
+	background-color: var(--c-white);
+	border-radius: 3rem;
+	padding: 2.5rem;
+	width: 100%;
+	max-width: 34rem;
+	transition: transform 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.insta-card__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.insta-avatar {
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.insta-btn {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background-color: var(--c-orange);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease;
+	transform: rotate(-45deg);
+}
+
+.insta-card:hover .insta-btn {
+	transform: rotate(0);
+}
+
+.insta-handle {
+	display: block;
+	font-family: var(--f-head);
+	font-weight: 700;
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+}
+
+.insta-desc {
+	font-size: 1.8rem;
+	line-height: 1.4;
+}
+
+/* Центральная колонка (Фото) */
+.founder__col--center {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 100%;
+}
+
+.founder-photo {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.founder__col--right {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	align-self: start;
+}
+.mission-card {
+	background-color: var(--c-white);
+	border-radius: 3rem;
+	padding: 4rem;
+}
+
+.mission-text-block {
+	margin-bottom: 3rem;
+}
+
+.mission-text-block p {
+	font-size: 1.6rem;
+	line-height: 1.5;
+	margin-bottom: 2rem;
+	opacity: 0.9;
+}
+
+.mission-text-block p:last-child {
+	margin-bottom: 0;
+}
+
+.mission-highlight {
+	font-family: var(--f-head);
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.3;
+	margin-bottom: 4rem;
+}
+
+/* sections/founder.css -> MOBILE ADAPTIVE */
+
+@media (max-width: 768px) {
+	/* 1. СЕКЦИЯ */
+	.founder-section {
+		position: relative;
+		top: auto;
+		margin-top: -3.2rem;
+		padding: 6rem 0 8rem 0;
+		border-top-left-radius: 3.2rem;
+		border-top-right-radius: 3.2rem;
+		min-height: auto;
+	}
+
+	/* 2. КОНТЕЙНЕР */
+	.founder__container {
+		display: flex;
+		flex-direction: column;
+		gap: 0; /* Отступы будем задавать самим элементам */
+		padding: 0 2rem;
+	}
+
+	/* === ПОРЯДОК ЭЛЕМЕНТОВ (ORDER) === */
+
+	/* 1. Заголовок (в самом верху) */
+	.founder-header {
+		order: 1;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	/* 2. Фото (под заголовком) */
+	.founder-photo-wrapper {
+		order: 2;
+		width: 90%;
+		display: flex;
+		justify-content: center;
+	}
+
+	/* 3. Инста-карточка (под фото) */
+	.insta-card {
+		order: 3;
+		width: 100%;
+		max-width: 100%;
+		margin-bottom: 4rem; /* Отступ до блока миссии */
+	}
+
+	/* 4. Блок миссии (в самом низу) */
+	.mission-card {
+		order: 4;
+		width: 100%;
+		padding: 3rem; /* Уменьшаем отступы внутри */
+	}
+
+	/* === ТИПОГРАФИКА И ДЕТАЛИ === */
+
+	.founder-title {
+		font-size: 4rem;
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+
+	.founder-role {
+		font-size: 1.8rem;
+		opacity: 0.8;
+	}
+
+	.founder-photo {
+		width: 85%; /* Чуть меньше ширины экрана */
+		height: auto;
+		display: block;
+	}
+
+	.mission-text-block p {
+		font-size: 1.6rem;
+	}
+
+	.mission-highlight {
+		font-size: 1.8rem;
+	}
+
+	/* Кнопка миссии сжимается по тексту */
+	.mission-btn {
+		width: fit-content !important;
+		margin: 0 !important; /* Центрируем, если она стала блочной */
+	}
+
+	/* Фон */
+	.founder-section .bg-line-wrapper img {
+		opacity: 0.2;
+		left: -20%;
+	}
+}
+/* === SECTION 5: FOUNDER (BLACK-YELLOW THEME) === */
+.founder-section.misson {
+	position: relative;
+	background-color: var(--c-orange); /* оранжевый акцент проекта */
+	overflow: hidden;
+	color: var(--c-black); /* чёрный текст на жёлтом — максимальный контраст */
+
+	z-index: 22;
+}
+
+/* Движущиеся диагональные полосы (тот же приём, что и в destinations) */
+.founder-section.misson::before {
+	content: '';
+	position: absolute;
+	inset: -40px;
+	z-index: 0;
+	pointer-events: none;
+	background-image: linear-gradient(
+		45deg,
+		rgba(0, 0, 0, 0.05) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(0, 0, 0, 0.05) 50%,
+		rgba(0, 0, 0, 0.05) 75%,
+		transparent 75%
+	);
+	background-size: 34px 34px;
+	will-change: transform;
+	animation: fx-stripe 6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+	.founder-section.misson::before {
+		animation: none;
+	}
+}
+.mission-highlight strong {
+	color: var(--c-black);
+}
+.founder-section.misson .founder__container {
+	display: grid;
+	grid-template-columns: 1fr 1.9fr 1fr;
+	gap: 20px;
+	align-items: flex-end;
+	position: relative;
+	z-index: 2;
+}
+
+/* --- ЦИТАТА (СЛЕВА) --- */
+.founder-section.misson .founder-quote {
+	margin-bottom: 230px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.founder-section.misson .quote-icon {
+	opacity: 0.8;
+}
+
+.founder-section.misson .quote-text {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	line-height: 1.2;
+	font-weight: 500;
+	max-width: 300px;
+}
+
+/* --- КАРТОЧКИ (БЕЛЫЕ) --- */
+.founder-section.misson .info-card,
+.contact-card {
+	background: #fff;
+	border-radius: 30px;
+	padding: 36px;
+	color: #1a1a1a;
+	margin-bottom: 40px;
+	max-width: 440px;
+}
+
+.founder-section.misson .info-card__text,
+.contact-card__title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 1.3;
+	letter-spacing: -0.05em;
+	margin-bottom: 20px;
+	max-width: 368px;
+}
+
+.founder-section.misson .info-card__subtext {
+	font-size: 18px;
+	margin-bottom: 30px;
+	max-width: 368px;
+}
+
+/* Кнопки и ссылки */
+.founder-section.misson .btn-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: var(--c-black);
+	border: 1px solid var(--c-black);
+	color: var(--c-yellow);
+	padding: 24px 48px;
+	border-radius: 50px;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: -0.05em;
+	transition: all 0.3s ease;
+}
+
+.founder-section.misson .btn-link:hover,
+.founder-section.misson .btn-orange:hover {
+	background: #1a1a1a;
+	transform: translateY(-2px);
+}
+
+.founder-section.misson .btn-orange {
+	width: 100%;
+	max-width: 295px;
+	background: var(--c-black);
+	color: var(--c-yellow);
+	border: 1px solid var(--c-black);
+	padding: 24px 48px;
+	border-radius: 50px;
+	font-size: 18px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	gap: 10px;
+}
+
+/* Инста-тег внутри правой карточки */
+.founder-section.misson .insta-tag-card {
+	background: #fef4e9;
+	border-radius: 20px;
+	padding: 25px;
+	display: block;
+	text-decoration: none;
+	color: #1a1a1a;
+	margin-bottom: 20px;
+}
+.founder-section.misson .insta-tag-card:hover .small-btn {
+	transform: rotate(0deg);
+}
+
+.founder-section.misson .insta-tag-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.founder-section.misson .handle {
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.small-btn {
+	width: 30px;
+	height: 30px;
+	background: var(--c-black);
+	color: var(--c-yellow);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease;
+	transform: rotate(-45deg);
+}
+
+/* --- ЦЕНТР (ФОТО) --- */
+.founder-section.misson .founder__col--center {
+	height: 100%;
+}
+
+.founder-section.misson .founder-photo {
+	width: 100%; /* Выходим за пределы колонки */
+	max-width: none; /* Убираем лимит в 1160px */
+	display: block;
+	z-index: 5;
+}
+
+/* Линия на фоне */
+.founder-section.misson .bg-line-wrapper img {
+	position: absolute;
+	bottom: 196px;
+	left: 0;
+	z-index: 1;
+	pointer-events: none;
+}
+/* Анимация при наведении */
+.founder-section.misson .btn-orange:hover,
+.founder-section.misson .btn-link:hover {
+	background-color: transparent;
+	color: var(--c-black);
+}
+.founder-section.misson .btn-orange svg,
+.founder-section.misson .btn-link svg {
+	transition: transform 0.3s ease;
+}
+/* Стили для SVG внутри кнопки */
+.founder-section.misson .btn-orange .btn-stroke,
+.founder-section.misson .btn-link .btn-stroke {
+	stroke: white;
+	transition: stroke 0.3s;
+}
+.founder-section.misson .btn-orange:hover .btn-stroke,
+.founder-section.misson .btn-link:hover .btn-stroke {
+	stroke: var(--c-black);
+}
+/* Если хочешь эффект вращения или движения стрелки как в хедере */
+.founder-section.misson .btn-orange:hover svg,
+.founder-section.misson .btn-link:hover svg {
+	transform: rotate(180deg);
+}
+@media (max-width: 1900px) and (min-width: 1440px) {
+	/* --- КОНТЕЙНЕР --- */
+	.founder-section.misson .founder__container {
+		display: grid;
+		/* Оставляем 3 колонки, но с резиновыми пропорциями */
+		grid-template-columns: 1fr 1.9fr 1fr;
+		gap: 1.04vw; /* 20px */
+	}
+
+	/* --- ЛЕВАЯ КОЛОНКА (Цитата) --- */
+	.founder-section.misson .founder-quote {
+		margin-bottom: 11.97vw; /* ~230px */
+		gap: 1.04vw;
+	}
+
+	.founder-section.misson .quote-text {
+		font-size: 1.25vw; /* 24px */
+		max-width: 15.6vw; /* ~300px */
+	}
+
+	.founder-section.misson .quote-icon {
+		width: 2.5vw; /* Масштабируем иконку кавычек */
+		height: auto;
+	}
+
+	/* --- ПРАВАЯ КОЛОНКА (Карточки) --- */
+	.founder-section.misson .info-card,
+	.contact-card {
+		border-radius: 1.56vw; /* 30px */
+		padding: 1.87vw; /* 36px */
+		margin-bottom: 2.08vw; /* 40px */
+		max-width: 22.9vw; /* 440px */
+	}
+
+	.founder-section.misson .info-card__text,
+	.contact-card__title {
+		font-size: 1.25vw; /* 24px */
+		margin-bottom: 1.04vw;
+		max-width: 19.16vw; /* 368px */
+	}
+
+	.founder-section.misson .info-card__subtext {
+		font-size: 0.93vw; /* 18px */
+		margin-bottom: 1.56vw;
+	}
+
+	/* КНОПКИ (Резиновые размеры) */
+	.founder-section.misson .btn-link,
+	.founder-section.misson .btn-orange {
+		padding: 1.25vw 2.5vw; /* Вместо 24px 48px */
+		font-size: 0.93vw; /* ~18-20px */
+		border-radius: 2.6vw;
+		max-width: 100%; /* Чтобы не вылезали за карточку */
+	}
+
+	.founder-section.misson .small-btn {
+		width: 1.56vw;
+		height: 1.56vw;
+		font-size: 0.8vw;
+	}
+
+	/* --- ЦЕНТР (ФОТО) --- */
+	.founder-section.misson .founder-photo {
+		/* Фото занимает всю ширину центральной колонки и масштабируется */
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	/* Линия на фоне */
+	.founder-section.misson .bg-line-wrapper img {
+		bottom: 10.1vw; /* ~196px */
+		width: 100vw; /* Линия на всю ширину */
+		left: 0;
+	}
+}
+/* --- ПЛАНШЕТЫ (1439px и ниже) --- */
+@media (max-width: 1439px) {
+	.founder-section.misson {
+		padding: 80px 0 0 0; /* Убираем нижний паддинг, так как фото прижато к низу */
+		margin-top: -50px;
+		border-radius: 40px 40px 0 0;
+		padding-bottom: 80px;
+	}
+
+	.founder-section.misson .founder__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+		padding: 0 40px;
+	}
+
+	/* Порядок элементов для логики повествования */
+	.founder__col--left {
+		order: 1;
+		width: 100%;
+	}
+	.founder__col--right {
+		order: 3;
+		width: 100%;
+	}
+	.founder__col--center {
+		order: 2;
+		width: 100%;
+	} /* Фото уходит в самый низ, к краю секции */
+
+	.founder-header {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.founder-section.misson .info-card,
+	.contact-card {
+		max-width: 700px;
+		margin: 0 auto 30px auto;
+		text-align: center;
+	}
+
+	.founder-section.misson .info-card__text,
+	.contact-card__title,
+	.founder-section.misson .info-card__subtext {
+		max-width: 100%;
+	}
+
+	.founder-section.misson .founder-quote {
+		margin-bottom: 40px;
+		justify-content: center;
+		text-align: left;
+	}
+
+	.founder-section.misson .btn-link,
+	.founder-section.misson .btn-orange {
+		margin: 0 auto;
+	}
+
+	/* Фото внизу секции */
+	.founder-section.misson .founder-photo {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.founder-section.misson .bg-line-wrapper img {
+		display: none; /* Линия на фоне будет только мешать на узких экранах */
+	}
+	.tag-desc {
+		font-size: 2.4rem;
+	}
+}
+
+/* --- ТЕЛЕФОНЫ (768px и ниже) --- */
+@media (max-width: 768px) {
+	.founder-section.misson {
+		padding-top: 60px;
+		padding-bottom: 100px !important;
+	}
+
+	.founder-section.misson .founder__container {
+		padding: 0 20px;
+		gap: 0;
+	}
+
+	.founder-title {
+		font-size: 4rem;
+	}
+
+	.founder-section.misson .info-card,
+	.contact-card {
+		padding: 24px;
+		border-radius: 24px;
+	}
+
+	.founder-section.misson .info-card__text,
+	.contact-card__title {
+		font-size: 20px;
+	}
+	.founder-section.misson .info-card {
+		order: 2;
+	}
+	.founder-section.misson .founder-quote {
+		order: 3;
+	}
+	.founder-section.misson .quote-text {
+		font-size: 18px;
+	}
+
+	.founder-section.misson .btn-link,
+	.founder-section.misson .btn-orange {
+		width: 100%;
+		padding: 20px;
+		font-size: 18px;
+		justify-content: center;
+		max-width: 90%;
+	}
+
+	.founder-section.misson .insta-tag-card {
+		padding: 20px;
+		text-align: left;
+	}
+
+	.founder-section.misson .founder-photo {
+		width: 100%; /* На мобилке фото на всю ширину */
+	}
+	.founder__col--left {
+		gap: 40px;
+	}
+	.info-card {
+		margin-bottom: 0;
+	}
+	.founder-header {
+		margin-bottom: 0;
+	}
+	.tag-desc {
+		font-size: 1.6rem;
+	}
+}

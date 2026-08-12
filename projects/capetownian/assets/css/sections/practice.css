@@ -1,0 +1,290 @@
+.mission-practice-section {
+	position: relative;
+	background-color: var(--c-white);
+	padding: 140px 0;
+	overflow: hidden;
+	z-index: 25; /* Выше предыдущей секции */
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+}
+
+/* Фоновая пунктирная линия */
+.mission-bg-overflow {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.mission-line-container {
+	width: 100%;
+	height: 100%;
+}
+
+.mission-svg-path {
+	position: absolute;
+	right: 120px;
+	top: 20px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+}
+
+/* Контейнер сетки */
+.mission-practice-container {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 1.2fr 1.5fr 1fr; /* 3 колонки */
+	gap: 80px;
+	padding: 0 90px;
+}
+
+/* Колонки */
+.practice-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 72px;
+	line-height: 0.95;
+	font-weight: 600;
+	color: var(--c-black);
+}
+.practice-title p b {
+	color: var(--c-orange);
+}
+.practice-title .highlight {
+	color: var(--c-orange);
+}
+
+.practice-lead {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.3;
+	margin-bottom: 30px;
+}
+
+.practice-main-text {
+	font-size: 18px;
+	line-height: 1.5;
+	color: var(--c-purple);
+	margin-bottom: 36px;
+}
+
+/* CTA Блок */
+.mission-cta-block {
+	background: #fff5ed;
+	padding: 40px;
+	border-radius: 30px;
+}
+
+.mission-cta-block p {
+	font-family: 'Inter Tight', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+/* КНОПКА МИССИИ */
+.btn-mission {
+	display: inline-flex;
+	align-items: center;
+	gap: 15px;
+	background: var(--c-orange);
+	color: var(--c-white);
+	padding: 24px 48px;
+	border-radius: 100px;
+	text-decoration: none;
+	font-weight: 500;
+	/* Анимация самой кнопки */
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		transform 0.3s ease;
+}
+
+/* Иконка стрелки внутри кнопки */
+.btn-mission svg {
+	/* Плавный переход для трансформации и цвета, как в твоем примере */
+	transition: transform 0.3s ease;
+}
+
+.btn-mission svg path {
+	stroke: var(--c-white);
+	transition: stroke 0.3s ease;
+}
+
+/* HOVER ЭФФЕКТ */
+.btn-mission:hover {
+	background-color: transparent;
+	color: var(--c-black);
+	box-shadow: inset 0 0 0 1px var(--c-orange); /* Тонкая рамка при наведении */
+}
+
+/* Плавный переворот SVG при наведении на кнопку */
+.btn-mission:hover svg {
+	transform: rotate(180deg);
+}
+
+/* Меняем цвет стрелки при наведении */
+.btn-mission:hover .btn-stroke {
+	stroke: var(--c-black);
+}
+
+/* КОЛОНКА 3: Изображения по вашим размерам */
+.mission-col-images {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	align-items: flex-end; /* Прижимаем к правому краю */
+	padding-top: 40px;
+}
+
+.practice-img-wrapper {
+	width: 165px; /* Размер по вашему запросу */
+	height: 165px;
+	border-radius: 40px;
+	overflow: hidden;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.practice-img-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Наклоны карточек */
+.rotate-right {
+	transform: rotate(16deg);
+}
+.rotate-left {
+	transform: rotate(-16deg);
+}
+
+/* Адаптив для широких экранов */
+@media (max-width: 1920px) and (min-width: 1440px) {
+	.practice-title {
+		font-size: 3.6vw;
+	}
+
+	/* Делаем размер картинок чуть более "резиновым" на огромных экранах, 
+     либо можно оставить фикс 165px, если это критично по макету */
+	.practice-img-wrapper {
+		width: 8.59vw;
+		height: 8.59vw;
+		border-radius: 2vw;
+	}
+}
+/* --- СРЕДНИЕ ЭКРАНЫ (до 1440px) --- */
+@media (max-width: 1439px) {
+	.mission-practice-container {
+		padding: 0 40px;
+		gap: 40px;
+		grid-template-columns: 1.2fr 1.5fr 0.5fr; /* Сужаем колонку с картинками */
+	}
+
+	.practice-title {
+		font-size: 56px;
+	}
+
+	.mission-col-images {
+		gap: 30px;
+	}
+	.btn-mission {
+		font-size: 16px;
+	}
+}
+
+/* --- ПЛАНШЕТЫ (до 1024px) --- */
+@media (max-width: 1024px) {
+	.mission-practice-container {
+		grid-template-columns: 1fr; /* Переход в одну колонку */
+		gap: 50px;
+	}
+
+	.mission-col-title,
+	.mission-col-text {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.mission-col-images {
+		flex-direction: row; /* На планшетах картинки в ряд, а не в колонку */
+		justify-content: center;
+		align-items: center;
+		padding-top: 0;
+	}
+
+	.practice-img-wrapper {
+		width: 140px;
+		height: 140px;
+	}
+	.mission-bg-overflow {
+		display: none;
+	}
+}
+
+/* --- МОБИЛЬНЫЕ (до 768px) --- */
+@media (max-width: 768px) {
+	.mission-practice-section {
+		padding: 80px 0;
+		border-radius: 40px 40px 0 0;
+		margin-top: -40px;
+		padding-bottom: 100px;
+	}
+
+	.mission-practice-container {
+		padding: 0 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	/* Заголовок 4rem по твоему правилу */
+	.practice-title {
+		font-size: 4rem;
+		line-height: 1.1;
+		text-align: center;
+	}
+
+	.practice-lead {
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.practice-main-text {
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.mission-cta-block {
+		padding: 30px 20px;
+		text-align: left;
+	}
+
+	.mission-cta-block p {
+		font-size: 24px;
+		text-align: left;
+	}
+
+	.btn-mission {
+		width: auto;
+		display: inline-flex;
+		padding: 18px 32px; /* Чуть компактнее для мобилок */
+		align-self: flex-start;
+	}
+
+	/* УБИРАЕМ ИЗОБРАЖЕНИЯ НА МОБИЛКАХ */
+	.mission-col-images {
+		display: none;
+	}
+
+	/* Прячем или сильно уменьшаем фоновую линию */
+	.mission-svg-path {
+		opacity: 0.2;
+		right: -50px;
+		transform: scale(0.7);
+	}
+}

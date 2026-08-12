@@ -1,0 +1,661 @@
+/* Основная секция */
+.itinerary-section {
+	position: relative;
+	padding: 100px 0;
+	overflow: visible;
+	background-color: #fff;
+	z-index: 26;
+	border-radius: 66px 66px 0 0;
+	margin-top: -6.6rem;
+	padding-bottom: 140px;
+}
+
+/* Пунктир на фоне */
+.itinerary-bg-path {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	z-index: 1;
+	pointer-events: none;
+}
+.itinerary-title {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 600;
+	font-size: 7.8rem;
+	line-height: 100%;
+	letter-spacing: -0.04em;
+}
+.itinerary-title span {
+	color: var(--c-black);
+}
+.itinerary-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6rem;
+	position: relative;
+	z-index: 2;
+}
+
+/* Слайд: связка бейджа и карточки */
+.itinerary-item {
+	display: flex !important; /* Чтобы стояли в ряд */
+	gap: 30px;
+	width: auto; /* Для Swiper slidesPerView: 'auto' */
+	align-items: flex-start;
+	position: relative;
+	z-index: 1;
+}
+
+/* Левый блок (Бейдж) */
+.itinerary-badge {
+	width: 310px;
+	padding: 30px;
+	border-radius: 20px;
+	flex-shrink: 0;
+}
+
+/* Правый блок (Карточка) */
+.itinerary-card {
+	width: 528px; /* 468px видео + padding 30px с двух сторон */
+	padding: 30px;
+	border-radius: 30px;
+	flex-shrink: 0;
+}
+.card-body h3 {
+	font-family: 'Inter Tight';
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 100%;
+	margin: 3rem 0;
+}
+.card-body p {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 140%;
+	color: var(--c-purple);
+
+	/* По умолчанию — обрезанный текст */
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 100; /* примерно 155-160px */
+	-webkit-box-orient: vertical;
+
+	transition: all 0.4s ease;
+}
+/* Когда раскрываем — полностью убираем обрезание */
+.card-body p.expanded {
+	display: block !important;
+	-webkit-line-clamp: unset !important;
+	-webkit-box-orient: unset !important;
+	overflow: visible !important;
+	max-height: none !important;
+	height: auto !important;
+
+	/* Дополнительная страховка для мобильных браузеров */
+	padding-bottom: 20px;
+}
+/* Цвета из твоего HTML */
+.badge-orange,
+.card-orange {
+	background-color: #fff2e7;
+}
+.badge-green,
+.card-green {
+	background-color: #e6ffd9;
+}
+
+/* Видео строго по ТЗ */
+.itinerary-card .video-container {
+	/* Вместо фиксированной ширины даем заполниться всей карточке */
+	width: 100%;
+	/* Ограничиваем максимальную ширину из макета */
+	max-width: 468px;
+	/* Устанавливаем соотношение сторон (ширина / высота) */
+	aspect-ratio: 468 / 250;
+
+	border-radius: 20px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+
+.video-container video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.itinerary-card .video-container {
+	padding-top: 0;
+}
+/* Элементы внутри */
+.day-label {
+	display: block;
+	font-size: 36px;
+	font-weight: 500;
+	color: var(--c-orange);
+	margin-bottom: 3rem;
+}
+
+.feature-tag {
+	font-family: 'Inter Tight', sans-serif;
+	display: inline-block;
+	font-size: 12px;
+	text-transform: uppercase;
+	background: #fff;
+	padding: 4px 12px;
+	border-radius: 20px;
+	margin-bottom: 2rem;
+	color: #000;
+}
+.feature-descr {
+	font-family: 'Inter Tight';
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 140%;
+}
+.read-more {
+	margin-top: 3rem;
+	padding: 2.4rem 3.2rem;
+	border: 1px solid var(--c-orange);
+	border-radius: 50px;
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 400;
+	font-size: 2rem;
+	color: #000; /* Цвет текста */
+	transition: all 0.3s ease;
+}
+
+/* Стили для SVG внутри кнопки */
+.read-more svg {
+	flex-shrink: 0;
+	transition: transform 0.3s ease;
+}
+
+/* Эффект при наведении */
+.read-more:hover {
+	background-color: var(--c-orange);
+	color: #fff;
+}
+
+.read-more:hover svg {
+	color: #fff;
+}
+
+/* Убеждаемся, что обводка внутри SVG слушается цвета родителя */
+.btn-stroke {
+	stroke: currentColor !important;
+}
+.swiper-slide.itinerary-item {
+	position: static !important;
+}
+.itinerary-slider {
+	overflow: hidden;
+	position: relative !important;
+}
+.itinerary-slider.is-visible-all {
+	overflow: visible !important;
+}
+.itinerary-full-card {
+	display: none;
+	position: absolute;
+	top: 0;
+
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 100%;
+	max-width: 1320px; /* ширина твоего .container */
+
+	height: 100%;
+	z-index: 999;
+
+	border-radius: 30px;
+	overflow: hidden;
+}
+
+.itinerary-item {
+	position: relative; /* обязательно */
+}
+.itinerary-slider.has-open .swiper-wrapper {
+	transform: none !important;
+}
+.itinerary-item.is-open {
+	z-index: 9999;
+}
+.itinerary-item.is-open .itinerary-full-card {
+	display: flex;
+}
+/* Внутренняя сетка как на макете image_32aee8.png */
+.full-card-container {
+	display: flex;
+	gap: 4rem;
+	padding: 40px;
+	border-radius: 32px;
+
+	min-height: 100%;
+	height: auto; /* ВАЖНО */
+}
+.full-card-video {
+	flex: 0 0 50%; /* Видео занимает половину */
+	height: 100%;
+	max-height: 600px;
+	position: relative;
+}
+.v2-arrow--next2,
+.travel-diff--next {
+	display: inline-flex;
+	transform: rotate(180deg); /* Для стрелок обычно хватает обычного rotate */
+}
+.full-card-video video,
+.full-card-video img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 24px;
+	max-height: 600px;
+}
+
+.full-card-info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.badge-white {
+	background: #fff !important;
+	padding: 20px !important;
+	margin-bottom: 3rem !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.badge-white.green .feature-tag {
+	background-color: #e6ffd9 !important;
+}
+.badge-white .feature-tag {
+	background-color: var(--c-cream);
+}
+.badge-blue,
+.itinerary-item .card-blue,
+.full-card-container.blue {
+	background-color: #d9f7ff;
+}
+.badge-pink,
+.itinerary-item .card-pink,
+.full-card-container.pink {
+	background-color: #ffd9eb;
+}
+.badge-beige,
+.itinerary-item .card-beige,
+.full-card-container.beige {
+	background-color: #fff1e3;
+}
+.js-tour-card.is-hidden {
+	display: none;
+}
+
+.full-card-text {
+	font-size: 2rem;
+	line-height: 1.5;
+	margin-top: 3rem;
+	font-weight: 400;
+	color: var(--c-purple);
+}
+.full-card-info h3 {
+	font-family: 'Inter Tight', sans-serif;
+	font-weight: 500;
+	font-size: 3.6rem;
+}
+/* Кнопка закрытия */
+.close-full {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 101;
+}
+.itinerary-mobile-full {
+	display: none;
+	position: fixed; /* ВАЖНО */
+	inset: 0; /* вместо top/left/width/height */
+	background: #fff;
+	z-index: 9999;
+	overflow-y: auto;
+}
+.itinerary-section.is-active {
+	z-index: 30 !important;
+}
+.itinerary-full-card-global {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%; /* ВАЖНО */
+
+	z-index: 9999;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+	transition: all 0.4s ease;
+
+	pointer-events: none;
+}
+.itinerary-full-card-global.is-visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+
+	pointer-events: auto;
+}
+.full-card-container.orange {
+	background-color: var(--c-cream);
+}
+.full-card-container.green {
+	background-color: #e6ffd9;
+}
+
+/* ===========================
+   LAPTOP 1440px – 1900px
+   =========================== */
+@media (max-width: 1900px) and (min-width: 1440px) {
+	.itinerary-section {
+		padding: 80px 0;
+		border-radius: 50px 50px 0 0;
+		margin-top: -5rem;
+		padding-bottom: 140px;
+	}
+
+	/* Слайды */
+	.itinerary-item {
+		gap: 24px;
+	}
+
+	/* Бейдж */
+	.itinerary-badge {
+		width: 260px;
+		padding: 24px;
+		border-radius: 18px;
+	}
+
+	.day-label {
+		font-size: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	/* Карточка */
+	.itinerary-card {
+		width: 460px;
+		padding: 24px;
+		border-radius: 24px;
+	}
+
+	.video-container {
+		width: 100%;
+		height: 220px;
+		border-radius: 18px;
+		margin-bottom: 20px;
+	}
+
+	.read-more {
+		padding: 1.8rem 2.6rem;
+		font-size: 1.8rem;
+	}
+
+	/* FULL CARD */
+	.itinerary-full-card-global {
+		border-radius: 24px;
+	}
+
+	.full-card-container {
+		padding: 30px;
+		gap: 3rem;
+		border-radius: 24px;
+	}
+
+	.full-card-video video {
+		border-radius: 20px;
+	}
+
+	.full-card-info h3 {
+		font-size: 3rem;
+	}
+
+	.full-card-text {
+		font-size: 1.8rem;
+		margin-top: 2rem;
+	}
+
+	.close-full {
+		top: 20px;
+		right: 20px;
+	}
+}
+/* ===========================
+   LAPTOP & TABLET (до 1439px)
+   =========================== */
+@media (max-width: 1439px) {
+	.itinerary-section {
+		padding: 80px 0;
+		margin-top: -5rem;
+		padding-bottom: 120px;
+	}
+
+	.itinerary-item {
+		gap: 20px;
+	}
+
+	.itinerary-badge {
+		width: 280px;
+		padding: 24px;
+	}
+
+	.itinerary-card {
+		width: 480px;
+		padding: 24px;
+	}
+
+	.video-container {
+		height: 220px;
+		width: auto;
+	}
+}
+
+/* ===========================
+   MOBILE (до 784px)
+   =========================== */
+@media (max-width: 784px) {
+	/* Прячем десктопный глобальный попап совсем, чтобы не мешался */
+	.itinerary-full-card-global {
+		display: none !important;
+		visibility: hidden !important;
+		pointer-events: none !important;
+	}
+
+	.itinerary-section {
+		padding: 60px 0 100px;
+		border-radius: 40px 40px 0 0;
+		margin-top: -4rem;
+	}
+	.itinerary-header {
+		justify-content: center;
+	}
+	.read-more {
+		font-size: 18px;
+		padding: 18.5px 66px;
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.itinerary-slider {
+		padding: 0 15px;
+		overflow: visible !important;
+	}
+	.itinerary-title {
+		font-size: 40px;
+		text-align: center;
+	}
+	.itinerary-bg-path {
+		display: none;
+	}
+	.itinerary-item {
+		position: relative !important;
+		flex-direction: column !important;
+		gap: 0 !important;
+		width: 100% !important;
+		z-index: 10;
+		overflow: visible !important;
+	}
+
+	/* Состояние когда попап открыт - поднимаем слайд на самый верх */
+	.itinerary-item.is-open {
+		z-index: 2000 !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
+
+	/* Склеиваем бейдж и карточку */
+	.itinerary-badge {
+		width: 100% !important;
+		padding: 24px;
+		border-radius: 24px 24px 0 0;
+	}
+	.itinerary-card {
+		width: 100% !important;
+		padding: 24px;
+		border-radius: 0 0 24px 24px;
+	}
+
+	.itinerary-mobile-full.is-visible {
+		display: block !important;
+	}
+
+	/* Контент внутри мобильного попапа */
+	.full-card-container {
+		flex-direction: column !important;
+		height: 100% !important;
+		width: 100% !important;
+		overflow-y: auto !important;
+		padding: 20px !important;
+		-webkit-overflow-scrolling: touch;
+		display: flex;
+	}
+	.read-more:hover {
+		color: var(--c-black);
+		background-color: transparent;
+	}
+	.read-more:hover svg {
+		color: var(--c-black);
+	}
+	.read-more.is-expanded svg {
+		transform: rotate(180deg);
+	}
+	/* Кнопка закрытия */
+	.close-full {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		z-index: 1000;
+		width: 36px;
+		height: 36px;
+		background: #fff !important;
+		border-radius: 50%;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.itinerary-header {
+		flex-direction: column;
+		margin-bottom: 30px;
+	}
+
+	.v2-slider-controls {
+		justify-content: space-between;
+		margin: 30px 0;
+		width: 100%;
+		padding: 0 15px;
+	}
+	/* Адаптация видео и текста внутри попапа */
+	.full-card-video {
+		flex: 0 0 200px !important;
+		width: 100% !important;
+		height: 200px !important;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+	.full-card-info h3 {
+		font-size: 24px !important;
+		margin: 15px 0 !important;
+	}
+	.full-card-text {
+		font-size: 16px !important;
+		line-height: 1.5;
+	}
+}
+@media (max-width: 784px) {
+	.itinerary-slider {
+		overflow: visible !important;
+	}
+
+	.itinerary-slider .swiper-wrapper {
+		display: flex !important;
+		flex-direction: column;
+		transform: none !important;
+	}
+
+	.itinerary-slider .swiper-slide {
+		width: 100% !important;
+		margin: 0 0 20px 0 !important;
+	}
+}
+@media (max-width: 784px) {
+	.itinerary-accordion {
+		max-height: 0;
+		overflow: hidden;
+		transition: all 0.4s ease;
+	}
+	.itinerary-section .v2-slider-controls {
+		display: none !important;
+	}
+
+	.itinerary-accordion.is-open {
+		max-height: 1000px;
+		margin-top: 15px;
+	}
+}
+@media (max-width: 784px) {
+	.itinerary-mobile-full,
+	.itinerary-full-card-global {
+		display: none !important;
+	}
+}
+/* Дополнительная страховка для мобильных */
+@media (max-width: 784px) {
+	/* Базовое состояние: текст скрыт после 6 строк */
+	.v2-day-card .v2-day-text {
+		display: -webkit-box !important;
+		-webkit-box-orient: vertical !important;
+		overflow: hidden !important;
+		max-height: none !important; /* Убираем фиксированную высоту */
+		height: auto !important;
+	}
+	.itinerary-card .video-container {
+		height: auto;
+	}
+	/* Состояние при раскрытии: СБРАСЫВАЕМ ВСЕ ОГРАНИЧЕНИЯ */
+	.v2-day-card .v2-day-text.expanded {
+		display: block !important; /* Меняем flex-box на обычный блок */
+		-webkit-line-clamp: unset !important; /* Убираем лимит строк */
+		overflow: visible !important; /* Разрешаем тексту выходить наружу */
+		padding-bottom: 20px;
+	}
+}

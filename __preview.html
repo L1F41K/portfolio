@@ -192,140 +192,129 @@
 						</p>
 
 						<p class="term-cmd" data-reveal aria-hidden="true">
-							<span class="term-cmd__prompt">$</span> node build.js
-							<span class="term-cmd__arg">--watch --stack</span>
+							<span class="term-cmd__prompt">$</span> git diff --stat
+							<span class="term-cmd__arg">HEAD~4..HEAD</span>
 							<span class="term-cmd__cursor"></span>
 						</p>
 
-						<!-- Стек навыков как пин-стенд сборки: скролл «пролистывает» модули,
-						     в центре — плашка сборки с кольцом прогресса и номером, которая
-						     синхронно сменяется с карточкой описания (см. main.js). -->
-						<div class="skills" data-skills>
-							<div class="skills__stage" data-skills-stage>
-								<ul class="skills__nav" data-skills-nav aria-hidden="true">
-									<li class="skills__nav-item is-active" data-skills-nav-item>
-										<span class="skills__nav-num">01</span>
-										<span class="skills__nav-name">Вёрстка</span>
-									</li>
-									<li class="skills__nav-item" data-skills-nav-item>
-										<span class="skills__nav-num">02</span>
-										<span class="skills__nav-name">WordPress</span>
-									</li>
-									<li class="skills__nav-item" data-skills-nav-item>
-										<span class="skills__nav-num">03</span>
-										<span class="skills__nav-name">Анимации</span>
-									</li>
-									<li class="skills__nav-item" data-skills-nav-item>
-										<span class="skills__nav-num">04</span>
-										<span class="skills__nav-name">Оптимизация</span>
-									</li>
-								</ul>
+						<!-- Навыки как diff-лог: каждый навык — «файл» с git-статистикой.
+						     Рельс справа от имени файла набирает voltage по мере скролла. -->
+						<div class="filelist-wrap" data-filelist>
+							<span class="filelist__rail" aria-hidden="true"></span>
+							<span class="filelist__rail-fill" data-rail-fill aria-hidden="true"></span>
 
-								<div class="skills__core" data-skills-core aria-hidden="true">
-									<svg class="skills__ring" viewBox="0 0 200 200">
-										<circle class="skills__ring-track" cx="100" cy="100" r="90"></circle>
-										<circle class="skills__ring-fill" data-skills-ring cx="100" cy="100" r="90"></circle>
-									</svg>
-									<span class="skills__core-glow" aria-hidden="true"></span>
-									<div class="skills__core-face">
-										<span class="skills__core-num" data-skills-num>01</span>
-										<span class="skills__core-file" data-skills-file>markup.css</span>
-										<span class="skills__core-pct" data-skills-pct>88%</span>
+							<ul class="filelist">
+								<li class="file file--feature" data-reveal>
+									<span class="file__dot" aria-hidden="true"></span>
+									<div class="file__meta">
+										<span class="file__name"
+											><span class="file__idx">01</span>-markup.css</span
+										>
+										<span class="file__stat">
+											<span class="file__bar"
+												><i class="file__bar-fill" style="--bw: 88%"></i
+											></span>
+											<span class="file__stat-num">+182 −4</span>
+										</span>
 									</div>
-								</div>
-
-								<div class="skills__panels" data-skills-panels>
-									<article
-										class="skills__panel is-active"
-										data-skills-panel
-										data-num="01"
-										data-file="markup.css"
-										data-bw="88"
-									>
-										<span class="skills__panel-kicker">Основа</span>
+									<div class="file__body">
+										<span class="file__kicker">Основа</span>
 										<h3>Вёрстка</h3>
 										<p>
 											Семантика, БЭМ, пиксель-в-пиксель. Адаптив от 320px до
 											4K, кроссбраузерность.
 										</p>
-										<ul class="skills__panel-tags">
+										<ul class="file__tags">
 											<li>HTML</li>
 											<li>CSS</li>
 											<li>БЭМ</li>
 										</ul>
-										<span class="skills__panel-stat">+182 −4</span>
-									</article>
+									</div>
+								</li>
 
-									<article
-										class="skills__panel"
-										data-skills-panel
-										data-num="02"
-										data-file="theme.php"
-										data-bw="60"
-									>
-										<span class="skills__panel-kicker">CMS</span>
+								<li class="file" data-reveal>
+									<span class="file__dot" aria-hidden="true"></span>
+									<div class="file__meta">
+										<span class="file__name"
+											><span class="file__idx">02</span>-theme.php</span
+										>
+										<span class="file__stat">
+											<span class="file__bar"
+												><i class="file__bar-fill" style="--bw: 60%"></i
+											></span>
+											<span class="file__stat-num">+96 −11</span>
+										</span>
+									</div>
+									<div class="file__body">
+										<span class="file__kicker">CMS</span>
 										<h3>WordPress</h3>
 										<p>
 											Кастомные темы, ACF, гибкие поля. Клиент сам меняет
 											тексты и картинки.
 										</p>
-										<ul class="skills__panel-tags">
+										<ul class="file__tags">
 											<li>PHP</li>
 											<li>ACF</li>
 											<li>WP</li>
 										</ul>
-										<span class="skills__panel-stat">+96 −11</span>
-									</article>
+									</div>
+								</li>
 
-									<article
-										class="skills__panel"
-										data-skills-panel
-										data-num="03"
-										data-file="motion.js"
-										data-bw="46"
-									>
-										<span class="skills__panel-kicker">Движение</span>
+								<li class="file" data-reveal>
+									<span class="file__dot" aria-hidden="true"></span>
+									<div class="file__meta">
+										<span class="file__name"
+											><span class="file__idx">03</span>-motion.js</span
+										>
+										<span class="file__stat">
+											<span class="file__bar"
+												><i class="file__bar-fill" style="--bw: 46%"></i
+											></span>
+											<span class="file__stat-num">+74 −2</span>
+										</span>
+									</div>
+									<div class="file__body">
+										<span class="file__kicker">Движение</span>
 										<h3>Анимации</h3>
 										<p>
 											GSAP + ScrollTrigger. Scroll-driven эффекты и
 											микровзаимодействия — живо, но без перегруза.
 										</p>
-										<ul class="skills__panel-tags">
+										<ul class="file__tags">
 											<li>GSAP</li>
 											<li>JS</li>
 										</ul>
-										<span class="skills__panel-stat">+74 −2</span>
-									</article>
+									</div>
+								</li>
 
-									<article
-										class="skills__panel"
-										data-skills-panel
-										data-num="04"
-										data-file="perf.config"
-										data-bw="32"
-									>
-										<span class="skills__panel-kicker">Скорость</span>
+								<li class="file" data-reveal>
+									<span class="file__dot" aria-hidden="true"></span>
+									<div class="file__meta">
+										<span class="file__name"
+											><span class="file__idx">04</span>-perf.config</span
+										>
+										<span class="file__stat">
+											<span class="file__bar"
+												><i class="file__bar-fill" style="--bw: 32%"></i
+											></span>
+											<span class="file__stat-num">+51 −19</span>
+										</span>
+									</div>
+									<div class="file__body">
+										<span class="file__kicker">Скорость</span>
 										<h3>Оптимизация</h3>
 										<p>
 											Ленивая загрузка, современные форматы, минимум
 											запросов. Быстро на телефоне.
 										</p>
-										<ul class="skills__panel-tags">
+										<ul class="file__tags">
 											<li>Lighthouse</li>
 											<li>WebP</li>
 											<li>Lazy-load</li>
 										</ul>
-										<span class="skills__panel-stat">+51 −19</span>
-									</article>
-								</div>
-							</div>
-
-							<div class="skills__progress-wrap" aria-hidden="true">
-								<span class="skills__progress-count" data-skills-count>01 / 04</span>
-								<span class="skills__progress">
-									<span class="skills__progress-fill" data-skills-progress></span>
-								</span>
-							</div>
+									</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 
@@ -751,5 +740,15 @@
 		<script src="lib/gsap/gsap.min.js" defer></script>
 		<script src="lib/gsap/ScrollTrigger.min.js" defer></script>
 		<script src="assets/js/main.js" defer></script>
+		<script>
+			window.addEventListener('load', function () {
+				setTimeout(function () {
+					var target = document.querySelector(location.hash || '#about');
+					if (target) window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - 30);
+					window.dispatchEvent(new Event('scroll'));
+					if (window.ScrollTrigger) setTimeout(function(){ ScrollTrigger.refresh(); }, 50);
+				}, 300);
+			});
+		</script>
 	</body>
 </html>
